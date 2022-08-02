@@ -1,2 +1,1 @@
-# DTE_ELTIT
-documentos electrónicos Eltit
+# ELTIT_DTE
