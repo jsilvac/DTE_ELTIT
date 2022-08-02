@@ -1,0 +1,1 @@
+csql.sql = csql.sql + "FROM " + clientesistema + "gestion" + ".g_maestroempresas where codigocontable='" + empresaactiva + "' and (rubro<>'12' or codigo='51' or codigo='50') "

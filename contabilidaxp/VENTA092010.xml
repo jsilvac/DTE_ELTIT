@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<LibroCompraVenta xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte LibroCV_v10.xsd" version="1.0">
+    <EnvioLibro ID="LCV-2010-09">
+        <Caratula>
+            <RutEmisorLibro>77575340-4</RutEmisorLibro>
+            <RutEnvia>7762388-4</RutEnvia>
+            <PeriodoTributario>2010-09</PeriodoTributario>
+            <FchResol>2010-07-27</FchResol>
+            <NroResol>0</NroResol>
+            <TipoOperacion>VENTA</TipoOperacion>
+            <TipoLibro>ESPECIAL</TipoLibro>
+            <TipoEnvio>TOTAL</TipoEnvio>
+            <FolioNotificacion>1</FolioNotificacion>
+        </Caratula>
+        <ResumenPeriodo>
+            <TotalesPeriodo>
+                <TpoDoc>33</TpoDoc>
+                <TotDoc>4</TotDoc>
+                <TotMntExe>48193</TotMntExe>
+                <TotMntNeto>1131601</TotMntNeto>
+                <TotMntIVA>215003</TotMntIVA>
+                <TotMntTotal>1394797</TotMntTotal>
+            </TotalesPeriodo>
+            <TotalesPeriodo>
+                <TpoDoc>56</TpoDoc>
+                <TotDoc>1</TotDoc>
+                <TotMntExe>0</TotMntExe>
+                <TotMntNeto>0</TotMntNeto>
+                <TotMntIVA>0</TotMntIVA>
+                <TotMntTotal>0</TotMntTotal>
+            </TotalesPeriodo>
+            <TotalesPeriodo>
+                <TpoDoc>61</TpoDoc>
+                <TotDoc>3</TotDoc>
+                <TotMntExe>34667</TotMntExe>
+                <TotMntNeto>638117</TotMntNeto>
+                <TotMntIVA>121242</TotMntIVA>
+                <TotMntTotal>794026</TotMntTotal>
+            </TotalesPeriodo>
+        </ResumenPeriodo>
+        <Detalle>
+            <TpoDoc>33</TpoDoc>
+            <NroDoc>625</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>9678615-8</RUTDoc>
+            <RznSoc>COMERCIAL NELLY ARANDA S.A.</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>153633</MntNeto>
+            <MntIVA>29190</MntIVA>
+            <MntTotal>182823</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>33</TpoDoc>
+            <NroDoc>626</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>76012980-1</RUTDoc>
+            <RznSoc>COMERCIAL MIGUEL TORRES LIMITADA</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>414701</MntNeto>
+            <MntIVA>78793</MntIVA>
+            <MntTotal>493494</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>33</TpoDoc>
+            <NroDoc>627</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>77349320-0</RUTDoc>
+            <RznSoc>SUPERMERCADO EL TREBOL LTDA.</RznSoc>
+            <MntExe>34667</MntExe>
+            <MntNeto>458197</MntNeto>
+            <MntIVA>87057</MntIVA>
+            <MntTotal>579921</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>33</TpoDoc>
+            <NroDoc>628</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>84106500-K</RUTDoc>
+            <RznSoc>RESTAURANT COCO S.A.</RznSoc>
+            <MntExe>13526</MntExe>
+            <MntNeto>105070</MntNeto>
+            <MntIVA>19963</MntIVA>
+            <MntTotal>138559</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>56</TpoDoc>
+            <NroDoc>127</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>9678615-8</RUTDoc>
+            <RznSoc>COMERCIAL NELLY ARANDA S.A.</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>0</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>61</TpoDoc>
+            <NroDoc>224</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>9678615-8</RUTDoc>
+            <RznSoc>COMERCIAL NELLY ARANDA S.A.</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>0</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>61</TpoDoc>
+            <NroDoc>225</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>76012980-1</RUTDoc>
+            <RznSoc>COMERCIAL MIGUEL TORRES LIMITADA</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>179920</MntNeto>
+            <MntIVA>34185</MntIVA>
+            <MntTotal>214105</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>61</TpoDoc>
+            <NroDoc>226</NroDoc>
+            <FchDoc>2010-09-22</FchDoc>
+            <RUTDoc>77349320-0</RUTDoc>
+            <RznSoc>SUPERMERCADO EL TREBOL LTDA.</RznSoc>
+            <MntExe>34667</MntExe>
+            <MntNeto>458197</MntNeto>
+            <MntIVA>87057</MntIVA>
+            <MntTotal>579921</MntTotal>
+        </Detalle>
+    </EnvioLibro>
+</LibroCompraVenta>

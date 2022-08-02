@@ -1,0 +1,202 @@
+[Root]
+Most Recent Package=Paquete de instalación estándar 1
+
+
+[Package|Paquete de instalación estándar 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=Y:\ELTIT\sistema de ventas Respaldo\Paquete
+
+[Package|Paquete de instalación estándar 1|Configure DAO ISAMs]
+Applicable=Yes
+Jet 2.x=Yes
+
+[Package|Paquete de instalación estándar 1|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|Paquete de instalación estándar 1|Files Found]
+
+[Package|Paquete de instalación estándar 1|Files Released]
+Flash10d.ocx=
+Flash10a.ocx=
+
+[Package|Paquete de instalación estándar 1|Missing Dependency Information]
+C:\WINDOWS\system32\clbutn.ocx=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\changeres.ocx=
+C:\WINDOWS\system32\Frame-Xp.ocx=
+C:\WINDOWS\system32\MSSTDFMT.DLL=
+C:\WINDOWS\system32\FlexCell.ocx=
+C:\Archivos de programa\Chilkat Software Inc\Chilkat XML ActiveX\ChilkatXml.dll=
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=
+C:\WINDOWS\system32\ayuda.dll=
+C:\WINDOWS\system32\sqlventas.dll=
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=
+C:\WINDOWS\system32\iphlpapi.dll=
+C:\WINDOWS\system32\envar_email.dll=
+C:\WINDOWS\system32\ChilkatXml.dll=
+
+[Package|Paquete de instalación estándar 1|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\RICHTX32.OCX=
+C:\WINDOWS\system32\MSCHRT20.OCX=
+C:\WINDOWS\system32\MSADODC.OCX=
+C:\WINDOWS\system32\MSCOMCTL.OCX=
+C:\WINDOWS\system32\COMDLG32.OCX=
+C:\WINDOWS\system32\MSSTDFMT.DLL=
+C:\WINDOWS\system32\MSRDO20.DLL=
+
+[Package|Paquete de instalación estándar 1|Files Added]
+
+[Package|Paquete de instalación estándar 1|Files Removed]
+
+[Package|Paquete de instalación estándar 1|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6ES.DLL=Yes
+C:\WINDOWS\system32\iphlpapi.dll=Yes
+C:\WINDOWS\system32\MSRDO20.DLL=Yes
+C:\WINDOWS\system32\RDOCURS.DLL=Yes
+C:\WINDOWS\system32\RDO20ES.DLL=Yes
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=Yes
+C:\WINDOWS\system32\MSJET35.DLL=Yes
+C:\WINDOWS\system32\MSJTER35.DLL=Yes
+C:\WINDOWS\system32\MSJINT35.DLL=Yes
+C:\WINDOWS\system32\vbajet32.dll=Yes
+C:\WINDOWS\system32\expsrv.dll=Yes
+C:\WINDOWS\system32\MSRD2X35.DLL=Yes
+C:\WINDOWS\system32\MSREPL35.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\VB5DB.DLL=Yes
+C:\WINDOWS\system32\sqlventas.dll=Yes
+C:\WINDOWS\system32\ayuda.dll=Yes
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=Yes
+C:\WINDOWS\system32\FlexCell.ocx=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system32\MSCMCES.DLL=Yes
+C:\WINDOWS\system32\MSADODC.OCX=Yes
+C:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+C:\WINDOWS\system32\ADODCES.DLL=Yes
+C:\WINDOWS\system32\Frame-Xp.ocx=Yes
+C:\WINDOWS\system32\changeres.ocx=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\MSWINSCK.OCX=Yes
+C:\WINDOWS\system32\WINSKES.DLL=Yes
+C:\WINDOWS\system32\MSCOMM32.OCX=Yes
+C:\WINDOWS\system32\MSCOMES.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\envar_email.dll=Yes
+C:\WINDOWS\system32\STDFTES.DLL=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\CMDLGES.DLL=Yes
+Y:\ELTIT\sistema de ventas Respaldo\FacturaElectronica.exe=Yes
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\dao350.dll=Yes
+C:\WINDOWS\system32\ChilkatXml.dll=Yes
+
+[Package|Paquete de instalación estándar 1|Configure Registry Files]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Install Locations]
+E:\programas\sistema de ventas _electronica\FacturaElectronica.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\iphlpapi.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDO20ES.DLL=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\DAO350.DLL=$(MSDAOPath)
+C:\WINDOWS\system32\MSJET35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSREPL35.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB5DB.DLL=$(WinSysPath)
+C:\WINDOWS\system32\sqlventas.dll=$(WinSysPath)
+C:\WINDOWS\system32\ayuda.dll=$(WinSysPath)
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=$(AppPath)
+C:\Archivos de programa\Chilkat Software Inc\Chilkat XML ActiveX\ChilkatXml.dll=$(WinSysPath)
+C:\WINDOWS\system32\FlexCell.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\Frame-Xp.ocx=$(WinSysPath)
+C:\WINDOWS\system32\changeres.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCHRT20.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCH2ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSWINSCK.OCX=$(WinSysPath)
+C:\WINDOWS\system32\WINSKES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RICHTX32.OCX=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\RCHTXES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\clbutn.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+\\192.168.4.4\shared\actualizaciones\FacturaElectronica.exe=$(AppPath)
+C:\WINDOWS\system32\dao350.dll=$(MSDAOPath)
+C:\WINDOWS\system32\envar_email.dll=$(WinSysPath)
+C:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+Y:\ELTIT\sistema de ventas Respaldo\FacturaElectronica.exe=$(AppPath)
+C:\WINDOWS\system32\ChilkatXml.dll=$(WinSysPath)
+
+[Package|Paquete de instalación estándar 1|Configure Shared Files]
+Applicable=Yes
+E:\programas\sistema de ventas _electronica\FacturaElectronica.exe=No
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=No
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+\\192.168.4.4\shared\actualizaciones\FacturaElectronica.exe=No
+Y:\ELTIT\sistema de ventas Respaldo\FacturaElectronica.exe=No
+
+[Package|Paquete de instalación estándar 1|Distribution]
+Type=single
+Size=
+Title=facturaelectronica
+
+[Package|Paquete de instalación estándar 1|IconGroups]
+Group0=electronica
+PrivateGroup0=Falso
+Parent0=$(Programs)
+
+[Package|Paquete de instalación estándar 1|electronica]
+Icon1=FacturaElectronica.exe
+Title1=facturaelectronica
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Paquete de instalación estándar 1|Package]
+PackageFolder=Y:\ELTIT\sistema de ventas Respaldo\Paquete
+ProjectFolder=Y:\ELTIT\sistema de ventas Respaldo
+ServerSideCab=
+File1=Y:\ELTIT\sistema de ventas Respaldo\Paquete\setup.exe
+File2=Y:\ELTIT\sistema de ventas Respaldo\Paquete\Setup.Lst
+File3=Y:\ELTIT\sistema de ventas Respaldo\Paquete\FacturaElectronica.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

@@ -1,0 +1,556 @@
+[Root]
+Most Recent Package=Sistema De Ventas
+
+
+[Package|Paquete de instalación estándar 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=F:\AdminSistemas\Sistema de Ventas\Paquete
+
+[Package|Paquete de instalación estándar 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Paquete de instalación estándar 1|Files Found]
+
+[Package|Paquete de instalación estándar 1|Files Released]
+
+[Package|Paquete de instalación estándar 1|Missing Dependency Information]
+C:\WINDOWS\system32\Macromed\Flash\flash.ocx=
+C:\WINDOWS\system32\MSSTDFMT.DLL=
+C:\Archivos de programa\FlexCell\FlexCell.ocx=
+C:\WINDOWS\system\SQLUTIL.dll=
+C:\WINDOWS\system\AYUDA.dll=
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=
+
+[Package|Paquete de instalación estándar 1|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\MSCOMCTL.OCX=
+C:\WINDOWS\system32\MSRDO20.DLL=
+
+[Package|Paquete de instalación estándar 1|Files Added]
+f:\adminsistemas\sistema de ventas\data\barra_opciones.swf=
+C:\WINDOWS\system32\MSHFLXGD.OCX=
+
+[Package|Paquete de instalación estándar 1|Files Removed]
+
+[Package|Paquete de instalación estándar 1|Files In Project]
+F:\AdminSistemas\Sistema de Ventas\SistemaDeVentas.exe=Yes
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6ES.DLL=Yes
+C:\WINDOWS\system32\MSRDO20.DLL=Yes
+C:\WINDOWS\system32\RDOCURS.DLL=Yes
+C:\WINDOWS\system32\RDO20ES.DLL=Yes
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=Yes
+C:\WINDOWS\system\AYUDA.dll=Yes
+C:\WINDOWS\system\SQLUTIL.dll=Yes
+C:\Archivos de programa\FlexCell\FlexCell.ocx=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system32\MSCMCES.DLL=Yes
+C:\WINDOWS\system32\MSADODC.OCX=Yes
+C:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+C:\WINDOWS\system32\ADODCES.DLL=Yes
+C:\WINDOWS\system32\Macromed\Flash\flash.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+F:\AdminSistemas\Sistema de Ventas\Data\barra_opciones.swf=Yes
+C:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+C:\WINDOWS\system32\MSHFGES.DLL=Yes
+
+[Package|Paquete de instalación estándar 1|Configure Registry Files]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Install Locations]
+F:\AdminSistemas\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDO20ES.DLL=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=$(WinSysPath)
+C:\WINDOWS\system\AYUDA.dll=$(WinSysPath)
+C:\WINDOWS\system\SQLUTIL.dll=$(WinSysPath)
+C:\Archivos de programa\FlexCell\FlexCell.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\Macromed\Flash\flash.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+F:\AdminSistemas\Sistema de Ventas\Data\barra_opciones.swf=$(AppPath)\Data
+C:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+
+[Package|Paquete de instalación estándar 1|Configure Shared Files]
+Applicable=Yes
+F:\AdminSistemas\Sistema de Ventas\SistemaDeVentas.exe=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+F:\AdminSistemas\Sistema de Ventas\Data\barra_opciones.swf=Yes
+
+[Package|Paquete de instalación estándar 1|Distribution]
+Type=single
+Size=
+Title=SistemaDeVentas
+
+[Package|Paquete de instalación estándar 1|Package]
+PackageFolder=F:\AdminSistemas\Sistema de Ventas\Paquete
+ProjectFolder=F:\AdminSistemas\Sistema de Ventas
+ServerSideCab=
+File1=F:\AdminSistemas\Sistema de Ventas\Paquete\setup.exe
+File2=F:\AdminSistemas\Sistema de Ventas\Paquete\Setup.Lst
+File3=F:\AdminSistemas\Sistema de Ventas\Paquete\SistemaDeVentas.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Paquete de instalación estándar 1|IconGroups]
+Group0=SistemaDeVentas
+PrivateGroup0=Falso
+Parent0=$(Programs)
+
+[Package|Paquete de instalación estándar 1|SistemaDeVentas]
+Icon1=SistemaDeVentas.exe
+Title1=SistemaDeVentas
+StartIn1=$(AppPath)
+Key1=Icon1
+
+
+[Package|Instalacion Sistema de Ventas|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=e:\AdminSistemas\SOLTEC\Sistema de Ventas\Paquete
+
+[Package|Instalacion Sistema de Ventas|Configure DAO ISAMs]
+Applicable=Yes
+Excel=No
+Text=No
+Jet 2.x=No
+Lotus=No
+Paradox=No
+Xbase=No
+Exchange=No
+
+[Package|Instalacion Sistema de Ventas|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Instalacion Sistema de Ventas|Files Found]
+Flash9b.ocx=C:\WINDOWS\system32\Macromed\Flash\Flash9b.ocx
+confiVentas.txt=E:\AdminSistemas\SOLTEC\Sistema de Ventas\confiVentas.txt
+
+[Package|Instalacion Sistema de Ventas|Files Released]
+
+[Package|Instalacion Sistema de Ventas|Missing Dependency Information]
+C:\WINDOWS\system32\Macromed\Flash\Flash9b.ocx=
+C:\WINDOWS\system32\Frame-Xp.ocx=
+C:\WINDOWS\system32\MSSTDFMT.DLL=
+C:\Archivos de programa\FlexCell\FlexCell.ocx=
+C:\WINDOWS\system\SQLUTIL.dll=
+C:\WINDOWS\system32\AYUDA.dll=
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=
+C:\WINDOWS\system\Frame-Xp.ocx=
+C:\WINDOWS\system\AYUDA.dll=
+C:\WINDOWS\system32\Macromed\Flash\flash.ocx=
+C:\WINDOWS\system32\SQLUTIL.dll=
+
+[Package|Instalacion Sistema de Ventas|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\MSCOMCTL.OCX=
+C:\WINDOWS\system32\MSRDO20.DLL=
+
+[Package|Instalacion Sistema de Ventas|Files Added]
+confiventas.txt=
+c:\barra_opciones.swf=
+c:\windows\system32\mshflxgd.ocx=
+
+[Package|Instalacion Sistema de Ventas|Files Removed]
+
+[Package|Instalacion Sistema de Ventas|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6ES.DLL=Yes
+C:\WINDOWS\system32\MSRDO20.DLL=Yes
+C:\WINDOWS\system32\RDOCURS.DLL=Yes
+C:\WINDOWS\system32\RDO20ES.DLL=Yes
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=Yes
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\DAO350.DLL=Yes
+C:\WINDOWS\system32\msjet35.dll=Yes
+C:\WINDOWS\system32\MSJTER35.DLL=Yes
+C:\WINDOWS\system32\MSJINT35.DLL=Yes
+C:\WINDOWS\system32\vbajet32.dll=Yes
+C:\WINDOWS\system32\expsrv.dll=Yes
+C:\WINDOWS\system32\MSRD2X35.DLL=Yes
+C:\WINDOWS\system32\Msrepl35.dll=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\VB5DB.DLL=Yes
+C:\Archivos de programa\FlexCell\FlexCell.ocx=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system32\MSCMCES.DLL=Yes
+C:\WINDOWS\system32\MSADODC.OCX=Yes
+C:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+C:\WINDOWS\system32\ADODCES.DLL=Yes
+C:\WINDOWS\system32\Frame-Xp.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\barra_opciones.swf=Yes
+C:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+C:\WINDOWS\system32\MSHFGES.DLL=Yes
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\SistemaDeVentas.exe=Yes
+C:\WINDOWS\system32\Macromed\Flash\flash.ocx=Yes
+C:\WINDOWS\system\AYUDA.dll=Yes
+C:\WINDOWS\system32\SQLUTIL.dll=Yes
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\confiVentas.txt=Yes
+
+[Package|Instalacion Sistema de Ventas|Configure Registry Files]
+Applicable=No
+
+[Package|Instalacion Sistema de Ventas|Configure Remote Servers]
+Applicable=No
+
+[Package|Instalacion Sistema de Ventas|Install Locations]
+C:\Documents and Settings\Administrador\Escritorio\MOLINO\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDO20ES.DLL=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=$(WinSysPath)
+C:\WINDOWS\system32\Macromed\Flash\Flash9b.ocx=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\DAO350.DLL=$(MSDAOPath)
+C:\WINDOWS\system32\msjet35.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\Msrepl35.dll=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB5DB.DLL=$(WinSysPath)
+C:\WINDOWS\system32\AYUDA.dll=$(WinSysPath)
+C:\WINDOWS\system\SQLUTIL.dll=$(WinSysPath)
+C:\Archivos de programa\FlexCell\FlexCell.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\Frame-Xp.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\Documents and Settings\Administrador\Escritorio\MOLINO\Sistema de Ventas\confiVentas.txt=$(AppPath)
+C:\barra_opciones.swf=$(AppPath)
+C:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+D:\DESARROLLOS\SOLTEC\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\WINDOWS\system32\Macromed\Flash\flash.ocx=$(WinSysPath)
+C:\WINDOWS\system\AYUDA.dll=$(WinSysPath)
+C:\WINDOWS\system\Frame-Xp.ocx=$(WinSysPath)
+D:\DESARROLLOS\SOLTEC\Sistema de Ventas\confiVentas.txt=$(AppPath)
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\WINDOWS\system32\SQLUTIL.dll=$(WinSysPath)
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\confiVentas.txt=$(AppPath)
+
+[Package|Instalacion Sistema de Ventas|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrador\Escritorio\MOLINO\Sistema de Ventas\SistemaDeVentas.exe=No
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+C:\Documents and Settings\Administrador\Escritorio\MOLINO\Sistema de Ventas\confiVentas.txt=No
+C:\barra_opciones.swf=Yes
+D:\DESARROLLOS\SOLTEC\Sistema de Ventas\SistemaDeVentas.exe=No
+D:\DESARROLLOS\SOLTEC\Sistema de Ventas\confiVentas.txt=No
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\SistemaDeVentas.exe=No
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\confiVentas.txt=No
+
+[Package|Instalacion Sistema de Ventas|Distribution]
+Type=single
+Size=
+Title=Sistema De Ventas
+
+[Package|Instalacion Sistema de Ventas|IconGroups]
+Group0=SistemaDeVentas
+PrivateGroup0=Falso
+Parent0=$(Programs)
+
+[Package|Instalacion Sistema de Ventas|SistemaDeVentas]
+Icon1=SistemaDeVentas.exe
+Title1=SistemaDeVentas
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Instalacion Sistema de Ventas|Package]
+PackageFolder=e:\AdminSistemas\SOLTEC\Sistema de Ventas\Paquete
+ProjectFolder=E:\AdminSistemas\SOLTEC\Sistema de Ventas
+ServerSideCab=
+File1=e:\AdminSistemas\SOLTEC\Sistema de Ventas\Paquete\setup.exe
+File2=e:\AdminSistemas\SOLTEC\Sistema de Ventas\Paquete\Setup.Lst
+File3=e:\AdminSistemas\SOLTEC\Sistema de Ventas\Paquete\SistemaDeVentas.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Sistema De Ventas|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\ELTIT\Sistema de Ventas\INSTALADORXP
+
+[Package|Sistema De Ventas|Configure DAO ISAMs]
+Applicable=Yes
+Jet 2.x=Yes
+
+[Package|Sistema De Ventas|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|Sistema De Ventas|Files Found]
+Flash9b.ocx=C:\WINDOWS\system32\Macromed\Flash\Flash9b.ocx
+
+[Package|Sistema De Ventas|Files Released]
+Flash9d.ocx=
+Flash.ocx=
+confiVentas.txt=
+FlDbg9l.ocx=
+IsoCheq.dll=
+
+[Package|Sistema De Ventas|Missing Dependency Information]
+C:\WINDOWS\system32\Macromed\Flash\Flash9b.ocx=
+C:\WINDOWS\system\ChangeRes.ocx=
+C:\WINDOWS\system32\Frame-Xp.ocx=
+C:\WINDOWS\system32\MSSTDFMT.DLL=
+C:\Archivos de programa\FlexCell\FlexCell.ocx=
+C:\WINDOWS\system32\SQLUTIL.dll=
+C:\WINDOWS\system\AYUDA.dll=
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=
+C:\WINDOWS\system32\ChangeRes.ocx=
+C:\WINDOWS\system32\Ayuda.dll=
+C:\WINDOWS\system32\Flash9b.ocx=
+C:\Documents and Settings\Administrador\Escritorio\Sistema.de.Ventas(Molino)\SQLUTIL.dll=
+C:\WINDOWS\system32\FM20.DLL=
+C:\WINDOWS\system32\FlexCell.ocx=
+C:\Sistema de Ventas\SQLUTIL.dll=
+C:\Archivos de programa\Chilkat Software Inc\Chilkat XML ActiveX\ChilkatXml.dll=
+C:\Archivos de programa\Microsoft Office\Office12\MSWORD.OLB=
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\OFFICE12\MSO.DLL=
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=
+C:\WINDOWS\system32\sqlventas.dll=
+C:\WINDOWS\system32\iphlpapi.dll=
+
+[Package|Sistema De Ventas|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\MSCOMCTL.OCX=
+C:\WINDOWS\system32\MSRDO20.DLL=
+C:\WINDOWS\system32\MSSTDFMT.DLL=
+
+[Package|Sistema De Ventas|Files Added]
+confiventas.txt=
+c:\windows\system32\mshflxgd.ocx=
+
+[Package|Sistema De Ventas|Files Removed]
+
+[Package|Sistema De Ventas|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6ES.DLL=Yes
+C:\WINDOWS\system32\MSRDO20.DLL=Yes
+C:\WINDOWS\system32\RDOCURS.DLL=Yes
+C:\WINDOWS\system32\RDO20ES.DLL=Yes
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=Yes
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\DAO350.DLL=Yes
+C:\WINDOWS\system32\MSJET35.DLL=Yes
+C:\WINDOWS\system32\MSJTER35.DLL=Yes
+C:\WINDOWS\system32\MSJINT35.DLL=Yes
+C:\WINDOWS\system32\vbajet32.dll=Yes
+C:\WINDOWS\system32\expsrv.dll=Yes
+C:\WINDOWS\system32\MSRD2X35.DLL=Yes
+C:\WINDOWS\system32\MSREPL35.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\system32\VB5DB.DLL=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system32\MSCMCES.DLL=Yes
+C:\WINDOWS\system32\MSADODC.OCX=Yes
+C:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+C:\WINDOWS\system32\ADODCES.DLL=Yes
+C:\WINDOWS\system32\Frame-Xp.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\Ayuda.dll=Yes
+C:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+C:\WINDOWS\system32\MSHFGES.DLL=Yes
+C:\WINDOWS\system32\MSCHRT20.OCX=Yes
+C:\WINDOWS\system32\MSCH2ES.DLL=Yes
+C:\WINDOWS\system32\FlexCell.ocx=Yes
+C:\WINDOWS\system32\FM20.DLL=Yes
+C:\WINDOWS\system32\MSWINSCK.OCX=Yes
+C:\WINDOWS\system32\WINSKES.DLL=Yes
+C:\WINDOWS\system32\MSCOMM32.OCX=Yes
+C:\WINDOWS\system32\MSCOMES.DLL=Yes
+C:\WINDOWS\system32\ChangeRes.ocx=Yes
+C:\PROGRAMAS\ELTIT\sistema de ventas _electronica\SistemaDeVentaselec.exe=Yes
+C:\WINDOWS\system32\iphlpapi.dll=Yes
+C:\WINDOWS\system32\sqlventas.dll=Yes
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=Yes
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\OFFICE12\MSO.DLL=Yes
+C:\Archivos de programa\Microsoft Office\Office12\MSWORD.OLB=Yes
+C:\Archivos de programa\Chilkat Software Inc\Chilkat XML ActiveX\ChilkatXml.dll=Yes
+C:\WINDOWS\system32\RICHTX32.OCX=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=Yes
+C:\WINDOWS\system32\RCHTXES.DLL=Yes
+
+[Package|Sistema De Ventas|Configure Registry Files]
+Applicable=No
+
+[Package|Sistema De Ventas|Configure Remote Servers]
+Applicable=No
+
+[Package|Sistema De Ventas|Install Locations]
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDO20ES.DLL=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msado20.tlb=$(WinSysPath)
+C:\WINDOWS\system32\Macromed\Flash\Flash9b.ocx=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\DAO350.DLL=$(MSDAOPath)
+C:\WINDOWS\system32\MSJET35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSREPL35.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB5DB.DLL=$(WinSysPath)
+C:\WINDOWS\system\AYUDA.dll=$(WinSysPath)
+C:\WINDOWS\system32\SQLUTIL.dll=$(WinSysPath)
+C:\Archivos de programa\FlexCell\FlexCell.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\Frame-Xp.ocx=$(WinSysPath)
+C:\WINDOWS\system\ChangeRes.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\confiVentas.txt=$(AppPath)
+C:\Documents and Settings\Administrador\Escritorio\desarrollo\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\WINDOWS\system32\Flash9b.ocx=$(WinSysPath)
+C:\WINDOWS\system32\Ayuda.dll=$(WinSysPath)
+C:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ChangeRes.ocx=$(WinSysPath)
+C:\WINDOWS\system32\RICHTX32.OCX=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\RCHTXES.DLL=$(WinSysPath)
+C:\Documents and Settings\Administrador\Escritorio\desarrollo\Sistema de Ventas\confiVentas.txt=$(AppPath)
+C:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+C:\Documents and Settings\Administrador\Escritorio\Sistema.de.Ventas(Molino)\SQLUTIL.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSCHRT20.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCH2ES.DLL=$(WinSysPath)
+I:\desarrollo\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+Y:\admin\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\Sistema de Ventas\SQLUTIL.dll=$(WinSysPath)
+C:\WINDOWS\system32\FlexCell.ocx=$(WinSysPath)
+C:\WINDOWS\system32\FM20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSWINSCK.OCX=$(WinSysPath)
+C:\WINDOWS\system32\WINSKES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMES.DLL=$(WinSysPath)
+Y:\admin\Sistema de Ventas\confiVentas.txt=$(AppPath)
+C:\ELTIT\Sistema de Ventas\SistemaDeVentas.exe=$(AppPath)
+C:\ELTIT\Sistema de Ventas\confiVentas.txt=$(AppPath)
+C:\PROGRAMAS\ELTIT\sistema de ventas _electronica\SistemaDeVentaselec.exe=$(AppPath)
+C:\WINDOWS\system32\iphlpapi.dll=$(WinSysPath)
+C:\WINDOWS\system32\sqlventas.dll=$(WinSysPath)
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=$(AppPath)
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\OFFICE12\MSO.DLL=$(WinSysPath)
+C:\Archivos de programa\Microsoft Office\Office12\MSWORD.OLB=$(WinSysPath)
+C:\Archivos de programa\Chilkat Software Inc\Chilkat XML ActiveX\ChilkatXml.dll=$(WinSysPath)
+
+[Package|Sistema De Ventas|Configure Shared Files]
+Applicable=Yes
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\SistemaDeVentas.exe=No
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+E:\AdminSistemas\SOLTEC\Sistema de Ventas\confiVentas.txt=No
+C:\Documents and Settings\Administrador\Escritorio\desarrollo\Sistema de Ventas\SistemaDeVentas.exe=Yes
+C:\Documents and Settings\Administrador\Escritorio\desarrollo\Sistema de Ventas\confiVentas.txt=Yes
+I:\desarrollo\Sistema de Ventas\SistemaDeVentas.exe=No
+Y:\admin\Sistema de Ventas\SistemaDeVentas.exe=No
+Y:\admin\Sistema de Ventas\confiVentas.txt=No
+C:\ELTIT\Sistema de Ventas\SistemaDeVentas.exe=Yes
+C:\ELTIT\Sistema de Ventas\confiVentas.txt=Yes
+C:\PROGRAMAS\ELTIT\sistema de ventas _electronica\SistemaDeVentaselec.exe=No
+C:\Archivos de programa\Microsoft Office\Office12\WINWORD.EXE=No
+
+[Package|Sistema De Ventas|Distribution]
+Type=single
+Size=1.44 MB
+Title=SistemaDeVentas
+
+[Package|Sistema De Ventas|IconGroups]
+Group0=SistemaDeVentas
+PrivateGroup0=Falso
+Parent0=$(Programs)
+
+[Package|Sistema De Ventas|SistemaDeVentas]
+Icon1=SistemaDeVentas.exe
+Title1=SistemaDeVentas
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Sistema De Ventas|Package]
+PackageFolder=C:\ELTIT\Sistema de Ventas\INSTALADORXP
+ProjectFolder=C:\PROGRAMAS\ELTIT\sistema de ventas _electronica
+ServerSideCab=
+File1=C:\ELTIT\Sistema de Ventas\INSTALADORXP\setup.exe
+File2=C:\ELTIT\Sistema de Ventas\INSTALADORXP\Setup.Lst
+File3=C:\ELTIT\Sistema de Ventas\INSTALADORXP\SistemaDeVentaselec.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

@@ -1,0 +1,5 @@
+ip          = 128.1.128.21;
+puerto      = 7980;
+terminal    = 22220001;
+contrato    = 800800;
+subcontrato = 947;

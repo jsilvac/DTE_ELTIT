@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CentralizaDatos", "SyncData\UpdateWeb\CentralizaDatos.csproj", "{6FA3BE11-F1A4-46F1-9CA6-85312FD81CDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceSoft.Eltit.Class", "PlaceSoft.Eltit.Class\PlaceSoft.Eltit.Class.csproj", "{DB584275-7AC7-47F1-9640-ECB0711D0739}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aliu POS DTE Manager", "Eltit Boletas\PlaceDTEControl\Aliu POS DTE Manager.csproj", "{BE5795DF-8AB2-4559-BAA0-679DE08165BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTEEnvioBoletaSII", "DTEEnvioBoletaSII\DTEEnvioBoletaSII\DTEEnvioBoletaSII.csproj", "{98FE6F9D-2E28-447C-9D0E-8F638FDCAD48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTEVerificaBoleta", "DTEVerificaBoleta\DTEVerificaBoleta.csproj", "{05B63181-F814-4FA4-80CE-59A87151C84E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eltit.DTE.Engine", "Eltit.DTE.Engine\Eltit.DTE.Engine.csproj", "{E306DD3D-1A74-49D7-9B07-3FE160A1559E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EltitDTEAdmin", "EltitDTEAdmin\EltitDTEAdmin.vdproj", "{58D44F0F-6CC8-4CD0-B329-0AF4871273B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FA3BE11-F1A4-46F1-9CA6-85312FD81CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA3BE11-F1A4-46F1-9CA6-85312FD81CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA3BE11-F1A4-46F1-9CA6-85312FD81CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA3BE11-F1A4-46F1-9CA6-85312FD81CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB584275-7AC7-47F1-9640-ECB0711D0739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB584275-7AC7-47F1-9640-ECB0711D0739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB584275-7AC7-47F1-9640-ECB0711D0739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB584275-7AC7-47F1-9640-ECB0711D0739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE5795DF-8AB2-4559-BAA0-679DE08165BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE5795DF-8AB2-4559-BAA0-679DE08165BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE5795DF-8AB2-4559-BAA0-679DE08165BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE5795DF-8AB2-4559-BAA0-679DE08165BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98FE6F9D-2E28-447C-9D0E-8F638FDCAD48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98FE6F9D-2E28-447C-9D0E-8F638FDCAD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98FE6F9D-2E28-447C-9D0E-8F638FDCAD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98FE6F9D-2E28-447C-9D0E-8F638FDCAD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B63181-F814-4FA4-80CE-59A87151C84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B63181-F814-4FA4-80CE-59A87151C84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B63181-F814-4FA4-80CE-59A87151C84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B63181-F814-4FA4-80CE-59A87151C84E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E306DD3D-1A74-49D7-9B07-3FE160A1559E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E306DD3D-1A74-49D7-9B07-3FE160A1559E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E306DD3D-1A74-49D7-9B07-3FE160A1559E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E306DD3D-1A74-49D7-9B07-3FE160A1559E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D44F0F-6CC8-4CD0-B329-0AF4871273B8}.Debug|Any CPU.ActiveCfg = Debug
+		{58D44F0F-6CC8-4CD0-B329-0AF4871273B8}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E99F03AD-DC88-44B8-B309-5FE8608BDBCD}
+	EndGlobalSection
+EndGlobal

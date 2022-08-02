@@ -1,0 +1,5 @@
+ip          = 200.27.75.10;
+puerto      = 3020;
+terminal    = 22220001;
+contrato    = 800800;
+subcontrato = 948;

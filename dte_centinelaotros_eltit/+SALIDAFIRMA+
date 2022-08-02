@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd">
+    <SetDTE ID="EnvDte-200">
+        <Caratula version="1.0">
+            <RutEmisor>77575300-5</RutEmisor>
+            <RutEnvia>11636809-9</RutEnvia>
+            <RutReceptor>012335777-9</RutReceptor>
+            <FchResol>2008-12-26</FchResol>
+            <NroResol>0</NroResol>
+            <TpoDTE>FV</TpoDTE>
+            <NroDTE>200</NroDTE>
+            <SubTotDTE />
+            <DTE version="1.0">
+                <Documento ID="F200T33">
+                    <Encabezado>
+                        <IdDoc>
+                            <TipoDTE>33</TipoDTE>
+                            <Folio>200</Folio>
+                            <FchEmis>2010-05-10</FchEmis>
+                            <IndServicio>2</IndServicio>
+                            <FmaPago>1</FmaPago>
+                            <FchCancel>2010-05-10</FchCancel>
+                            <MedioPago>EF</MedioPago>
+                            <FchVenc>2010-05-10</FchVenc>
+                        </IdDoc>
+                        <Emisor>
+                            <RUTEmisor>77575300-5</RUTEmisor>
+                            <RznSoc>FERRETERIA ELTIT LIMITADA</RznSoc>
+                            <GiroEmis>GIRO: VENTA AL POR MAYOR DE VEHICULOS AU</GiroEmis>
+                            <Acteco>111</Acteco>
+                            <DirOrigen>CASA MATRIZ : OHIGGINS 336 - FONO : 45-411103 - FAX 45-411186 CASILLA 4-D PUCON SUCURSAL 1 : MIGUEL ANSORENA 365 : PUCON SUCURSAL 2: CAMINO INTERNACIONAL 200 - 2do nivel</DirOrigen>
+                            <CmnaOrigen>COMUNA PUCON</CmnaOrigen>
+                            <CiudadOrigen>pucon</CiudadOrigen>
+                        </Emisor>
+                        <Receptor>
+                            <RUTRecep>12335777-9</RUTRecep>
+                            <RznSocRecep>RAMON RIQUELME</RznSocRecep>
+                            <GiroRecep>OBRAS SANITARIAS</GiroRecep>
+                            <Contacto />
+                            <DirRecep>CACIQUE PANGUILEF 975</DirRecep>
+                            <CmnaRecep>PUCON</CmnaRecep>
+                            <CiudadRecep>PUCON</CiudadRecep>
+                        </Receptor>
+                        <Totales>
+                            <MntNeto>211539</MntNeto>
+                            <TasaIVA>19</TasaIVA>
+                            <IVA>40192</IVA>
+                            <MntTotal>251731</MntTotal>
+                        </Totales>
+                    </Encabezado>
+                    <Detalle>
+                        <NroLinDet>1</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>2700001500032</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>LADRILLO FISCAL 14X29X6 (CATALDO) AL BARRER</NmbItem>
+                        <DscItem />
+                        <QtyItem>150</QtyItem>
+                        <PrcItem>150</PrcItem>
+                        <MontoItem>21600</MontoItem>
+                    </Detalle>
+                    <Detalle>
+                        <NroLinDet>2</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>0000000007104</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>CAÑERIA CU 1/2 X TIRA &quot;L&quot; (6MTS)</NmbItem>
+                        <DscItem />
+                        <QtyItem>6</QtyItem>
+                        <PrcItem>15500</PrcItem>
+                        <MontoItem>89280</MontoItem>
+                    </Detalle>
+                    <Detalle>
+                        <NroLinDet>3</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>2700000016992</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>CODO 1/2 SOLDAR</NmbItem>
+                        <DscItem />
+                        <QtyItem>40</QtyItem>
+                        <PrcItem>350</PrcItem>
+                        <MontoItem>13440</MontoItem>
+                    </Detalle>
+                    <Detalle>
+                        <NroLinDet>4</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>7809619900366</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>TEE 1/2 SOLDAR</NmbItem>
+                        <DscItem />
+                        <QtyItem>20</QtyItem>
+                        <PrcItem>530</PrcItem>
+                        <MontoItem>10176</MontoItem>
+                    </Detalle>
+                    <Detalle>
+                        <NroLinDet>5</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>7808770400005</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>SOLDADURA ESTAÑ0 50% INDEPP 1/2KL (7 MT APROX.)</NmbItem>
+                        <DscItem />
+                        <QtyItem>2</QtyItem>
+                        <PrcItem>7900</PrcItem>
+                        <MontoItem>15168</MontoItem>
+                    </Detalle>
+                    <Detalle>
+                        <NroLinDet>6</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>7808770400166</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>PASTA SOLDAR 250 GRAMOS INDEPP</NmbItem>
+                        <DscItem />
+                        <QtyItem>1</QtyItem>
+                        <PrcItem>2100</PrcItem>
+                        <MontoItem>2016</MontoItem>
+                    </Detalle>
+                    <Detalle>
+                        <NroLinDet>7</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>7807033073574</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>LLAVE PASO CAMPANA 1/2 LC-17 444 NOVELLA</NmbItem>
+                        <DscItem />
+                        <QtyItem>15</QtyItem>
+                        <PrcItem>6890</PrcItem>
+                        <MontoItem>99216</MontoItem>
+                    </Detalle>
+                    <Detalle>
+                        <NroLinDet>8</NroLinDet>
+                        <CdgItem>
+                            <TpoCodigo>EAN13</TpoCodigo>
+                            <VlrCodigo>7809824204112</VlrCodigo>
+                        </CdgItem>
+                        <NmbItem>LIJA FIERRO N§150 - 2/0 ART.620411</NmbItem>
+                        <DscItem />
+                        <QtyItem>3</QtyItem>
+                        <PrcItem>290</PrcItem>
+                        <MontoItem>835</MontoItem>
+                    </Detalle>
+                    <TED version="1.0">
+                        <DD>
+                            <RE>77575300-5</RE>
+                            <TD>33</TD>
+                            <F>200</F>
+                            <FE>2010-05-10</FE>
+                            <RR>12335777-9</RR>
+                            <RSR>RAMON RIQUELME</RSR>
+                            <MNT>251731</MNT>
+                            <IT1>LADRILLO FISCAL 14X29X6 (CATALDO) AL BAR</IT1>
+                            <CAF version="1.0">
+                                <DA>
+                                    <RE>77575300-5</RE>
+                                    <RS>FERRETERIA ELTIT LIMITADA</RS>
+                                    <TD>33</TD>
+                                    <RNG>
+                                        <D>101</D>
+                                        <H>200</H>
+                                    </RNG>
+                                    <FA>2009-11-28</FA>
+                                    <RSAPK>
+                                        <M>rHyAn51a84+oi5NZWLsI5cumSHRBjy3OsmSaXyJvo1jmXpRvF/4ltNkXM3w1mQG6bXStYW6eYIAIR3ts2bhjpw==</M>
+                                        <E>Aw==</E>
+                                    </RSAPK>
+                                    <IDK>100</IDK>
+                                </DA>
+                                <FRMA algoritmo="SHA1withRSA">RQ72ZDE0gGCaGB6uuV8Fcgbp3R4iuY0bkJy/a/K0EuBEv/mzXV7U1QY2AgR6zarce4aiD6wc7n71WThP+96z7Q==</FRMA>
+                            </CAF>
+                            <TSTED>2010-06-15T13:38:15</TSTED>
+                        </DD>
+                        <FRMT algoritmo="SHA1withRSA">mF9Fzn40ngmTlLko3xfOsdPxSWgq+2xrug/AhbsKeF6bJLSVzOR3+55XiWl76AgG4y8mxaNUKVYQ1TsLi0vy8A==</FRMT>
+                    </TED>
+                    <TmstFirma>2010-06-15T13:38:15</TmstFirma>
+                </Documento>
+                <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <SignedInfo>
+                        <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                        <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+                        <Reference URI="#F200T33">
+                            <Transforms>
+                                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            </Transforms>
+                            <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+                            <DigestValue>GEVmFTmXAR2Tq1ajYY/j/eWCgks=</DigestValue>
+                        </Reference>
+                    </SignedInfo>
+                    <SignatureValue>0/tMkP2YOLPami3poQ868mkkQ+EThT9ZPh+7k4Wu/JMrKwAt1IU58RfLDt/Rb0Vcmt2ZwblEdSqc
+7RrmwVSwh4X5pqE2B9jqPSexdEz3d1ZjXRPjYoY3jgZ7NB9zcWRcVQIiey8YQoy9t5kJM31ZukR7
+XtqJIPG7Q0ADX4oZxUk=</SignatureValue>
+                    <KeyInfo>
+                        <KeyValue>
+                            <RSAKeyValue>
+                                <Modulus>3YyDP2A4fxKLgqRt2hpfUmRqR2H2Rgw1m1MZS6zT74mOzlvGAupa4IBzLGSf13D+UoFnJ/iRV8Q7
+S42K/LRJFFwlCefsnZv4xD2bYAP2tNTTocaJ5GPLCRn5ZQnXZXGnyJqoTAZuzNtDiUz6v8KKvicm
+j6z0tK7R6eBLhg3QPbc=</Modulus>
+                                <Exponent>AQAB</Exponent>
+                            </RSAKeyValue>
+                        </KeyValue>
+                        <X509Data>
+                            <X509Certificate>MIIEfzCCA+igAwIBAgIEAQBZyzANBgkqhkiG9w0BAQUFADCBtTELMAkGA1UEBhMCQ0wxHTAbBgNV
+BAgUFFJlZ2lvbiBNZXRyb3BvbGl0YW5hMREwDwYDVQQHFAhTYW50aWFnbzEUMBIGA1UEChQLRS1D
+RVJUQ0hJTEUxIDAeBgNVBAsUF0F1dG9yaWRhZCBDZXJ0aWZpY2Fkb3JhMRcwFQYDVQQDFA5FLUNF
+UlRDSElMRSBDQTEjMCEGCSqGSIb3DQEJARYUZW1haWxAZS1jZXJ0Y2hpbGUuY2wwHhcNMDkwOTEw
+MjA0ODQ3WhcNMTIwOTA5MDAwMDAwWjCBpjELMAkGA1UEBhMCQ0wxCzAJBgNVBAgUAklYMQ4wDAYD
+VQQHFAVwdWNvbjEgMB4GA1UEChQXU1VQRVJNRVJDQURPIEVMVElUIExUREExFTATBgNVBAsUDENP
+TlRBQklMSURBRDEhMB8GA1UEAxQYanVhbiBwYXRyaWNvIGVsdGl0IGphZHVlMR4wHAYJKoZIhvcN
+AQkBFg92YW50aW9AZWx0aXQuY2wwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAN2Mgz9gOH8S
+i4KkbdoaX1Jkakdh9kYMNZtTGUus0++Jjs5bxgLqWuCAcyxkn9dw/lKBZyf4kVfEO0uNivy0SRRc
+JQnn7J2b+MQ9m2AD9rTU06HGieRjywkZ+WUJ12Vxp8iaqEwGbszbQ4lM+r/Cir4nJo+s9LSu0eng
+S4YN0D23AgMBAAGjggGnMIIBozAjBgNVHREEHDAaoBgGCCsGAQQBwQEBoAwWCjA3NzYyMzg4LTQw
+CQYDVR0TBAIwADA8BgNVHR8ENTAzMDGgL6AthitodHRwOi8vY3JsLmUtY2VydGNoaWxlLmNsL2Ut
+Y2VydGNoaWxlY2EuY3JsMCMGA1UdEgQcMBqgGAYIKwYBBAHBAQKgDBYKOTY5MjgxODAtNTAfBgNV
+HSMEGDAWgBTgKP3S4GBPs0brGsz1CJEHcjodCDCB3wYDVR0gBIHXMIHUMIHRBggrBgEEAcNSBTCB
+xDAvBggrBgEFBQcCARYjaHR0cDovL3d3dy5lLWNlcnRjaGlsZS5jbC8yMDAwL0NQUy8wgZAGCCsG
+AQUFBwICMIGDGoGARWwgdGl0dWxhciBoYSBzaWRvIHZhbGlkYWRvIGVuIGZvcm1hIHByZXNlbmNp
+YWwsIHF1ZWRhbmRvIGhhYmlsaXRhZG8gZWwgQ2VydGlmaWNhZG8gcGFyYSB1c28gdHJpYnV0YXJp
+bywgcGFnb3MsIGNvbWVyY2lvIHkgb3Ryb3MwCwYDVR0PBAQDAgTwMA0GCSqGSIb3DQEBBQUAA4GB
+AHP9qb8t0QuVzl2FPUrcryuyiCIENcPpKOURASFnOWlatPn9Qz/5ADhcaZ9pOZ68OrHgytMcdcVB
+8nSTv4yXamCMJyyEhRVnRZ3Im9xam2CYl/LOMUQiZxwW/WIhLuaB18cFURo0FGieig7Ot+vtW1te
+q/rzRGU1OW44EInojSZg</X509Certificate>
+                        </X509Data>
+                    </KeyInfo>
+                </Signature>
+            </DTE>
+        </Caratula>
+    </SetDTE>
+</EnvioDTE>

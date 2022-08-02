@@ -1,0 +1,101 @@
+<?xml-stylesheet type="text/xsl" href="visualizador4.xsl"?><xml-fragment version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="">
+  <siid:Documento ID="MiPE77617420-21226" xmlns:siid="http://www.sii.cl/SiiDte">
+    <siid:Encabezado>
+      <siid:IdDoc>
+        <siid:TipoDTE>33</siid:TipoDTE>
+        <siid:Folio>2</siid:Folio>
+        <siid:FchEmis>2015-03-31</siid:FchEmis>
+      </siid:IdDoc>
+      <siid:Emisor>
+        <siid:RUTEmisor>77617420-3</siid:RUTEmisor>
+        <siid:RznSoc>PRESTADORA DE SERVICIOS EL VOLCAN LIMITADA</siid:RznSoc>
+        <siid:GiroEmis>SERV. CONTAB ASES FINAN PRES SERV SUM PERSON PUB FOTO Y LITOG SERVPROF</siid:GiroEmis>
+        <siid:Acteco>221900</siid:Acteco>
+        <siid:CdgSIISucur>059337902</siid:CdgSIISucur>
+        <siid:DirOrigen>OHIGGINS 336   ROL 44-8</siid:DirOrigen>
+        <siid:CmnaOrigen>PUCON</siid:CmnaOrigen>
+        <siid:CiudadOrigen>PUCON</siid:CiudadOrigen>
+      </siid:Emisor>
+      <siid:Receptor>
+        <siid:RUTRecep>77575300-5</siid:RUTRecep>
+        <siid:RznSocRecep>FERRETERIA ELTIT LIMITADA</siid:RznSocRecep>
+        <siid:GiroRecep>VENTA AL POR MAYOR DE VEHICULOS AUTOMOTO</siid:GiroRecep>
+        <siid:DirRecep>OHIGGINS 336   ROL 44-8</siid:DirRecep>
+        <siid:CmnaRecep>PUCON</siid:CmnaRecep>
+        <siid:CiudadRecep>PUCON</siid:CiudadRecep>
+      </siid:Receptor>
+      <siid:Totales>
+        <siid:MntNeto>12630223</siid:MntNeto>
+        <siid:TasaIVA>19.00</siid:TasaIVA>
+        <siid:IVA>2399742</siid:IVA>
+        <siid:MntTotal>15029965</siid:MntTotal>
+      </siid:Totales>
+    </siid:Encabezado>
+    <siid:Detalle>
+      <siid:NroLinDet>1</siid:NroLinDet>
+      <siid:NmbItem>Sum. Personal Centro</siid:NmbItem>
+      <siid:QtyItem>1.00</siid:QtyItem>
+      <siid:PrcItem>1607856.00</siid:PrcItem>
+      <siid:MontoItem>1607856</siid:MontoItem>
+    </siid:Detalle>
+    <siid:Detalle>
+      <siid:NroLinDet>2</siid:NroLinDet>
+      <siid:NmbItem>Sum. Personal Mall</siid:NmbItem>
+      <siid:QtyItem>1.00</siid:QtyItem>
+      <siid:PrcItem>3679357.00</siid:PrcItem>
+      <siid:MontoItem>3679357</siid:MontoItem>
+    </siid:Detalle>
+    <siid:Detalle>
+      <siid:NroLinDet>3</siid:NroLinDet>
+      <siid:NmbItem>Sum. Personal Deco</siid:NmbItem>
+      <siid:QtyItem>1.00</siid:QtyItem>
+      <siid:PrcItem>7343010.00</siid:PrcItem>
+      <siid:MontoItem>7343010</siid:MontoItem>
+    </siid:Detalle>
+<siid:TED version="1.0"><siid:DD><siid:RE>77617420-3</siid:RE><siid:TD>33</siid:TD><siid:F>2</siid:F><siid:FE>2015-03-31</siid:FE><siid:RR>77575300-5</siid:RR><siid:RSR>FERRETERIA ELTIT LIMITADA</siid:RSR><siid:MNT>15029965</siid:MNT><siid:IT1>Sum. Personal Centro</siid:IT1><siid:CAF version="1.0"><siid:DA><siid:RE>77617420-3</siid:RE><siid:RS>PRESTADORA DE SERVICIOS EL VOLCAN LIMITA</siid:RS><siid:TD>33</siid:TD><siid:RNG><siid:D>2</siid:D><siid:H>2</siid:H></siid:RNG><siid:FA>2015-04-09</siid:FA><siid:RSAPK><siid:M>2q2fXTr8qfLdBfz9u7xXrmBrQZ1Dpsqobaqs2LnANv8asm4zkvYt/RhdKIUAnhhwycAoIX7FeBRIH9B+RdYgOw==</siid:M><siid:E>Aw==</siid:E></siid:RSAPK><siid:IDK>300</siid:IDK></siid:DA><siid:FRMA algoritmo="SHA1withRSA">FcfE3rGNu1WBI5mRyS5aHg9UlNlWJDr98xHTBzS3EEhGDKZbNZmWoPZIcz0/vyeabiA5ldvuJ/lIybB/oENxog==</siid:FRMA></siid:CAF><siid:TSTED>2015-04-09T15:37:54</siid:TSTED></siid:DD><siid:FRMT algoritmo="SHA1withRSA">bXp4rF42YBqdAB5OAPBq+36NLt9pEOjexR4HaZ+Al3SSfZdXFwpgETq/EnA+WKou+LOsXf2WIirVpi4Y7jfkZg==</siid:FRMT></siid:TED>
+    <siid:TmstFirma>2015-04-09T15:37:54</siid:TmstFirma>
+
+  </siid:Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#MiPE77617420-21226"><Transforms><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>dfUw7b9Lu1NRcNWS7U5sapdxyAU=</DigestValue></Reference></SignedInfo>
+<SignatureValue>jg/SZsE5LURcZS3eLpm2l/+TnJsH4jgYoou2ppuon38eF4bx4GyxaMprIQH84ZXUmMXdbdEldjlJ0ydGI3lAMTCJKXgbhlg5d96abmNI3OFRJCM/PM7fb/jF/S5jZya2QuV0jP5DiK9UGoBd9scHFzgJK7u6jpaXbfp/AtpDpt8=</SignatureValue>
+<KeyInfo>
+<KeyValue>
+<RSAKeyValue>
+<Modulus>pviJxpMi5Erjcqdwe+93AggoDQQbQwjAKEkwz7Fvm5v+jfAj7KlAYZN37E2bdSFzU5bxj5DM9YvhHbyjTknagblh0gNkojPHrofJ9ocqxDoCq1SKgEJ3t6DpwJUhj/PYf+/pNDygii5S67WGwWIrinl0z2787EPThEPJW3jTttk=</Modulus>
+<Exponent>AQAB</Exponent>
+</RSAKeyValue>
+</KeyValue>
+<X509Data>
+<X509Certificate>
+MIIF4TCCBMmgAwIBAgIKJtSt4QAAAABGZzANBgkqhkiG9w0BAQUFADCB0jELMAkGA1UEBhMCQ0wx
+HTAbBgNVBAgTFFJlZ2lvbiBNZXRyb3BvbGl0YW5hMREwDwYDVQQHEwhTYW50aWFnbzEUMBIGA1UE
+ChMLRS1DRVJUQ0hJTEUxIDAeBgNVBAsTF0F1dG9yaWRhZCBDZXJ0aWZpY2Fkb3JhMTAwLgYDVQQD
+EydFLUNFUlRDSElMRSBDQSBGSVJNQSBFTEVDVFJPTklDQSBTSU1QTEUxJzAlBgkqhkiG9w0BCQEW
+GHNjbGllbnRlc0BlLWNlcnRjaGlsZS5jbDAeFw0xMjA5MDcyMTI1MDZaFw0xNTA5MDcyMTI1MDZa
+MIGgMQswCQYDVQQGEwJDTDESMBAGA1UECBMJYXJhdWNhbmlhMRAwDgYDVQQHDAdDYXV0w61uMSQw
+IgYDVQQKExtzdXBlcm1lcmNhZG8gZWx0aXQgbGltaXRhZGExIzAhBgNVBAMTGkp1YW4gUGF0cmlj
+aW8gIEVsdGl0IEphZHVlMSAwHgYJKoZIhvcNAQkBFhFwYXRyaWNpb0BlbHRpdC5jbDCBnzANBgkq
+hkiG9w0BAQEFAAOBjQAwgYkCgYEApviJxpMi5Erjcqdwe+93AggoDQQbQwjAKEkwz7Fvm5v+jfAj
+7KlAYZN37E2bdSFzU5bxj5DM9YvhHbyjTknagblh0gNkojPHrofJ9ocqxDoCq1SKgEJ3t6DpwJUh
+j/PYf+/pNDygii5S67WGwWIrinl0z2787EPThEPJW3jTttkCAwEAAaOCAmswggJnMD0GCSsGAQQB
+gjcVBwQwMC4GJisGAQQBgjcVCILcgy+Fk4xmhdWdF4Li3CeB7+w8YYHLnhSGqIJYAgFkAgEDMB0G
+A1UdDgQWBBRBTybhVzwrf1ot+qSeFuMUxecPgzALBgNVHQ8EBAMCBPAwHwYDVR0jBBgwFoAUeOE+
+n9ISs3o8jc0wDlOzQykHs1UwPgYDVR0fBDcwNTAzoDGgL4YtaHR0cDovL2NybC5lLWNlcnRjaGls
+ZS5jbC9lY2VydGNoaWxlY2FGRVMuY3JsMCMGA1UdEQQcMBqgGAYIKwYBBAHBAQGgDBYKMDc3NjIz
+ODgtNDAjBgNVHRIEHDAaoBgGCCsGAQQBwQECoAwWCjk2OTI4MTgwLTUwggFNBgNVHSAEggFEMIIB
+QDCCATwGCCsGAQQBw1IFMIIBLjAtBggrBgEFBQcCARYhaHR0cDovL3d3dy5lLWNlcnRjaGlsZS5j
+bC9DUFMuaHRtMIH8BggrBgEFBQcCAjCB7x6B7ABDAGUAcgB0AGkAZgBpAGMAYQBkAG8AIABGAGkA
+cgBtAGEAIABTAGkAbQBwAGwAZQAuACAASABhACAAcwBpAGQAbwAgAHYAYQBsAGkAZABhAGQAbwAg
+AGUAbgAgAGYAbwByAG0AYQAgAHAAcgBlAHMAZQBuAGMAaQBhAGwALAAgAHEAdQBlAGQAYQBuAGQA
+bwAgAGgAYQBiAGkAbABpAHQAYQBkAG8AIABlAGwAIABDAGUAcgB0AGkAZgBpAGMAYQBkAG8AIABw
+AGEAcgBhACAAdQBzAG8AIAB0AHIAaQBiAHUAdABhAHIAaQBvMA0GCSqGSIb3DQEBBQUAA4IBAQAI
++cYYKwvGVQaOe4yrDqDsv4nKdIBG1mWmPSbxaLb+fQhIGshwBgtOvRe+oNg3B55P2jbMa0O9wWBg
+ndg7jHN6eK+hfc2H3TQz/qi80OrxfeyZD+hX2pH9Pqcg64At4c/xIK1VspoJP4QU3rH4fpVU9vMd
+wEYy9CdQPOBuJI4hI5ieKM8Mm8aEXBuI9vyL4wv830fbyYtCJixqblQWREDksQb8c2DogG0nxZV4
+qXNMQ2QkKobmrCJFFU7CDV8p576l/U03YjezR7JH/iVJW+FBfTDgdA9xmOcwkDwaz36HR9nHkKtL
+0YOYL5e/ciH/WiETxx5EbonHV2A+1xnktldz
+</X509Certificate>
+</X509Data>
+</KeyInfo>
+</Signature></xml-fragment>

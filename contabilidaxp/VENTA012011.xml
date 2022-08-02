@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<LibroCompraVenta xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte LibroCV_v10.xsd" version="1.0">
+    <EnvioLibro ID="LCV-2011-01">
+        <Caratula>
+            <RutEmisorLibro>77575340-4</RutEmisorLibro>
+            <RutEnvia>7762388-4</RutEnvia>
+            <PeriodoTributario>2011-01</PeriodoTributario>
+            <FchResol>2010-12-29</FchResol>
+            <NroResol>198</NroResol>
+            <TipoOperacion>VENTA</TipoOperacion>
+            <TipoLibro>MENSUAL</TipoLibro>
+            <TipoEnvio>TOTAL</TipoEnvio>
+            <FolioNotificacion>0</FolioNotificacion>
+        </Caratula>
+        <ResumenPeriodo>
+            <TotalesPeriodo>
+                <TpoDoc>30</TpoDoc>
+                <TotDoc>2</TotDoc>
+                <TotMntExe>0</TotMntExe>
+                <TotMntNeto>691682</TotMntNeto>
+                <TotMntIVA>131419</TotMntIVA>
+                <TotIVANoRec>
+                    <CodIVANoRec>4</CodIVANoRec>
+                    <TotOpIVANoRec>1</TotOpIVANoRec>
+                    <TotMntIVANoRec />
+                </TotIVANoRec>
+                <TotIVANoRec>
+                    <CodIVANoRec>1</CodIVANoRec>
+                    <TotOpIVANoRec>1</TotOpIVANoRec>
+                    <TotMntIVANoRec>2264</TotMntIVANoRec>
+                </TotIVANoRec>
+                <TotOpIVAUsoComun>1</TotOpIVAUsoComun>
+                <TotIVAUsoComun>5661</TotIVAUsoComun>
+                <FctProp>0.60</FctProp>
+                <TotCredIVAUsoComun>3397</TotCredIVAUsoComun>
+                <TotMntTotal>823101</TotMntTotal>
+            </TotalesPeriodo>
+            <TotalesPeriodo>
+                <TpoDoc>33</TpoDoc>
+                <TotDoc>1</TotDoc>
+                <TotMntExe>0</TotMntExe>
+                <TotMntNeto>4631</TotMntNeto>
+                <TotMntIVA>880</TotMntIVA>
+                <TotIVANoRec>
+                    <CodIVANoRec>4</CodIVANoRec>
+                    <TotOpIVANoRec>1</TotOpIVANoRec>
+                    <TotMntIVANoRec />
+                </TotIVANoRec>
+                <TotMntTotal>5511</TotMntTotal>
+            </TotalesPeriodo>
+        </ResumenPeriodo>
+        <Detalle>
+            <TpoDoc>33</TpoDoc>
+            <NroDoc>2</NroDoc>
+            <FchDoc>2011-01-11</FchDoc>
+            <RUTDoc>77587770-7</RUTDoc>
+            <RznSoc>SUPERMERCADO PUCON ORIENTE LTD</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>4631</MntNeto>
+            <MntIVA>880</MntIVA>
+            <MntTotal>5511</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>432542</NroDoc>
+            <FchDoc>2011-01-14</FchDoc>
+            <RUTDoc>82262600-9</RUTDoc>
+            <RznSoc>COOP.AGRIC.PISQ.ELQUI LTDA.</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>555102</MntNeto>
+            <MntIVA>105469</MntIVA>
+            <MntTotal>660571</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>432543</NroDoc>
+            <FchDoc>2011-01-14</FchDoc>
+            <RUTDoc>96668670-7</RUTDoc>
+            <RznSoc>VINA FRANCISCO DE AGUIRRE S.A.</RznSoc>
+            <MntExe>0</MntExe>
+            <MntNeto>136580</MntNeto>
+            <MntIVA>25950</MntIVA>
+            <MntTotal>162530</MntTotal>
+        </Detalle>
+    </EnvioLibro>
+</LibroCompraVenta>

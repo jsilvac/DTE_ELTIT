@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<LibroCompraVenta xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte LibroCVS_v10.xsd" version="1.0">
+    <EnvioLibro ID="LCV-2012-02">
+        <Caratula>
+            <RutEmisorLibro>76082910-2</RutEmisorLibro>
+            <RutEnvia>7762388-4</RutEnvia>
+            <PeriodoTributario>2012-02</PeriodoTributario>
+            <FchResol>2006-01-20</FchResol>
+            <NroResol>102006</NroResol>
+            <TipoOperacion>VENTA</TipoOperacion>
+            <TipoLibro>ESPECIAL</TipoLibro>
+            <TipoEnvio>TOTAL</TipoEnvio>
+            <FolioNotificacion>102006</FolioNotificacion>
+        </Caratula>
+        <ResumenPeriodo>
+            <TotalesPeriodo>
+                <TpoDoc>30</TpoDoc>
+                <TotDoc>20</TotDoc>
+                <TotMntExe>3988549</TotMntExe>
+                <TotMntNeto>144143795</TotMntNeto>
+                <TotMntIVA>22633137</TotMntIVA>
+                <TotMntTotal>170765481</TotMntTotal>
+            </TotalesPeriodo>
+        </ResumenPeriodo>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000485</NroDoc>
+            <FchDoc>2011-12-19</FchDoc>
+            <RUTDoc>4272383-5</RUTDoc>
+            <RznSoc>MARIA ZAPATA CAMUS</RznSoc>
+            <MntExe>500000</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>500000</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000486</NroDoc>
+            <FchDoc>2011-12-19</FchDoc>
+            <RUTDoc>9448470-7</RUTDoc>
+            <RznSoc>PATRICIA MARTINI</RznSoc>
+            <MntExe>500000</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>500000</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000487</NroDoc>
+            <FchDoc>2011-12-19</FchDoc>
+            <RUTDoc>7016151-6</RUTDoc>
+            <RznSoc>LUIS OCTAVIO GALAN</RznSoc>
+            <MntExe>660000</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>660000</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000488</NroDoc>
+            <FchDoc>2011-12-20</FchDoc>
+            <RUTDoc>6363976-1</RUTDoc>
+            <RznSoc>COMERCIAL ASTRALIS JP</RznSoc>
+            <MntExe>1157610</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>1157610</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>848</NroDoc>
+            <FchDoc>2011-12-27</FchDoc>
+            <RUTDoc>84000000-1</RUTDoc>
+            <RznSoc>TRICOT S.A.</RznSoc>
+            <MntNeto>5662707</MntNeto>
+            <MntIVA>1075914</MntIVA>
+            <MntTotal>6738621</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000489</NroDoc>
+            <FchDoc>2011-12-27</FchDoc>
+            <RUTDoc>13113069-4</RUTDoc>
+            <RznSoc>DENNIS TUSCHNER MERA</RznSoc>
+            <MntExe>534800</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>534800</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000490</NroDoc>
+            <FchDoc>2011-12-30</FchDoc>
+            <RUTDoc>6363976-1</RUTDoc>
+            <RznSoc>COMERCIAL ASTRALIS JP</RznSoc>
+            <MntExe>263199</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>263199</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>849</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77576530-5</RUTDoc>
+            <RznSoc>ALMACENES ELTIT LIMITADA</RznSoc>
+            <MntNeto>4187576</MntNeto>
+            <MntIVA>189969</MntIVA>
+            <MntTotal>4377545</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>850</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77575300-5</RUTDoc>
+            <RznSoc>FERRETERIA ELTIT LTDA</RznSoc>
+            <MntNeto>14904091</MntNeto>
+            <MntIVA>2803380</MntIVA>
+            <MntTotal>17707471</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>851</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77587770-7</RUTDoc>
+            <RznSoc>SUPERM.PUCON ORIENTE LTDA.</RznSoc>
+            <MntNeto>29167970</MntNeto>
+            <MntIVA>5513517</MntIVA>
+            <MntTotal>34681487</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>852</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>76353910-5</RUTDoc>
+            <RznSoc>SUPER.SANTA VICTORIA</RznSoc>
+            <MntNeto>42844227</MntNeto>
+            <MntIVA>5337697</MntIVA>
+            <MntTotal>48181924</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>853</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77575340-4</RUTDoc>
+            <RznSoc>SUPERMERCADO ELTIT LIMITADA</RznSoc>
+            <MntNeto>45517283</MntNeto>
+            <MntIVA>7539151</MntIVA>
+            <MntTotal>53056434</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>854</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77583480-3</RUTDoc>
+            <RznSoc>TURISMO Y HOTELERA DEL VOLCAN</RznSoc>
+            <MntNeto>797276</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>797276</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>855</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77577330-8</RUTDoc>
+            <RznSoc>FARMACIA PUCON LIMITADA</RznSoc>
+            <MntNeto>433423</MntNeto>
+            <MntIVA>53953</MntIVA>
+            <MntTotal>487376</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>856</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77577910-1</RUTDoc>
+            <RznSoc>COMERCIAL GALPON VERDE</RznSoc>
+            <MntNeto>386263</MntNeto>
+            <MntIVA>73390</MntIVA>
+            <MntTotal>459653</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>857</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77950090-K</RUTDoc>
+            <RznSoc>PREST. SERV. FINAN. PALGUIN</RznSoc>
+            <MntNeto>80000</MntNeto>
+            <MntIVA>15200</MntIVA>
+            <MntTotal>95200</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>858</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77587780-4</RUTDoc>
+            <RznSoc>GIMNASIO NEW LIFE</RznSoc>
+            <MntNeto>162979</MntNeto>
+            <MntIVA>30966</MntIVA>
+            <MntTotal>193945</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000491</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>97036000-K</RUTDoc>
+            <RznSoc>BANCO SANTANDER CHILE</RznSoc>
+            <MntExe>222940</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>222940</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000492</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77578330-3</RUTDoc>
+            <RznSoc>AG. VIAJES Y CASA DE CAMBIO</RznSoc>
+            <MntExe>100000</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>100000</MntTotal>
+        </Detalle>
+        <Detalle>
+            <TpoDoc>30</TpoDoc>
+            <NroDoc>1000000493</NroDoc>
+            <FchDoc>2011-12-31</FchDoc>
+            <RUTDoc>77950090-K</RUTDoc>
+            <RznSoc>PREST. SERV. FINAN. PALGUIN</RznSoc>
+            <MntExe>50000</MntExe>
+            <MntNeto>0</MntNeto>
+            <MntIVA>0</MntIVA>
+            <MntTotal>50000</MntTotal>
+        </Detalle>
+    </EnvioLibro>
+</LibroCompraVenta>

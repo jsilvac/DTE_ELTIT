@@ -1,0 +1,6 @@
+SERVIDOR=192.168.4.9
+USUARIOCORREO=cesarsandoval@adminerp.cl
+SERVERCORREO=mail.adminerp.cl
+CLAVECORREO=sandoval
+RUTACOMPROBANTE=C:\
+fin

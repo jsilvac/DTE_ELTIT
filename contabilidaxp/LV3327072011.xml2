@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<LibroCompraVenta xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte LibroCVS_v10.xsd" version="1.0">
+<EnvioLibro ID="LCV-2011-07">
+<Caratula>
+<RutEmisorLibro>76082910-2</RutEmisorLibro>
+<RutEnvia>7762388-4</RutEnvia>
+<PeriodoTributario>2011-07</PeriodoTributario>
+<FchResol>2006-01-20</FchResol>
+<NroResol>102006</NroResol>
+<TipoOperacion>VENTA</TipoOperacion>
+<TipoLibro>ESPECIAL</TipoLibro>
+<TipoEnvio>TOTAL</TipoEnvio>
+<FolioNotificacion>102006</FolioNotificacion>
+</Caratula>
+<ResumenPeriodo>
+<TotalesPeriodo>
+<TpoDoc>30</TpoDoc>
+<TotDoc>17</TotDoc>
+<TotMntExe>3134967</TotMntExe>
+<TotMntNeto>103279471</TotMntNeto>
+<TotMntIVA>14593566</TotMntIVA>
+<TotMntTotal>121008004</TotMntTotal>
+</TotalesPeriodo>
+</ResumenPeriodo>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>1000000443</NroDoc>
+<FchDoc>2011-07-11</FchDoc>
+<RUTDoc>9448470-7</RUTDoc>
+<RznSoc>PATRICIA MARTINI</RznSoc>
+<MntExe>500000</MntExe>
+<MntNeto>0</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>500000</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>1000000444</NroDoc>
+<FchDoc>2011-07-11</FchDoc>
+<RUTDoc>4272383-5</RUTDoc>
+<RznSoc>MARIA ZAPATA CAMUS</RznSoc>
+<MntExe>400000</MntExe>
+<MntNeto>0</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>400000</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>798</NroDoc>
+<FchDoc>2011-07-30</FchDoc>
+<RUTDoc>84000000-1</RUTDoc>
+<RznSoc>TRICOT S.A.</RznSoc>
+<MntNeto>5765150</MntNeto>
+<MntIVA>1095379</MntIVA>
+<MntTotal>6860529</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>799</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77583480-3</RUTDoc>
+<RznSoc>TURISMO Y HOTELERA DEL VOLCAN</RznSoc>
+<MntNeto>660034</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>660034</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>800</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77577330-8</RUTDoc>
+<RznSoc>FARMACIA PUCON LIMITADA</RznSoc>
+<MntNeto>299590</MntNeto>
+<MntIVA>28525</MntIVA>
+<MntTotal>328115</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>801</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77576530-5</RUTDoc>
+<RznSoc>ALMACENES ELTIT LIMITADA</RznSoc>
+<MntNeto>2415862</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>2415862</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>802</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77587780-4</RUTDoc>
+<RznSoc>GIMNASIO NEW LIFE</RznSoc>
+<MntNeto>322732</MntNeto>
+<MntIVA>61319</MntIVA>
+<MntTotal>384051</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>803</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77575300-5</RUTDoc>
+<RznSoc>FERRETERIA ELTIT LTDA</RznSoc>
+<MntNeto>7686807</MntNeto>
+<MntIVA>984014</MntIVA>
+<MntTotal>8670821</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>805</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77950090-K</RUTDoc>
+<RznSoc>PREST. SERV. FINAN. PALGUIN</RznSoc>
+<MntNeto>80000</MntNeto>
+<MntIVA>15200</MntIVA>
+<MntTotal>95200</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>806</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77587770-7</RUTDoc>
+<RznSoc>SUPERM.PUCON ORIENTE LTDA.</RznSoc>
+<MntNeto>19834558</MntNeto>
+<MntIVA>3740168</MntIVA>
+<MntTotal>23574726</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>807</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77575340-4</RUTDoc>
+<RznSoc>SUPERMERCADO ELTIT LIMITADA</RznSoc>
+<MntNeto>37451892</MntNeto>
+<MntIVA>6006727</MntIVA>
+<MntTotal>43458619</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>808</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>76353910-5</RUTDoc>
+<RznSoc>SUPER.SANTA VICTORIA</RznSoc>
+<MntNeto>28762846</MntNeto>
+<MntIVA>2662234</MntIVA>
+<MntTotal>31425080</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>1000000445</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>97030000-7</RUTDoc>
+<RznSoc>BANCO ESTADO CHILE</RznSoc>
+<MntExe>1316820</MntExe>
+<MntNeto>0</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>1316820</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>1000000446</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>97004000-5</RUTDoc>
+<RznSoc>BANCO DE CHILE</RznSoc>
+<MntExe>548675</MntExe>
+<MntNeto>0</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>548675</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>1000000447</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>97036000-K</RUTDoc>
+<RznSoc>BANCO SANTANDER CHILE</RznSoc>
+<MntExe>219472</MntExe>
+<MntNeto>0</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>219472</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>1000000448</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77578330-3</RUTDoc>
+<RznSoc>AG. VIAJES Y CASA DE CAMBIO</RznSoc>
+<MntExe>100000</MntExe>
+<MntNeto>0</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>100000</MntTotal>
+</Detalle>
+<Detalle>
+<TpoDoc>30</TpoDoc>
+<NroDoc>1000000449</NroDoc>
+<FchDoc>2011-07-31</FchDoc>
+<RUTDoc>77950090-K</RUTDoc>
+<RznSoc>PREST. SERV. FINAN. PALGUIN</RznSoc>
+<MntExe>50000</MntExe>
+<MntNeto>0</MntNeto>
+<MntIVA>0</MntIVA>
+<MntTotal>50000</MntTotal>
+</Detalle>
+<TmstFirma>2012-02-09T19:34:50</TmstFirma>
+</EnvioLibro>
+</LibroCompraVenta>

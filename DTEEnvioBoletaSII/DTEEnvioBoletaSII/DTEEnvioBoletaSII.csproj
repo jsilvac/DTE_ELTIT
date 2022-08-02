@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{98FE6F9D-2E28-447C-9D0E-8F638FDCAD48}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchoolManagementAdmin</RootNamespace>
+    <AssemblyName>PlaceDTEEnvioBoleta</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>enviosii.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CalendarClock">
+      <HintPath>..\..\CalendarClock\CalendarClock\bin\Debug\CalendarClock.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalClock">
+      <HintPath>..\..\DigitalClock\DigitalClock\bin\Debug\DigitalClock.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>bin\Debug\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>bin\Debug\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>bin\Debug\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.1.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=6.1.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="NumericTextBox">
+      <HintPath>..\..\NumericTextBox\NumericTextBox\bin\Debug\NumericTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenPop, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\OpenPop.dll</HintPath>
+    </Reference>
+    <Reference Include="PlaceSoft.Eltit.Class, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\PlaceSoft.Eltit.Class\bin\Debug\PlaceSoft.Eltit.Class.dll</HintPath>
+    </Reference>
+    <Reference Include="PlaceSoft.Eltit.Functions">
+      <HintPath>..\..\PlaceSoft.Eltit.Functions\bin\Debug\PlaceSoft.Eltit.Functions.dll</HintPath>
+    </Reference>
+    <Reference Include="PlaceSoft.Eltit.Handler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\PlaceSoft.Eltit.UtilEngine\Debug\PlaceSoft.Eltit.Handler.dll</HintPath>
+    </Reference>
+    <Reference Include="PlaceSoft.Engine.API">
+      <HintPath>..\..\PlaceSoft.Eltit.UtilEngine\Debug\PlaceSoft.Engine.API.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.WinControls">
+      <HintPath>..\..\DLL\Telerik.WinControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.ChartView">
+      <HintPath>..\..\DLL\Telerik.WinControls.ChartView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView">
+      <HintPath>..\..\DLL\Telerik.WinControls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadChart">
+      <HintPath>..\..\DLL\Telerik.WinControls.RadChart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Scheduler">
+      <HintPath>..\..\DLL\Telerik.WinControls.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Aqua">
+      <HintPath>..\..\DLL\Telerik.WinControls.Themes.Aqua.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Breeze">
+      <HintPath>..\..\DLL\Telerik.WinControls.Themes.Breeze.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Desert">
+      <HintPath>..\..\DLL\Telerik.WinControls.Themes.Desert.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack">
+      <HintPath>..\..\DLL\Telerik.WinControls.Themes.HighContrastBlack.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Blue">
+      <HintPath>..\..\DLL\Telerik.WinControls.Themes.Office2010Blue.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\Telerik.WinControls.Themes.TelerikMetro.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <HintPath>..\..\DLL\Telerik.WinControls.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\..\DLL\Telerik.Windows.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikCommon">
+      <HintPath>..\..\DLL\TelerikCommon.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmEnviodDocumentosSII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEnviodDocumentosSII.designer.cs">
+      <DependentUpon>frmEnviodDocumentosSII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="objetos\ClienteDTE.cs" />
+    <Compile Include="objetos\Conectar.cs" />
+    <Compile Include="objetos\Email.cs" />
+    <Compile Include="objetos\Inicial.cs" />
+    <Compile Include="objetos\LocalesClass.cs" />
+    <Compile Include="objetos\Productos.cs" />
+    <Compile Include="objetos\ProductosWeb.cs" />
+    <Compile Include="objetos\Rollo.cs" />
+    <Compile Include="objetos\Sincroniza.cs" />
+    <Compile Include="objetos\Ventas.cs" />
+    <Compile Include="PopBoletas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopBoletas.Designer.cs">
+      <DependentUpon>PopBoletas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEnviodDocumentosSII.resx">
+      <DependentUpon>frmEnviodDocumentosSII.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopBoletas.resx">
+      <DependentUpon>PopBoletas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="log4net.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.arrow.down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.power.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.cabinet.files.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.clipboard.variant.edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.page.add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.user.add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.axis.three.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usericon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.futurama.fry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.list.check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.office.excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.transit.bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.book.hardcover.open.writing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.page.search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.disk.download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.people1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.magnify1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1442056005_shopping-search.ico" />
+    <Content Include="enviosii.ico" />
+    <None Include="Resources\green.fw.png" />
+    <None Include="Resources\yelow.png" />
+    <None Include="Resources\icons8-OK-48.png" />
+    <None Include="Resources\icons8-exclamacion.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

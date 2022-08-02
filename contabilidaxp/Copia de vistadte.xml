@@ -1,0 +1,179 @@
+<?xml-stylesheet type="text/xsl" href="visualizador4.xsl"?><xml-fragment version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="">
+      <siid:Documento ID="F7883082T33" xmlns:siid="http://www.sii.cl/SiiDte">
+        <siid:Encabezado>
+          <siid:IdDoc>
+            <siid:TipoDTE>33</siid:TipoDTE>
+            <siid:Folio>7883082</siid:Folio>
+            <siid:FchEmis>2014-02-19</siid:FchEmis>
+            <siid:TipoDespacho>2</siid:TipoDespacho>
+            <siid:FmaPago>2</siid:FmaPago>
+            <siid:FchVenc>2014-02-25</siid:FchVenc>
+          </siid:IdDoc>
+          <siid:Emisor>
+            <siid:RUTEmisor>91806000-6</siid:RUTEmisor>
+            <siid:RznSoc>Abastecedora de Combustibles S.A</siid:RznSoc>
+            <siid:GiroEmis>Distribucion y transporte de combustibles. instalaciones de gas licuado</siid:GiroEmis>
+            <siid:Acteco>402000</siid:Acteco>
+            <siid:Sucursal>OFICINA VENTAS TEMUC</siid:Sucursal>
+            <siid:CdgSIISucur>10489427</siid:CdgSIISucur>
+            <siid:DirOrigen>Camino Longitudinal S/N</siid:DirOrigen>
+            <siid:CmnaOrigen>Temuco</siid:CmnaOrigen>
+            <siid:CiudadOrigen>TEMUCO</siid:CiudadOrigen>
+            <siid:CdgVendedor>945</siid:CdgVendedor>
+          </siid:Emisor>
+          <siid:Receptor>
+            <siid:RUTRecep>77575300-5</siid:RUTRecep>
+            <siid:CdgIntRecep>0000441465</siid:CdgIntRecep>
+            <siid:RznSocRecep>FERRETERIA ELTIT LTDA.</siid:RznSocRecep>
+            <siid:GiroRecep>VTA MEN ART FERR/CON</siid:GiroRecep>
+            <siid:DirRecep>AVENIDA BERNARDO OHIGGINS 336</siid:DirRecep>
+            <siid:CmnaRecep>PUCON</siid:CmnaRecep>
+          </siid:Receptor>
+          <siid:Transporte>
+            <siid:Patente>YK-5803</siid:Patente>
+            <siid:RUTTrans>77404540-6</siid:RUTTrans>
+            <siid:DirDest>AVENIDA BERNARDO OHIGGINS 336</siid:DirDest>
+            <siid:CmnaDest>PUCON</siid:CmnaDest>
+          </siid:Transporte>
+          <siid:Totales>
+            <siid:MntNeto>1701849</siid:MntNeto>
+            <siid:MntExe>0</siid:MntExe>
+            <siid:TasaIVA>19.00</siid:TasaIVA>
+            <siid:IVA>323351</siid:IVA>
+            <siid:MntTotal>2025200</siid:MntTotal>
+          </siid:Totales>
+        </siid:Encabezado>
+        <siid:Detalle>
+          <siid:NroLinDet>1</siid:NroLinDet>
+          <siid:CdgItem>
+            <siid:TpoCodigo>INT1</siid:TpoCodigo>
+            <siid:VlrCodigo>GAS05N</siid:VlrCodigo>
+          </siid:CdgItem>
+          <siid:NmbItem>UN Carga de gas 05 kg Normal</siid:NmbItem>
+          <siid:QtyItem>20.000000</siid:QtyItem>
+          <siid:PrcItem>5201.700000</siid:PrcItem>
+          <siid:MontoItem>104034</siid:MontoItem>
+        </siid:Detalle>
+        <siid:Detalle>
+          <siid:NroLinDet>2</siid:NroLinDet>
+          <siid:CdgItem>
+            <siid:TpoCodigo>INT1</siid:TpoCodigo>
+            <siid:VlrCodigo>GAS11N</siid:VlrCodigo>
+          </siid:CdgItem>
+          <siid:NmbItem>UN Carga de gas 11 kg Normal</siid:NmbItem>
+          <siid:QtyItem>10.000000</siid:QtyItem>
+          <siid:PrcItem>10858.000000</siid:PrcItem>
+          <siid:MontoItem>108580</siid:MontoItem>
+        </siid:Detalle>
+        <siid:Detalle>
+          <siid:NroLinDet>3</siid:NroLinDet>
+          <siid:CdgItem>
+            <siid:TpoCodigo>INT1</siid:TpoCodigo>
+            <siid:VlrCodigo>GAS15N</siid:VlrCodigo>
+          </siid:CdgItem>
+          <siid:NmbItem>UN Carga de gas 15 kg Normal</siid:NmbItem>
+          <siid:QtyItem>80.000000</siid:QtyItem>
+          <siid:PrcItem>14968.062500</siid:PrcItem>
+          <siid:MontoItem>1197445</siid:MontoItem>
+        </siid:Detalle>
+        <siid:Detalle>
+          <siid:NroLinDet>4</siid:NroLinDet>
+          <siid:CdgItem>
+            <siid:TpoCodigo>INT1</siid:TpoCodigo>
+            <siid:VlrCodigo>GAS45N</siid:VlrCodigo>
+          </siid:CdgItem>
+          <siid:NmbItem>UN Carga de gas 45 kg Normal</siid:NmbItem>
+          <siid:QtyItem>10.000000</siid:QtyItem>
+          <siid:PrcItem>44809.200000</siid:PrcItem>
+          <siid:MontoItem>448092</siid:MontoItem>
+        </siid:Detalle>
+        <siid:DscRcgGlobal>
+          <siid:NroLinDR>1</siid:NroLinDR>
+          <siid:TpoMov>D</siid:TpoMov>
+          <siid:TpoValor>$</siid:TpoValor>
+          <siid:ValorDR>156303.00</siid:ValorDR>
+        </siid:DscRcgGlobal>
+        <siid:TED version="1.0">
+          <siid:DD>
+            <siid:RE>91806000-6</siid:RE>
+            <siid:TD>33</siid:TD>
+            <siid:F>7883082</siid:F>
+            <siid:FE>2014-02-19</siid:FE>
+            <siid:RR>77575300-5</siid:RR>
+            <siid:RSR>FERRETERIA ELTIT LTDA.</siid:RSR>
+            <siid:MNT>2025200</siid:MNT>
+            <siid:IT1>UN Carga de gas 05 kg Normal</siid:IT1>
+            <siid:CAF version="1.0">
+              <siid:DA>
+                <siid:RE>91806000-6</siid:RE>
+                <siid:RS>ABASTECEDORA DE COMBUSTIBLES S A</siid:RS>
+                <siid:TD>33</siid:TD>
+                <siid:RNG>
+                  <siid:D>7000000</siid:D>
+                  <siid:H>7999998</siid:H>
+                </siid:RNG>
+                <siid:FA>2011-07-05</siid:FA>
+                <siid:RSAPK>
+                  <siid:M>ppRYL917Qk3ZFgcpsP8rF98R/Q0u7YYy0ax0oSZ4rLOQaWVfoqFJf8NkFlht6cYYvjy8/C4bfDc2GjaBA4h8Lw==</siid:M>
+                  <siid:E>Aw==</siid:E>
+                </siid:RSAPK>
+                <siid:IDK>300</siid:IDK>
+              </siid:DA>
+              <siid:FRMA algoritmo="SHA1withRSA">BDJpXZqmDqTreqA9QoA3etNbFb9UNSCvK49lCEpkooKYmGNjG/cIags4Zaes+dNsYUjQIM3s1+2SG/H7+6V6ZA==</siid:FRMA>
+            </siid:CAF>
+            <siid:TSTED>2014-02-19T09:24:28</siid:TSTED>
+          </siid:DD>
+          <siid:FRMT algoritmo="SHA1withRSA">ZWhVf4K9crMDXjZCukgVmPsT+R2ADFGSxa86jMh0a7AtqWWpJYBCDhlUAGwYiZR3bYkdhMF2X7m2NSpY1hn9qw==</siid:FRMT>
+        </siid:TED>
+        <siid:TmstFirma>2014-02-19T09:24:30</siid:TmstFirma>
+      </siid:Documento><Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#F7883082T33"><Transforms><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>ilCws1AVsgTO7kZ0eSo0dYDDsXE=</DigestValue></Reference></SignedInfo><SignatureValue>
+JIJodcKnUaPJbYLotd6Fv/Tm6EdJaGUD5ac8WVTTiFndtIVtVN9MYqXCR/nit9e7
+1f+/eJ6RSbIV+xUL4xiDBjlCOrVO/Mbuxva7EuWhFFgJT85AzkaDycob/NFxLpyC
+IzcGb/5LzSWqUwsYavsNc+YYTmOkVHIR6m+DJDLjo/sa9tsWVDt3/Mu6D4qfYbl1
+uJ0wyc+UOhVy7Hxh9hohFaaaBGhVb4Y9JFxuV9l9hWD5nk1I4J1EU+QoNqNYb9yg
+1dLEbc43Zjd9jBFub7uLbAiFqwGkUHWQ8P00hClzRE6mIr++Cv5M52PKLBkM5JiZ
+wb/FsV6vE764oIsZMLso0Q==
+</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>
+v1FcWe7wLRJTEAD/uVqv+mCLp3FmH07sfrGE0TiWW/ny9Qu+priQJGWBtQlxmhSC
+KOMAnt7thZRVeQOmZ8x/1yE50A7R+vpACz8NNpRwqQyUH3l31ZDrscXvZxDEEJma
+DM4poxTy5b95B9Wh20mrcQ8QijkwHQbOggiAj3Lj/X6LRQ6B8R58oUNz1FkeprdE
+zEwCoZINJItSMi5X08PoBhArvI5xOhBaGvs7g2m9fsGxrV7JaodEzDQhcTXLPEl+
+M0R/NiNGEZ5mYcFpxpG2HfCEExkq8S6e3nySqfOQFTMjGEFy35yE/sBly/+tkgmm
+BMVKEpstX0DsQRY0YTJeSw==
+</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>
+MIIGTTCCBTWgAwIBAgIQcC8Eb2ETPet54SdyGKVnYjANBgkqhkiG9w0BAQUFADCB
+qDELMAkGA1UEBhMCQ0wxFDASBgNVBAoTC0UtU2lnbiBTLkEuMR8wHQYDVQQLExZT
+eW1hbnRlYyBUcnVzdCBOZXR3b3JrMUEwPwYDVQQDEzhFLVNpZ24gU0MgQ2xhc3Mg
+MiBDb25zdW1lciBJbmRpdmlkdWFsIFN1YnNjcmliZXIgQ0EgLSBHMjEfMB0GCSqG
+SIb3DQEJARYQZS1zaWduQGUtc2lnbi5jbDAeFw0xMzEwMTgwMDAwMDBaFw0xNjEw
+MTcyMzU5NTlaMIIBFjEUMBIGA1UEChMLRS1TaWduIFMuQS4xLTArBgNVBAsTJFRl
+cm1pbm9zIGRlIHVzbyBlbiB3d3cuZS1zaWduLmNsL3JwYTElMCMGA1UECxMcQXV0
+aGVudGljYXRlZCBieSBFLVNpZ24gUy5BLjEnMCUGA1UECxMeTWVtYmVyLCBTeW1h
+bnRlYyBUcnVzdCBOZXR3b3JrMRswGQYDVQQLExJEaWdpdGFsIElEIENsYXNzIDIx
+GDAWBgNVBAsUD1JVVCAtIDYwNTUxMDgtMTEjMCEGA1UEAwwaUk9CRVJUTyBKRVNV
+UyBTQVJLSVMgWkFDVVIxIzAhBgkqhkiG9w0BCQEWFHJzYXJraXNAYWJhc3RpYmxl
+LmNsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv1FcWe7wLRJTEAD/
+uVqv+mCLp3FmH07sfrGE0TiWW/ny9Qu+priQJGWBtQlxmhSCKOMAnt7thZRVeQOm
+Z8x/1yE50A7R+vpACz8NNpRwqQyUH3l31ZDrscXvZxDEEJmaDM4poxTy5b95B9Wh
+20mrcQ8QijkwHQbOggiAj3Lj/X6LRQ6B8R58oUNz1FkeprdEzEwCoZINJItSMi5X
+08PoBhArvI5xOhBaGvs7g2m9fsGxrV7JaodEzDQhcTXLPEl+M0R/NiNGEZ5mYcFp
+xpG2HfCEExkq8S6e3nySqfOQFTMjGEFy35yE/sBly/+tkgmmBMVKEpstX0DsQRY0
+YTJeSwIDAQABo4ICADCCAfwwIgYDVR0RBBswGaAXBggrBgEEAcEBAaALFgk2MDU1
+MTA4LTEwCQYDVR0TBAIwADALBgNVHQ8EBAMCBaAwTwYDVR0fBEgwRjBEoEKgQIY+
+aHR0cDovL29uc2l0ZWNybC52ZXJpc2lnbi5jb20vRVNpZ25TQUNTQ0NsYXNzMkcy
+L0xhdGVzdENSTC5jcmwwHwYDVR0jBBgwFoAU2893YlgLODYlLRrSasRUAbJuTA4w
+HQYDVR0OBBYEFOc8aYBb3QOBgPtlllD/fGbrkphcMDsGCCsGAQUFBwEBBC8wLTAr
+BggrBgEFBQcwAYYfaHR0cDovL29uc2l0ZS1vY3NwLnZlcmlzaWduLmNvbTCBmAYD
+VR0gBIGQMIGNMIGKBgtghkgBhvhFAQcXAjB7MDEGCCsGAQUFBwIBFiVodHRwczov
+L3d3dy5lLXNpZ24uY2wvcmVwb3NpdG9yaW8uaHRtMEYGCCsGAQUFBwICMDoaOENl
+cnRpZmljYWRvIHBhcmEgdXNvIFRyaWJ1dGFyaW8sIENvbWVyY2lvLCBQYWdvcyB5
+IE90cm9zMBEGCWCGSAGG+EIBAQQEAwIHgDAdBgNVHSUEFjAUBggrBgEFBQcDAgYI
+KwYBBQUHAwQwIwYDVR0SBBwwGqAYBggrBgEEAcEBAqAMFgo5OTU1MTc0MC1LMA0G
+CSqGSIb3DQEBBQUAA4IBAQDnZZhlv7gmOj5eAwSwcx9LegCABYIy/Jjnhfdn3A/T
+rtV+j7xLCHePpxA+0Jq2otxR+Dmj0s4UQJruziuumewpsMRvkJNAdmI9fuM5Zo2q
+xC9gGlz0i7IU9CCfgVemqI3PSRmOxPOwrC8Mw2MverFL3hl7F/OwulaEha0aHYWK
+/gNJkJOBT4SkhxTCs9tl2c0jM49ynGJniH3urOOu0brqnc3edJFMl0MLGsMsscrY
+Z/AYAuEDukeY0J0dfzsXTBnEHOYmYgLHi4Vl7HNVcrLYhuO+5eANrExyHAwuAOnw
+pkR81rcNFvb54H1phUnlme/atm9pdQNFxdezN820DDcW
+</X509Certificate></X509Data></KeyInfo></Signature>
+    </xml-fragment>
