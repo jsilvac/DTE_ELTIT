@@ -141,7 +141,7 @@ namespace Eltit
                     lblDireccion.Text = dr["direccion"].ToString();            
                     lblServidorVentas.Text = dr["servidor_ventas"].ToString();
                     lblRutEmpresa.Text = dr["rut"].ToString();
-                    if (fu.PingToHost(lblServidorVentas.Text) == true)
+                    if (fu.PingToHost("192.168.4.9") == true)
                     {
                             if(lblServidorVentas.Text == "192.168.4.9")
                             {
@@ -331,7 +331,8 @@ namespace Eltit
         }
         private void GetDocumentos()
         {
-            PlaceSoft.Eltit.Class.clases.Documentos dc = new PlaceSoft.Eltit.Class.clases.Documentos(lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
+            PlaceSoft.Eltit.Class.clases.Documentos dc = new PlaceSoft.Eltit.Class.clases.Documentos(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
+            //PlaceSoft.Eltit.Class.clases.Documentos dc = new PlaceSoft.Eltit.Class.clases.Documentos(lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
             MySqlDataReader dr = null;
             string base_datos = FuncionesClass.G_CLIENTE_PREFIJO + "ventas" + ddLlocales.Text.Substring(0,2) ;
             object img = null;
