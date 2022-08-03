@@ -1000,7 +1000,7 @@ namespace Eltit
         {
             string salida = "";
             string nombreCajera = "";
-            Cajera cajera = new Cajera("","eltit_",FuncionesClass.G_SERVIDORMASTER,"");
+            Cajera cajera = new Cajera(xRut,"eltit_",FuncionesClass.G_SERVIDORMASTER,"");
 
             nombreCajera = cajera.GetCajera(xRut);
 
@@ -1022,6 +1022,9 @@ namespace Eltit
             formulario.DOC_TIPO_INTERNO = xTipoInterno;
             formulario.IMPRIME_CEDIBLE = xImpCedible;
             formulario.DOC_NOMBRE_IMPRESORA = FuncionesClass.G_IMPRESORA_TICKET;
+            formulario.DOC_SERVIDOR = FuncionesClass.G_SERVIDORMASTER;
+            formulario.DOC_ROOT_MYSQL = FuncionesClass.G_MYSQL_USER;
+            formulario.DOC_PASSWORD_MYSQL = FuncionesClass.G_MYSQL_PASS;
 
             formulario.ShowDialog();
 

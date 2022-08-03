@@ -18,13 +18,13 @@ namespace Eltit.DTE.clases
         private string local;
 
 
-        public VentasClass(string xRut, string xCliente, string xServer, string xLocal)
+        public VentasClass( string xServer, string xPass, string xRoot)
         {
-            this.cliente = xCliente;
+            this.cliente = "eltit_";
             this.mysql_server = xServer;
             this.mysql_password = "desarrollo_1990";
-            this.rut = xRut;
-            this.local = xLocal;
+            this.rut = "";
+            this.local = "";
         }
 
     

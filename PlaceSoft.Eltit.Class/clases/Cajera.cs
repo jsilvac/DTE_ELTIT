@@ -33,7 +33,7 @@ namespace PlaceSoft.Eltit.Class.clases
             string query = "";
             MySqlDataReader dr;
             query = " SELECT nombre from sv_maestrocajeras ";
-            query += " WHERE rut ='" + xRut + "' limit 0,1 ";
+            query += " WHERE rut like '" + xRut + "%' limit 0,1 ";
 
             try
             {

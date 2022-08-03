@@ -110,14 +110,14 @@ namespace Eltit.DTE.Forms
             /*********** aqui rescatar los datos del el xml **************/
 
             doc = new Documentos(this.DOC_SERVIDOR, this.DOC_ROOT_MYSQL, this.DOC_PASSWORD_MYSQL);
-
+            miClase = new VentasClass(this.DOC_SERVIDOR, this.DOC_PASSWORD_MYSQL,this.DOC_ROOT_MYSQL);
             string XML = miClase.GetXMLFacturas(DOC_LOCAL, DOC_TIPO_DTE, DOC_FOLIOSII, DOC_FECHA_EMISION);
 
             /******************** aqui rescata del ventas *****************************************/
 
             // MySqlDataReader DCabeza = doc.GetDocumentoCabeza(DOC_LOCAL,DOC_TIPO_INTERNO, DOC_FOLIOSII,DOC_CAJA,DOC_FECHA_EMISION);
 
-            DOC_NOMBRE_CAJERA = xcajera.GetCajera(DOC_NOMBRE_CAJERA);
+            //DOC_NOMBRE_CAJERA = xcajera.GetCajera(DOC_NOMBRE_CAJERA);
 
             //if (DCabeza.HasRows == true)
             //{
