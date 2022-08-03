@@ -624,7 +624,7 @@ namespace PlaceSoft.Eltit.Class.clases
             //ON(LPAD(dp.tipopago, 2, "0") = tp.codigo)
             //WHERE dp.numero = '0000691575' AND dp.tipo = 'FV';
 
-            query =  " SELECT tp.codigom, tp.nombre FROM sv_documento_pagos_" + xLocal + " AS dp ";
+            query =  " SELECT tp.codigo, tp.nombre FROM sv_documento_pagos_" + xLocal + " AS dp ";
             query += " INNER JOIN eltit_ventas.sv_tiposdepagoclientes AS tp ";
             query += " ON(LPAD(dp.tipopago,2,'0') = tp.codigo) ";
             query += " WHERE dp.numero = " + xFolio + ""; 
