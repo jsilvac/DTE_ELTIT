@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PlaceSoft.Eltit.Class.clases
 {
@@ -25,7 +26,44 @@ namespace PlaceSoft.Eltit.Class.clases
             this.SERVER = xServer;
             this.MYSQL_ROOT = xmysqlRoot;
             this.MYSQL_PASS = xmysqlPass;
-         }
+        }
+
+        public string GetXMLFacturas(string xlocal, string xTipo_Sii, string xFolio, string xFecha)
+        {
+            string salida = "0";
+
+            string query = "";
+            MySqlDataReader dr;
+            query = " SELECT * from sv_dte" + xlocal;
+            query += " WHERE  localdocumento = '" + xlocal + "' and tipo='" + xTipo_Sii + "' and fecha='" + xFecha + "' and numero='" + xFolio + "' ";
+
+            try
+            {
+                Conectar cnn = new Conectar(SERVER, "eltit_fae"+ xlocal, MYSQL_ROOT, MYSQL_PASS);
+                if (cnn.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows == true)
+                    {
+                        if (dr.Read())
+                        {
+                            salida = dr["xml"].ToString();
+                        }
+                    }
+                    dr.Close();
+                }
+
+                cnn.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                log.Error("Exepcion", ex);
+                //MessageBox.Show("Exepcion no controlada:" + ex.Message.ToString());
+            }
+
+            return salida;
+        }
 
         public string ExisteDTELocalNrocajaFecha(string xRutEmpresa, string xLocal, string xCodempresa,string xCaja, 
                                             string xNro, string xFecha, string xTipo)

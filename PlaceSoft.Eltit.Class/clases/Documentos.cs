@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PlaceSoft.Eltit.Class.clases
 {
@@ -15,8 +16,20 @@ namespace PlaceSoft.Eltit.Class.clases
         private string MYSQL_SERVER = "";
         private string MYSQL_ROOT = "";
         private string MYSQL_PASS = "";
+        //private string rut;
+        //private string local;
 
- 
+
+        public Documentos(  string xServer,  string xRoot, string xPass)
+        {
+           // this.CLIENTE_PREFIX = xCliente;
+            this.MYSQL_SERVER = xServer;
+            this.MYSQL_PASS = xPass;
+            this.MYSQL_ROOT = xRoot;
+            //this.rut = xRut;
+            //this.local = xLocal;
+        }
+
         public void MarcaRevisionBoletaElectronica(string xLocal, string xnumeroInterno, string xTipoInterno, 
                                                     string xFecha, string xCaja, string xGlosa)
         {
@@ -291,12 +304,12 @@ namespace PlaceSoft.Eltit.Class.clases
             return salida.PadLeft(10,Convert.ToChar("0"));
         }
 
-        public Documentos(string xMysqlServer, string xMysqlRoot, string xMysqlPass)
-        {
-            this.MYSQL_SERVER = xMysqlServer;
-            this.MYSQL_PASS = xMysqlPass;
-            this.MYSQL_ROOT = xMysqlRoot;
-        }
+        //public Documentos(string xMysqlServer, string xMysqlRoot, string xMysqlPass)
+        //{
+        //    this.MYSQL_SERVER = xMysqlServer;
+        //    this.MYSQL_PASS = xMysqlPass;
+        //    this.MYSQL_ROOT = xMysqlRoot;
+        //}
 
         public MySqlDataReader GetDoucumentosDetalleByTipoCajaNroOnternoFechaLocal(string xLocal, string xTipo, string xNro, string xCaja, string xFecha, string xBase)
         {
@@ -392,7 +405,7 @@ namespace PlaceSoft.Eltit.Class.clases
             string query = "";
             MySqlDataReader dr = null;
 
-            query = " SELECT dc.tipo, dc.numero, dc.caja, dc.fecha, dc.total, IFNULL(dte.xml, '0') AS xml, dc.foliosii,'0' as indicador_traslado,dc.rut ";
+            query = " SELECT dc.tipo, dc.numero, dc.caja, dc.fecha, dc.total, IFNULL(dte.xml, '0') AS xml, dc.foliosii,'0' as indicador_traslado,dc.rut,dc.cajera ";
             query += " FROM eltit_ventas" + xLocal + ".sv_documento_cabeza_" + xLocal + " AS dc ";
             query += " LEFT JOIN eltit_fae" + xLocal + ".sv_dte" + xLocal + " AS dte ON(dc.numero = dte.numerodocumento) AND dc.caja = dte.cajadocumento ";
             query += " AND dc.fecha = dte.fecha AND dc.local = dte.localdocumento ";
@@ -560,6 +573,43 @@ namespace PlaceSoft.Eltit.Class.clases
           
 
             return dt;
+        }
+
+        public MySqlDataReader GetDocumentoCabeza(string xLocal, string xTipo, string xFolio, string xCaja, string xFecha)
+        {
+            string salida = "";
+
+            string query = "";
+            MySqlDataReader dr = null;
+
+            query = " SELECT * from sv_documento_cabeza_" + xLocal;
+            query += " WHERE local='" + xLocal + "' AND ";
+            query += " tipo='" + xTipo + "' AND ";
+            query += " numero=lpad('" + xFolio + "',10,'0') AND ";
+            query += " caja='" + xCaja + "' AND ";
+            query += " fecha='" + xFecha + "' LIMIT 1";
+
+            try
+            {
+                Conectar cnn = new Conectar(MYSQL_SERVER, CLIENTE_PREFIX + "ventas" + xLocal, "sistema", this.MYSQL_PASS);
+                if (cnn.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows == true)
+                    {
+                        return dr;
+                    }
+                }
+
+                cnn.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exepcion no controlada:" + ex.Message.ToString());
+            }
+
+            return dr;
         }
 
         public void CerrarTransaccion()

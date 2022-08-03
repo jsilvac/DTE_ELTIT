@@ -57,7 +57,7 @@ namespace Eltit.Clases
         /*************** VARIABLES DE LOCALES *****************/
         public static string G_LOCAL = "";
         public static string G_LOCAL_NOMBRE = "";
-
+        public static string G_IMPRESORA_TICKET;
         /*************** VARIABLES DE TABLAS *****************/
         public static string TBL_EMPRESAS;
         public static string TBL_LOCALES;
@@ -230,9 +230,13 @@ namespace Eltit.Clases
                     XmlNodeList server = nodo.GetElementsByTagName("SERVIDOR");                   
                     XmlNodeList local = nodo.GetElementsByTagName("RECINTO");
                     XmlNodeList prod = nodo.GetElementsByTagName("PRODUCTION");
+                    XmlNodeList imp = nodo.GetElementsByTagName("IMPRESORA_TICKET");
+
                     G_SERVIDOR = server[0].InnerText;
                     G_LOCAL = local[0].InnerText;
                     DTE_PRODUCCION_BOLETA = Convert.ToBoolean(prod[0].InnerText);
+
+                    G_IMPRESORA_TICKET = imp[0].InnerText; 
 
                 }
             }

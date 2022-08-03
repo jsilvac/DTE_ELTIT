@@ -1,5 +1,7 @@
-﻿using Eltit.DTE.clases;
+﻿using Eltit.Clases;
+using Eltit.DTE.clases;
 using MySql.Data.MySqlClient;
+using PlaceSoft.Eltit.Class.clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +46,8 @@ namespace Eltit.DTE.Forms
         public string DOC_RUT;
 
         VentasClass miClase;
-
+        Cajera xcajera;
+        Documentos doc;
 
         public Form1()
         {
@@ -103,25 +106,30 @@ namespace Eltit.DTE.Forms
 
             /*********** aqui rescatar los datos del el xml **************/
 
-            miClase = new VentasClass(DOC_RUT, "eltit_", "192.168.4.9", DOC_LOCAL);
+            doc = new Documentos( "eltit_", FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER);
+
             string XML = miClase.GetXMLFacturas(DOC_LOCAL, DOC_TIPO_DTE, DOC_FOLIOSII, DOC_FECHA_EMISION);
 
             /******************** aqui rescata del ventas *****************************************/
 
-            MySqlDataReader DCabeza = miClase.GetDocumentoCabeza(DOC_LOCAL,DOC_TIPO_INTERNO, DOC_FOLIOSII,DOC_CAJA,DOC_FECHA_EMISION);
+            // MySqlDataReader DCabeza = doc.GetDocumentoCabeza(DOC_LOCAL,DOC_TIPO_INTERNO, DOC_FOLIOSII,DOC_CAJA,DOC_FECHA_EMISION);
 
-            if(DCabeza.HasRows == true)
-            {
+            DOC_NOMBRE_CAJERA = xcajera.GetCajera(DOC_NOMBRE_CAJERA);
 
-                while (DCabeza.Read())
-                {
-                    DOC_NOMBRE_CAJERA = DCabeza["cajera"].ToString();
-                }
-            }
+            //if (DCabeza.HasRows == true)
+            //{
 
-            
+            //    if (DCabeza.Read())
+            //    {
+            //        DOC_NOMBRE_CAJERA = DCabeza["cajera"].ToString();
+            //    }
+            //}
 
-            
+
+
+
+
+
             /*************************************************************/
 
             dte = PlaceSoft.DTE.Engine.XML.XmlHandler.DeserializeFromString<PlaceSoft.DTE.Engine.Documento.DTE>(XML);
@@ -274,7 +282,7 @@ namespace Eltit.DTE.Forms
             e.Graphics.DrawString(emisor.Email, font5, Brushes.Black, 40, y + 2);
             y = y + 12;
             e.Graphics.DrawString("Cajera :", font2, Brushes.Black, 5, y);
-            e.Graphics.DrawString(DOC_NOMBRE_CAJERA = miClase.GetCajeraX(DOC_NOMBRE_CAJERA) , font5, Brushes.Black, 40, y + 2);
+            e.Graphics.DrawString(DOC_NOMBRE_CAJERA , font5, Brushes.Black, 40, y + 2);
             y = y + 12;
             e.Graphics.DrawString("Fecha Emisión  :", font2, Brushes.Black, 5, y);
             e.Graphics.DrawString(dte.Documento.Encabezado.IdentificacionDTE.FechaEmision.ToShortDateString(), font5, Brushes.Black, 77, y + 2);
@@ -480,13 +488,13 @@ namespace Eltit.DTE.Forms
             int padfinalPago = (176 - (strFormaPago.Length * 4));
             e.Graphics.DrawString("Forma de Pago :", font2, Brushes.Black, 5, y);
             e.Graphics.DrawString(strFormaPago, font2, Brushes.Black, padfinalPago + ((15 - strFormaPago.Length) * 2), y);
-            y = y + 15;
-            string strVuelto = DOC_VUELTO;
-            e.Graphics.DrawString("Vuelto :", font2, Brushes.Black, 5, y);
-            string srtvuelto = string.Format(CultureInfo.CurrentCulture, "{0:C0}", DOC_VUELTO);
-            string totalVuelto = string.Format(CultureInfo.CurrentCulture, "{0:C0}", srtvuelto.Replace(",00", ""));
-            int padVuelto = 178 + (4 - totalVuelto.Length) * 3;
-            e.Graphics.DrawString(totalVuelto, font2, Brushes.Black, padVuelto, y + 1);
+            //y = y + 15;
+            //string strVuelto = DOC_VUELTO;
+            //e.Graphics.DrawString("Vuelto :", font2, Brushes.Black, 5, y);
+            //string srtvuelto = string.Format(CultureInfo.CurrentCulture, "{0:C0}", DOC_VUELTO);
+            //string totalVuelto = string.Format(CultureInfo.CurrentCulture, "{0:C0}", srtvuelto.Replace(",00", ""));
+            //int padVuelto = 178 + (4 - totalVuelto.Length) * 3;
+            //e.Graphics.DrawString(totalVuelto, font2, Brushes.Black, padVuelto, y + 1);
             y = y + 15;
 
             /****************** IMPRIME COPIA CEDIBLE *************/

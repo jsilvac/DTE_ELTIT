@@ -43,6 +43,7 @@
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
@@ -558,6 +559,10 @@
             gridViewCheckBoxColumn2.Name = "cbxCedible";
             gridViewCheckBoxColumn2.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending;
             gridViewCheckBoxColumn2.Width = 75;
+            gridViewTextBoxColumn10.HeaderText = "Cajera";
+            gridViewTextBoxColumn10.MinWidth = 1;
+            gridViewTextBoxColumn10.Name = "cajera";
+            gridViewTextBoxColumn10.Width = 1;
             this.gvInforme.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -571,7 +576,8 @@
             gridViewTextBoxColumn9,
             gridViewImageColumn1,
             gridViewImageColumn2,
-            gridViewCheckBoxColumn2});
+            gridViewCheckBoxColumn2,
+            gridViewTextBoxColumn10});
             this.gvInforme.MasterTemplate.EnableAlternatingRowColor = true;
             this.gvInforme.MasterTemplate.EnableGrouping = false;
             this.gvInforme.MasterTemplate.MultiSelect = true;

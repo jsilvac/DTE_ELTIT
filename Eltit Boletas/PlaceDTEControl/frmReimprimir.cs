@@ -17,7 +17,8 @@ using System.Xml;
 using Eltit.Clases;
 using PlaceSoft.Eltit.Class.clases;
 using PlaceSoft.Eltit.Functions;
-using Eltit.DTE.Forms;
+using Eltit.Clases;
+using Eltit.DTE;
 using SamplesDTE;
 using PlaceSoftDTE.clases;
 
@@ -58,7 +59,8 @@ namespace Eltit
         Funciones fun = new Funciones("eltit_");
 
         private Ventas dc;
-        private VentasClass cj;
+        //private VentasClass cj;
+        private Cajera cj;
 
         public frmReimprimir()
         {
@@ -411,7 +413,7 @@ namespace Eltit
 
                     gvInforme.Rows.Add(dr["tipo"].ToString() , dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
                             String.Format("{0:N0}", dr["total"]), dr["foliosii"].ToString(), false, dr["indicador_traslado"].ToString(), 
-                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15);
+                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false,dr["cajera"].ToString());
                     count++;
                     
                     fun.ColoreaCelda(gvInforme.Rows[gvInforme.CurrentRow.Index].Cells[6], Color.LightBlue);
@@ -982,12 +984,13 @@ namespace Eltit
                     string local    = ddLlocales.Text.Substring(0,2);
                     string caja     = gvInforme.Rows[fila].Cells[3].Value.ToString();
                     string rutEmpresa = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
-                    string nombreImpresora = "POS-80";
+                    //string nombreImpresora = "POS-80";
                     string formaPago = "";
                     string fechaEmision = gvInforme.Rows[fila].Cells[2].Value.ToString();
                     fechaEmision = fechaEmision.Substring(6, 4) + "-" + fechaEmision.Substring(3, 2) + "-" + fechaEmision.Substring(0, 2);
                     string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
                     Boolean impCedible = Convert.ToBoolean( gvInforme.Rows[fila].Cells[12].Value);
+                    string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
 
                     /*
                     DOC_FOLIOSII = "691575";
@@ -998,24 +1001,36 @@ namespace Eltit
                     DOC_NOMBRE_IMPRESORA = "POS-80";
                     DOC_FORMA_PAGO = "";
                     */
-                    this.imprimeFactura(tipoDTE,fechaEmision,folioSII,local,caja,rutEmpresa,nombreImpresora,formaPago,tipoInterno, impCedible);
+                    this.imprimeFactura(tipoDTE,fechaEmision,folioSII,local,caja,rutEmpresa,formaPago,tipoInterno, impCedible,cajera);
                 }
 
             }
         }
 
-        private void imprimeFactura(string xTipoDTE, string xFechaEmision, string xFolioSII, string xLocal, string xCaja, string xRutEmpresa, string xNombreImpresora, string xFormaDePago, string xTipoInterno, Boolean xImpCedible) {
-            Eltit.DTE.Forms.Form1 formulario = new Form1();
+        private string getNombreCajera(string xRut)
+        {
+            string salida = "";
+            string nombreCajera = "";
+            Cajera cajera = new Cajera("","eltit_",FuncionesClass.G_SERVIDORMASTER,"");
+
+            nombreCajera = cajera.GetCajera(xRut);
+
+            return salida = nombreCajera;
+        }
+
+        private void imprimeFactura(string xTipoDTE, string xFechaEmision, string xFolioSII, string xLocal, string xCaja, string xRutEmpresa, string xFormaDePago, string xTipoInterno, Boolean xImpCedible, string xCajera) {
+            FormPrincipal formulario = new FormPrincipal();
             formulario.DOC_FOLIOSII = xFolioSII;
             formulario.DOC_LOCAL = xLocal;
             formulario.DOC_FECHA_EMISION = xFechaEmision;
             formulario.DOC_TIPO_DTE = xTipoDTE;
             formulario.DOC_RUT = xRutEmpresa;
-            formulario.DOC_NOMBRE_IMPRESORA = xNombreImpresora;
+            formulario.DOC_NOMBRE_CAJERA = getNombreCajera(xCajera); 
             formulario.DOC_FORMA_PAGO = xFormaDePago;
             formulario.DOC_CAJA = xCaja;
             formulario.DOC_TIPO_INTERNO = xTipoInterno;
             formulario.IMPRIME_CEDIBLE = xImpCedible;
+            formulario.DOC_NOMBRE_IMPRESORA = FuncionesClass.G_IMPRESORA_TICKET;
 
             formulario.ShowDialog();
 
