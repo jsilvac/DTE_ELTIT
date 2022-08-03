@@ -36,7 +36,7 @@ namespace Eltit.DTE.Forms
         public string DOC_NOMBRE_CAJERA;
         public string DOC_CAJA;
         public string DOC_VUELTO;
-        public string DOC_FORMA_PAGO;
+        public List<string> DOC_FORMA_PAGO;
         public double DOC_TOTAL_A_PAGAR;
         public double DOC_TASA_IVA;
         public bool DOC_REIMPRESO;
@@ -484,10 +484,15 @@ namespace Eltit.DTE.Forms
             y = y + 6;
             e.Graphics.DrawString("____________________________________________________________", font3, Brushes.Black, x, y);
             y = y + 13;
-            string strFormaPago = DOC_FORMA_PAGO;
-            int padfinalPago = (176 - (strFormaPago.Length * 4));
-            e.Graphics.DrawString("Forma de Pago :", font2, Brushes.Black, 5, y);
-            e.Graphics.DrawString(strFormaPago, font2, Brushes.Black, padfinalPago + ((15 - strFormaPago.Length) * 2), y);
+            List<string> strFormaPago = DOC_FORMA_PAGO;
+            //int padfinalPago = (176 - (strFormaPago.Lengt * 4));
+            e.Graphics.DrawString("Forma de Pago ", font2, Brushes.Black, 5, y);
+            y = y + 15;
+            foreach(string row in strFormaPago) {
+
+                e.Graphics.DrawString(row.ToString(), font2, Brushes.Black, 50, y);
+                y = y + 15;
+            }
             //y = y + 15;
             //string strVuelto = DOC_VUELTO;
             //e.Graphics.DrawString("Vuelto :", font2, Brushes.Black, 5, y);

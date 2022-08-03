@@ -1,29 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
-using SamplesDTE.Clases;
-using MySql.Data;
 using MySql.Data.MySqlClient;
-using System.Globalization;
-using System.Xml.Serialization;
 using System.IO;
 using Telerik.WinControls.UI;
-using System.Xml;
 using Eltit.Clases;
 using PlaceSoft.Eltit.Class.clases;
 using PlaceSoft.Eltit.Functions;
-using Eltit.Clases;
-using Eltit.DTE;
-using SamplesDTE;
 using PlaceSoftDTE.clases;
+using Eltit.DTE.Forms;
 
 namespace Eltit
-{ 
+{
 
     public partial class frmReimprimir : Telerik.WinControls.UI.RadForm
     {
@@ -61,6 +53,7 @@ namespace Eltit
         private Ventas dc;
         //private VentasClass cj;
         private Cajera cj;
+        Documentos doc = null;
 
         public frmReimprimir()
         {
@@ -985,22 +978,17 @@ namespace Eltit
                     string caja     = gvInforme.Rows[fila].Cells[3].Value.ToString();
                     string rutEmpresa = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
                     //string nombreImpresora = "POS-80";
-                    string formaPago = "";
+                    
                     string fechaEmision = gvInforme.Rows[fila].Cells[2].Value.ToString();
                     fechaEmision = fechaEmision.Substring(6, 4) + "-" + fechaEmision.Substring(3, 2) + "-" + fechaEmision.Substring(0, 2);
                     string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
                     Boolean impCedible = Convert.ToBoolean( gvInforme.Rows[fila].Cells[12].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
+                    //List<string> formaPago = new List<string>();
+                    List<string> formaPago = doc.GetPagosByDocumento(local, tipoDTE, folioSII, caja, fechaEmision);
 
-                    /*
-                    DOC_FOLIOSII = "691575";
-                    DOC_LOCAL = "00";
-                    DOC_FECHA_EMISION = "2022-07-27";
-                    DOC_TIPO_DTE = "33";
-                    DOC_RUT = "77575340-4";
-                    DOC_NOMBRE_IMPRESORA = "POS-80";
-                    DOC_FORMA_PAGO = "";
-                    */
+
+
                     this.imprimeFactura(tipoDTE,fechaEmision,folioSII,local,caja,rutEmpresa,formaPago,tipoInterno, impCedible,cajera);
                 }
 
@@ -1018,15 +1006,17 @@ namespace Eltit
             return salida = nombreCajera;
         }
 
-        private void imprimeFactura(string xTipoDTE, string xFechaEmision, string xFolioSII, string xLocal, string xCaja, string xRutEmpresa, string xFormaDePago, string xTipoInterno, Boolean xImpCedible, string xCajera) {
-            FormPrincipal formulario = new FormPrincipal();
+
+        private void imprimeFactura(string xTipoDTE, string xFechaEmision, string xFolioSII, string xLocal, string xCaja, string xRutEmpresa, List<string> xFormaDePago, string xTipoInterno, Boolean xImpCedible, string xCajera) {
+
+            Eltit.DTE.Forms.Form1 formulario = new Form1();
             formulario.DOC_FOLIOSII = xFolioSII;
             formulario.DOC_LOCAL = xLocal;
             formulario.DOC_FECHA_EMISION = xFechaEmision;
             formulario.DOC_TIPO_DTE = xTipoDTE;
             formulario.DOC_RUT = xRutEmpresa;
             formulario.DOC_NOMBRE_CAJERA = getNombreCajera(xCajera); 
-            formulario.DOC_FORMA_PAGO = xFormaDePago;
+            formulario.DOC_FORMA_PAGO = xFormaDePago.ToString();
             formulario.DOC_CAJA = xCaja;
             formulario.DOC_TIPO_INTERNO = xTipoInterno;
             formulario.IMPRIME_CEDIBLE = xImpCedible;

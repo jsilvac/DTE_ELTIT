@@ -16,7 +16,7 @@ using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Drawing;
 using System.Text.RegularExpressions;
-using SchoolManagementAdmin.objetos;
+//using SchoolManagementAdmin.objetos;
 using Eltit.clases;
 using SamplesDTE;
 

@@ -612,6 +612,58 @@ namespace PlaceSoft.Eltit.Class.clases
             return dr;
         }
 
+        public List<string> GetPagosByDocumento(string xLocal, string xTipo, string xFolio, string xCaja, string xFecha)
+        {
+            List<string> salida = new List<string>();
+
+            string query = "";
+            MySqlDataReader dr = null;
+
+            //SELECT tp.nombre FROM sv_documento_pagos_00 AS dp
+            //INNER JOIN eltit_ventas.sv_tiposdepagoclientes AS tp
+            //ON(LPAD(dp.tipopago, 2, "0") = tp.codigo)
+            //WHERE dp.numero = '0000691575' AND dp.tipo = 'FV';
+
+            query =  " SELECT tp.codigom, tp.nombre FROM sv_documento_pagos_" + xLocal + "AS dp";
+            query += " INNER JOIN eltit_ventas.sv_tiposdepagoclientes AS tp ";
+            query += " ON(LPAD(dp.tipopago,2,'0') = tp.codigo) ";
+            query += " WHERE dp.numero = " + xFolio + ""; 
+            query += " AND dp.tipo = "+ xTipo +" ";
+            query += " AND dp.fecha = " + xFecha + " ";
+            query += " AND dp.caja = "+ xCaja +" ";
+            //query += " WHERE local='" + xLocal + "' AND ";
+            //query += " tipo='" + xTipo + "' AND ";
+            //query += " numero=lpad('" + xFolio + "',10,'0') AND ";
+            //query += " caja='" + xCaja + "' AND ";
+            //query += " fecha='" + xFecha + "' LIMIT 1";
+
+            try
+            {
+                Conectar cnn = new Conectar(MYSQL_SERVER, CLIENTE_PREFIX + "ventas" + xLocal, "sistema", this.MYSQL_PASS);
+                if (cnn.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows == true)
+                    {                                                 
+                         while (dr.Read())
+                        {
+                            salida.Add(dr["codigo"].ToString() + " "+ dr["nombre"].ToString());
+                        }
+                        
+                    }
+                }
+
+                cnn.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exepcion no controlada:" + ex.Message.ToString());
+            }
+
+            return salida.ToList<string>() ;
+        }
+
         public void CerrarTransaccion()
         {
             cnn.CloseConnection();

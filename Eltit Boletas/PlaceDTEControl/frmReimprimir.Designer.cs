@@ -44,6 +44,7 @@
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
@@ -482,10 +483,11 @@
             this.gvInforme.MasterTemplate.AllowRowResize = false;
             gridViewTextBoxColumn1.EnableExpressionEditor = false;
             gridViewTextBoxColumn1.HeaderText = "Tipo Doc";
+            gridViewTextBoxColumn1.MinWidth = 1;
             gridViewTextBoxColumn1.Name = "tipo";
             gridViewTextBoxColumn1.ReadOnly = true;
             gridViewTextBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn1.Width = 66;
+            gridViewTextBoxColumn1.Width = 1;
             gridViewTextBoxColumn2.EnableExpressionEditor = false;
             gridViewTextBoxColumn2.HeaderText = "N° Interno";
             gridViewTextBoxColumn2.MaxLength = 10;
@@ -563,6 +565,10 @@
             gridViewTextBoxColumn10.MinWidth = 1;
             gridViewTextBoxColumn10.Name = "cajera";
             gridViewTextBoxColumn10.Width = 1;
+            gridViewTextBoxColumn11.HeaderText = "fPago";
+            gridViewTextBoxColumn11.MinWidth = 1;
+            gridViewTextBoxColumn11.Name = "fPago";
+            gridViewTextBoxColumn11.Width = 1;
             this.gvInforme.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -577,7 +583,8 @@
             gridViewImageColumn1,
             gridViewImageColumn2,
             gridViewCheckBoxColumn2,
-            gridViewTextBoxColumn10});
+            gridViewTextBoxColumn10,
+            gridViewTextBoxColumn11});
             this.gvInforme.MasterTemplate.EnableAlternatingRowColor = true;
             this.gvInforme.MasterTemplate.EnableGrouping = false;
             this.gvInforme.MasterTemplate.MultiSelect = true;
