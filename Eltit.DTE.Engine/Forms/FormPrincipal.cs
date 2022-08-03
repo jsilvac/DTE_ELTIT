@@ -1,5 +1,4 @@
-﻿using Eltit.Clases;
-using Eltit.DTE.clases;
+﻿using Eltit.DTE.clases;
 using MySql.Data.MySqlClient;
 using PlaceSoft.Eltit.Class.clases;
 using System;
@@ -44,6 +43,10 @@ namespace Eltit.DTE.Forms
         public int DOC_REDONDEO;
         public int DOC_TIPO_TRASLADO;
         public string DOC_RUT;
+
+        public string DOC_SERVIDOR;
+        public string DOC_PASSWORD_MYSQL;
+        public string DOC_ROOT_MYSQL;
 
         VentasClass miClase;
         Cajera xcajera;
@@ -106,7 +109,7 @@ namespace Eltit.DTE.Forms
 
             /*********** aqui rescatar los datos del el xml **************/
 
-            doc = new Documentos( "eltit_", FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER);
+            doc = new Documentos(this.DOC_SERVIDOR, this.DOC_ROOT_MYSQL, this.DOC_PASSWORD_MYSQL);
 
             string XML = miClase.GetXMLFacturas(DOC_LOCAL, DOC_TIPO_DTE, DOC_FOLIOSII, DOC_FECHA_EMISION);
 

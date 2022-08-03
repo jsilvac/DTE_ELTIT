@@ -53,7 +53,7 @@ namespace Eltit
         private Ventas dc;
         //private VentasClass cj;
         private Cajera cj;
-        Documentos doc = null;
+        Documentos doc;
 
         public frmReimprimir()
         {
@@ -984,8 +984,9 @@ namespace Eltit
                     string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
                     Boolean impCedible = Convert.ToBoolean( gvInforme.Rows[fila].Cells[12].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
-                    //List<string> formaPago = new List<string>();
-                    List<string> formaPago = doc.GetPagosByDocumento(local, tipoDTE, folioSII, caja, fechaEmision);
+                    List<string> formaPago = new List<string>();
+                    doc = new Documentos(FuncionesClass.G_SERVIDORMASTER,FuncionesClass.G_MYSQL_USER,FuncionesClass.G_MYSQL_PASS);
+                    formaPago = doc.GetPagosByDocumento(local, tipoDTE, folioSII, caja, fechaEmision);
 
 
 
@@ -1015,8 +1016,8 @@ namespace Eltit
             formulario.DOC_FECHA_EMISION = xFechaEmision;
             formulario.DOC_TIPO_DTE = xTipoDTE;
             formulario.DOC_RUT = xRutEmpresa;
-            formulario.DOC_NOMBRE_CAJERA = getNombreCajera(xCajera); 
-            formulario.DOC_FORMA_PAGO = xFormaDePago.ToString();
+            formulario.DOC_NOMBRE_CAJERA = getNombreCajera(xCajera);
+            formulario.DOC_FORMA_PAGO = xFormaDePago;
             formulario.DOC_CAJA = xCaja;
             formulario.DOC_TIPO_INTERNO = xTipoInterno;
             formulario.IMPRIME_CEDIBLE = xImpCedible;

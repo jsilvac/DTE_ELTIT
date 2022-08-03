@@ -51,8 +51,9 @@
     <ApplicationIcon>Generate-Exposure-Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Eltit.DTE.Engine">
-      <HintPath>..\..\Eltit.DTE.Engine\bin\Release\Eltit.DTE.Engine.dll</HintPath>
+    <Reference Include="Eltit.DTE.Engine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Eltit.DTE.Engine\bin\Debug\Eltit.DTE.Engine.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

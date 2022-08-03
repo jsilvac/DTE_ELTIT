@@ -135,10 +135,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Eltit Boletas\PlaceDTEControl\Aliu POS DTE Manager.csproj">
-      <Project>{BE5795DF-8AB2-4559-BAA0-679DE08165BA}</Project>
-      <Name>Aliu POS DTE Manager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PlaceSoft.Eltit.Class\PlaceSoft.Eltit.Class.csproj">
       <Project>{DB584275-7AC7-47F1-9640-ECB0711D0739}</Project>
       <Name>PlaceSoft.Eltit.Class</Name>
