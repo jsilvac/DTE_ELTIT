@@ -117,6 +117,8 @@ namespace Eltit.DTE.Forms
 
             // MySqlDataReader DCabeza = doc.GetDocumentoCabeza(DOC_LOCAL,DOC_TIPO_INTERNO, DOC_FOLIOSII,DOC_CAJA,DOC_FECHA_EMISION);
 
+
+
             //DOC_NOMBRE_CAJERA = xcajera.GetCajera(DOC_NOMBRE_CAJERA);
 
             //if (DCabeza.HasRows == true)
@@ -493,7 +495,7 @@ namespace Eltit.DTE.Forms
             y = y + 15;
             foreach(string row in strFormaPago) {
 
-                e.Graphics.DrawString(row.ToString(), font2, Brushes.Black, 50, y);
+                e.Graphics.DrawString(row.ToString(), font4, Brushes.Black, 5, y);
                 y = y + 15;
             }
             //y = y + 15;
