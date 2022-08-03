@@ -986,7 +986,7 @@ namespace Eltit
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
                     List<string> formaPago = new List<string>();
                     doc = new Documentos(FuncionesClass.G_SERVIDORMASTER,FuncionesClass.G_MYSQL_USER,FuncionesClass.G_MYSQL_PASS);
-                    formaPago = doc.GetPagosByDocumento(local, tipoDTE, folioSII, caja, fechaEmision);
+                    formaPago = doc.GetPagosByDocumento(local, tipoInterno, folioSII, caja, fechaEmision);
 
 
 
