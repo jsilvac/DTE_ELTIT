@@ -418,7 +418,7 @@ namespace Eltit
             }
             else
             {
-                RadMessageBox.Show(this, "Nose encontraon resultados con los parametros indicados.", "Atencion", MessageBoxButtons.OK);
+                RadMessageBox.Show(this, "No se encontraon resultados con los parametros indicados.", "Atencion", MessageBoxButtons.OK);
             }
 
             dr.Close();
@@ -971,6 +971,10 @@ namespace Eltit
                 string folioSII = Convert.ToInt32(gvInforme.Rows[fila].Cells[1].Value.ToString()).ToString();
                 string fechaEmision = gvInforme.Rows[fila].Cells[2].Value.ToString();
                 fechaEmision = fechaEmision.Substring(6, 4) + "-" + fechaEmision.Substring(3, 2) + "-" + fechaEmision.Substring(0, 2);
+                doc = new Documentos(FuncionesClass.G_SERVIDORMASTER,FuncionesClass.G_MYSQL_USER,FuncionesClass.G_MYSQL_PASS);
+                string caja         = gvInforme.Rows[fila].Cells[3].Value.ToString();
+                string rutEmpresa   = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
+                string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
 
 
                 if (gvInforme.CurrentCell.ColumnIndex == 10)
@@ -982,17 +986,13 @@ namespace Eltit
 
                 if (gvInforme.CurrentCell.ColumnIndex == 11)
                 {   
-                    string caja         = gvInforme.Rows[fila].Cells[3].Value.ToString();
-                    string rutEmpresa   = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
                     //string nombreImpresora = "POS-80";
                     
                     
-                    string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
                     Boolean impCedible = Convert.ToBoolean(gvInforme.Rows[fila].Cells[12].Value);
                     Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[13].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
                     List<string> formaPago = new List<string>();
-                    doc = new Documentos(FuncionesClass.G_SERVIDORMASTER,FuncionesClass.G_MYSQL_USER,FuncionesClass.G_MYSQL_PASS);
                     formaPago = doc.GetPagosByDocumento(local, tipoInterno, folioSII, caja, fechaEmision);
 
 
@@ -1000,17 +1000,37 @@ namespace Eltit
                     this.imprimeFactura(tipoDTE,fechaEmision,folioSII,local,caja,rutEmpresa,formaPago,tipoInterno, impCedible,cajera);
                 }
 
-                if (gvInforme.CurrentCell.ColumnIndex == 13)
+                if (gvInforme.CurrentCell.ColumnIndex == 15)
                 {
-                    
+                    MySqlDataReader getCabeza = doc.GetDocumentoCabeza(local,tipoInterno,folioSII,caja,fechaEmision);
+                    string rut = "";
+                    string sucural = "";
+
+                    if (getCabeza.HasRows == true)
+                    {
+                        if (getCabeza.Read())
+                        {
+                            rut = getCabeza[7].ToString();
+                            sucural = getCabeza[8].ToString();
+                        }
+                    }
+                    if (rut != "" && sucural != "")
+                    {
+                        this.GetRutSucursal(rut, sucural);
+                    } else
+                    {
+                        MessageBox.Show("La sucursal y/o el rut se encuentra vacío.");
+                    }
                 }
 
             }
         }
 
-        private void GetRutSucursal()
+        private void GetRutSucursal(string xRut, string xSucursal)
         {
+            ClienteFactura clienteFactura = new ClienteFactura(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER);
 
+            MySqlDataReader obtieneCliente = clienteFactura.GetClienteByRutSucursal(xRut, xSucursal);
         }
 
         private void CargaXML(string xLocal,string xTipoDTE, string xFolio, string xFecha)

@@ -34,12 +34,11 @@ namespace PlaceSoft.Eltit.Class.clases
         private string mysql_password;
         private string local;
         /************************************************/
-        public ClienteFactura(string xUserRoot, string xServidor, string xLocal)
+        public ClienteFactura(string xServidor, string xUserRoot)
         {
             this.user_root = xUserRoot;
             this.mysql_server = xServidor;
             this.mysql_password = "desarrollo_1990";
-            this.local = xLocal; 
         }
 
         public MySqlDataReader GetClienteByRutSucursal(string xRut, string xSucursal)
@@ -49,7 +48,7 @@ namespace PlaceSoft.Eltit.Class.clases
 
             MySqlDataReader dr = null;
 
-            query  = " SELECT rut, sucursal, nombre, direccion, comuna, ciudad, fono1, celular, giro, email, contacto ";
+            query  = " SELECT rut, sucursal, nombre, direccion, comuna, ciudad, fono1, celular, giro, IF(email,'', 'SIN DATOS') email, contacto ";
             query += " FROM sv_maestroclientes ";
             query += " WHERE rut = '"+ xRut +"' AND sucursal = '"+ xSucursal +"' ";
 

@@ -646,7 +646,7 @@ namespace PlaceSoft.Eltit.Class.clases
                     dr = cmd.ExecuteReader();
                     if (dr.HasRows == true)
                     {                                                 
-                         while (dr.Read())
+                        while (dr.Read())
                         {
                             salida.Add(dr["codigo"].ToString() + " "+ dr["nombre"].ToString());
                         }
