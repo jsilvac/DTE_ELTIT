@@ -29,6 +29,7 @@ namespace Eltit.DTE.clases
         private string mysql_server;
         private string mysql_password;
         private string codigo_sucursal_sii;
+        private List<string> direcciones;
 
         public DatosEmisor(string xRut, string xCliente, string xServer, string xLocal)
         {
@@ -71,6 +72,7 @@ namespace Eltit.DTE.clases
                             //this.Img = dr["img"].ToString();
                             this.Email = dr["mailsalida"].ToString();
                             this.Codigo_sucursal_sii = this.LeeCodigoSucursalSII(xLocal);
+                            //this.direccion = 
                         }
 
 
@@ -86,6 +88,14 @@ namespace Eltit.DTE.clases
             }
 
 
+        }
+        private List<string> GetDirecciones(string xcodigoConta)
+        {
+            List<string> salida=  null;
+
+
+
+            return salida;
         }
         private string LeeCodigoSucursalSII(string xlocal)
         {
@@ -143,5 +153,6 @@ namespace Eltit.DTE.clases
         public string Email { get => email; set => email = value; }
         public string Img { get => img; set => img = value; }
         public string Codigo_sucursal_sii { get => codigo_sucursal_sii; set => codigo_sucursal_sii = value; }
+        public List<string> Direcciones { get => direcciones; set => direcciones = value; }
     }
 }

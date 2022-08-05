@@ -45,6 +45,7 @@
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn3 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
@@ -170,9 +171,9 @@
             // 
             this.radStatusStrip1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.lblInformacion});
-            this.radStatusStrip1.Location = new System.Drawing.Point(0, 290);
+            this.radStatusStrip1.Location = new System.Drawing.Point(0, 307);
             this.radStatusStrip1.Name = "radStatusStrip1";
-            this.radStatusStrip1.Size = new System.Drawing.Size(951, 25);
+            this.radStatusStrip1.Size = new System.Drawing.Size(998, 25);
             this.radStatusStrip1.TabIndex = 1;
             this.radStatusStrip1.Text = "radStatusStrip1";
             this.radStatusStrip1.ThemeName = "TelerikMetroBlue";
@@ -212,7 +213,7 @@
             this.radGroupBox1.HeaderText = "Documentos Generados a la Fecha";
             this.radGroupBox1.Location = new System.Drawing.Point(12, 163);
             this.radGroupBox1.Name = "radGroupBox1";
-            this.radGroupBox1.Size = new System.Drawing.Size(928, 129);
+            this.radGroupBox1.Size = new System.Drawing.Size(955, 129);
             this.radGroupBox1.TabIndex = 8;
             this.radGroupBox1.Text = "Documentos Generados a la Fecha";
             this.radGroupBox1.ThemeName = "TelerikMetroBlue";
@@ -569,6 +570,8 @@
             gridViewTextBoxColumn11.MinWidth = 1;
             gridViewTextBoxColumn11.Name = "fPago";
             gridViewTextBoxColumn11.Width = 1;
+            gridViewImageColumn3.HeaderText = "PDF";
+            gridViewImageColumn3.Name = "imgPDF";
             this.gvInforme.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -584,7 +587,8 @@
             gridViewImageColumn2,
             gridViewCheckBoxColumn2,
             gridViewTextBoxColumn10,
-            gridViewTextBoxColumn11});
+            gridViewTextBoxColumn11,
+            gridViewImageColumn3});
             this.gvInforme.MasterTemplate.EnableAlternatingRowColor = true;
             this.gvInforme.MasterTemplate.EnableGrouping = false;
             this.gvInforme.MasterTemplate.MultiSelect = true;
@@ -1313,7 +1317,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(951, 315);
+            this.ClientSize = new System.Drawing.Size(998, 332);
             this.Controls.Add(this.radGroupBox2);
             this.Controls.Add(this.RadPageView1);
             this.Controls.Add(this.radGroupBox5);

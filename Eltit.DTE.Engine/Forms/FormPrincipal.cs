@@ -61,16 +61,6 @@ namespace Eltit.DTE.Forms
             log.Debug("Inicializando formulario...");
             this.roundCorners(this);
             this.Refresh();
-            /*
-            DOC_FOLIOSII = "691575";
-            DOC_LOCAL = "00";
-            DOC_FECHA_EMISION = "2022-07-27";
-            DOC_TIPO_DTE = "33";
-            DOC_RUT = "77575340-4";
-            DOC_NOMBRE_IMPRESORA = "POS-80";
-            DOC_FORMA_PAGO = "";
-                 */      
-
 
             timer1.Enabled = true;
             timer1.Start();
@@ -115,25 +105,6 @@ namespace Eltit.DTE.Forms
 
             /******************** aqui rescata del ventas *****************************************/
 
-            // MySqlDataReader DCabeza = doc.GetDocumentoCabeza(DOC_LOCAL,DOC_TIPO_INTERNO, DOC_FOLIOSII,DOC_CAJA,DOC_FECHA_EMISION);
-
-
-
-            //DOC_NOMBRE_CAJERA = xcajera.GetCajera(DOC_NOMBRE_CAJERA);
-
-            //if (DCabeza.HasRows == true)
-            //{
-
-            //    if (DCabeza.Read())
-            //    {
-            //        DOC_NOMBRE_CAJERA = DCabeza["cajera"].ToString();
-            //    }
-            //}
-
-
-
-
-
 
             /*************************************************************/
 
@@ -142,8 +113,7 @@ namespace Eltit.DTE.Forms
 
             
             this.ImprimeTicket();
-            //this.IMPRIME_CEDIBLE = true;
-            //this.ImprimeTicket();
+
         }
 
         private void ImprimeTicket()
@@ -291,6 +261,7 @@ namespace Eltit.DTE.Forms
             y = y + 12;
             e.Graphics.DrawString("Fecha Emisión  :", font2, Brushes.Black, 5, y);
             e.Graphics.DrawString(dte.Documento.Encabezado.IdentificacionDTE.FechaEmision.ToShortDateString(), font5, Brushes.Black, 77, y + 2);
+
             e.Graphics.DrawString("Caja  :", font2, Brushes.Black, 122, y);
             e.Graphics.DrawString(DOC_CAJA, font5, Brushes.Black, 152, y + 2);
 
@@ -491,12 +462,12 @@ namespace Eltit.DTE.Forms
             y = y + 13;
             List<string> strFormaPago = DOC_FORMA_PAGO;
             //int padfinalPago = (176 - (strFormaPago.Lengt * 4));
-            e.Graphics.DrawString("Forma de Pago ", font2, Brushes.Black, 5, y);
-            y = y + 15;
+            e.Graphics.DrawString("Forma de Pago :", font2, Brushes.Black, 5, y);
+            y = y + 3;
             foreach(string row in strFormaPago) {
 
-                e.Graphics.DrawString(row.ToString(), font4, Brushes.Black, 5, y);
-                y = y + 15;
+                e.Graphics.DrawString(row.ToString(), font5, Brushes.Black, 77, y);
+                y = y + 10;
             }
             //y = y + 15;
             //string strVuelto = DOC_VUELTO;
@@ -571,7 +542,7 @@ namespace Eltit.DTE.Forms
             y = y + 35;
             if (DOC_REIMPRESO == false)
             {
-                e.Graphics.DrawString("Hora Venta: " + DateTime.Now.ToString("HH:mm:ss"), font5, Brushes.Black, 5, y + 2);
+                e.Graphics.DrawString("Hora Reimpresión: " + DateTime.Now.ToString("HH:mm:ss"), font5, Brushes.Black, 65, y + 2);
             }
             else
             {

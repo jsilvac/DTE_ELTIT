@@ -48,12 +48,14 @@ namespace Eltit
         List<PlaceSoft.DTE.Engine.Documento.DTE> dtesSII = new List<PlaceSoft.DTE.Engine.Documento.DTE>();
         List<string> xmlDtes = new List<string>();
 
+
         Funciones fun = new Funciones("eltit_");
 
         private Ventas dc;
         //private VentasClass cj;
         private Cajera cj;
         Documentos doc;
+
 
         public frmReimprimir()
         {
@@ -406,7 +408,7 @@ namespace Eltit
 
                     gvInforme.Rows.Add(dr["tipo"].ToString() , dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
                             String.Format("{0:N0}", dr["total"]), dr["foliosii"].ToString(), false, dr["indicador_traslado"].ToString(), 
-                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false,dr["cajera"].ToString());
+                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false,dr["cajera"].ToString(),"", Properties.Resources.icon_pdf_25);
                     count++;
                     
                     fun.ColoreaCelda(gvInforme.Rows[gvInforme.CurrentRow.Index].Cells[6], Color.LightBlue);
@@ -962,27 +964,32 @@ namespace Eltit
         {
             if (gvInforme.Rows.Count > 0)
             {
+                int fila = gvInforme.CurrentRow.Index;
+
+                string local = ddLlocales.Text.Substring(0, 2);
+                string tipoDTE = ddlTipoDocumento.Text.Substring(0, 2);
+                string folioSII = Convert.ToInt32(gvInforme.Rows[fila].Cells[1].Value.ToString()).ToString();
+                string fechaEmision = gvInforme.Rows[fila].Cells[2].Value.ToString();
+                fechaEmision = fechaEmision.Substring(6, 4) + "-" + fechaEmision.Substring(3, 2) + "-" + fechaEmision.Substring(0, 2);
+
+
                 if (gvInforme.CurrentCell.ColumnIndex == 10)
                 {
 
-                    MessageBox.Show("esta es xml");
+                    this.CargaXML(local, tipoDTE, folioSII, fechaEmision);
                     
                 }
 
                 if (gvInforme.CurrentCell.ColumnIndex == 11)
-                {
-                    int fila = gvInforme.CurrentRow.Index;
-                    string tipoDTE  = ddlTipoDocumento.Text.Substring(0,2);
-                    string folioSII =  Convert.ToInt32(gvInforme.Rows[fila].Cells[1].Value.ToString()).ToString();
-                    string local    = ddLlocales.Text.Substring(0,2);
-                    string caja     = gvInforme.Rows[fila].Cells[3].Value.ToString();
-                    string rutEmpresa = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
+                {   
+                    string caja         = gvInforme.Rows[fila].Cells[3].Value.ToString();
+                    string rutEmpresa   = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
                     //string nombreImpresora = "POS-80";
                     
-                    string fechaEmision = gvInforme.Rows[fila].Cells[2].Value.ToString();
-                    fechaEmision = fechaEmision.Substring(6, 4) + "-" + fechaEmision.Substring(3, 2) + "-" + fechaEmision.Substring(0, 2);
+                    
                     string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
-                    Boolean impCedible = Convert.ToBoolean( gvInforme.Rows[fila].Cells[12].Value);
+                    Boolean impCedible = Convert.ToBoolean(gvInforme.Rows[fila].Cells[12].Value);
+                    Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[13].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
                     List<string> formaPago = new List<string>();
                     doc = new Documentos(FuncionesClass.G_SERVIDORMASTER,FuncionesClass.G_MYSQL_USER,FuncionesClass.G_MYSQL_PASS);
@@ -993,9 +1000,51 @@ namespace Eltit
                     this.imprimeFactura(tipoDTE,fechaEmision,folioSII,local,caja,rutEmpresa,formaPago,tipoInterno, impCedible,cajera);
                 }
 
+                if (gvInforme.CurrentCell.ColumnIndex == 13)
+                {
+                    
+                }
+
             }
         }
 
+        private void GetRutSucursal()
+        {
+
+        }
+
+        private void CargaXML(string xLocal,string xTipoDTE, string xFolio, string xFecha)
+        {
+
+            DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
+            string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
+
+            XmlGridViewSample.Form1 frm = new XmlGridViewSample.Form1();
+
+            if (!XML.Contains("<?xml version"))
+            {
+                XML = "<?xml version='1.0' encoding='ISO-8859-1' ?>" + XML;
+            }
+
+
+            FileStream fst;
+            BinaryWriter bw;
+            string tmp_path = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
+            string tmp_path2 = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
+            fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
+            bw = new BinaryWriter(fst);
+            string strxml = XML;
+            Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
+            byte[] textEnBytes = ByteConverter.GetBytes(strxml);
+            bw.Write(textEnBytes);
+            bw.Flush();
+            bw.Close();
+            bw.Dispose();
+
+
+            frm.txtFile.Text = tmp_path;
+            frm.ShowDialog();
+        }
         private string getNombreCajera(string xRut)
         {
             string salida = "";
@@ -1059,6 +1108,7 @@ namespace Eltit
             if ((int)e.KeyChar == (int)Keys.Enter && txxCajaFolios.Text != "")
             {
                 btnVer.Focus();
+                btnVer.Enabled = true;
             }
         }
 
