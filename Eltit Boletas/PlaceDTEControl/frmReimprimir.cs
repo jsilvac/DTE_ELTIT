@@ -990,7 +990,7 @@ namespace Eltit
                     
                     
                     Boolean impCedible = Convert.ToBoolean(gvInforme.Rows[fila].Cells[12].Value);
-                    Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[13].Value);
+                    Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[15].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
                     List<string> formaPago = new List<string>();
                     formaPago = doc.GetPagosByDocumento(local, tipoInterno, folioSII, caja, fechaEmision);
