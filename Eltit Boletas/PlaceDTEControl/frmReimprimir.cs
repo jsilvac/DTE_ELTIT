@@ -186,7 +186,8 @@ namespace Eltit
                 ddlTipoDocumento.Items.Add("-- SELECCIONE TIPO --");
                 ddlTipoDocumento.Items.Add("33 - Factura Electrónica ");
                 ddlTipoDocumento.Items.Add("39 - Boleta Electrónica ");
-                ddlTipoDocumento.Items.Add("61 - Notas de Credtito ");
+                ddlTipoDocumento.Items.Add("61 - Notas de Credtito facturas ");
+                ddlTipoDocumento.Items.Add("61 - Notas de Credtito boletas ");
                 ddlTipoDocumento.Items.Add("52 - Guias ");
 
                 ddlTipoDocumento.SelectedIndex = 0;
@@ -251,13 +252,13 @@ namespace Eltit
         }
         private void btnVer_Click(object sender, EventArgs e)
         {
-                //if(ddlEmpresas.SelectedIndex > 0 && ddLlocales.SelectedIndex > 0 )
-                txtNumero.Text = txtNumero.Text.PadLeft(10, Convert.ToChar("0"));
-                if (ddlEmpresas.SelectedIndex > 0 &&   ddLlocales.SelectedIndex > 0 && ddlTipoDocumento.SelectedIndex > 0)
+            //if(ddlEmpresas.SelectedIndex > 0 && ddLlocales.SelectedIndex > 0 )
+            txtNumero.Text = txtNumero.Text.PadLeft(10, Convert.ToChar("0"));
+            if (ddlEmpresas.SelectedIndex > 0 &&   ddLlocales.SelectedIndex > 0 && ddlTipoDocumento.SelectedIndex > 0)
             {
                 if (txxCajaFolios.Text.Length != 2)
                 {
-                    RadMessageBox.Show(this, "Debe Selecionar Una Caja de venta Válida. [" + txxCajaFolios.Text + "]", "Atencion", MessageBoxButtons.OK);
+                RadMessageBox.Show(this, "Debe Selecionar Una Caja de venta Válida. [" + txxCajaFolios.Text + "]", "Atencion", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -990,7 +991,7 @@ namespace Eltit
                     
                     
                     Boolean impCedible = Convert.ToBoolean(gvInforme.Rows[fila].Cells[12].Value);
-                    Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[15].Value);
+                    //Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[15].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
                     List<string> formaPago = new List<string>();
                     formaPago = doc.GetPagosByDocumento(local, tipoInterno, folioSII, caja, fechaEmision);

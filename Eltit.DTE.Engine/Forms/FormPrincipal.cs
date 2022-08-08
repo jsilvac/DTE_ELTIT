@@ -307,14 +307,22 @@ namespace Eltit.DTE.Forms
 
             foreach (PlaceSoft.DTE.Engine.Documento.Detalle detalle in listDetalles)
             {
+                List<PlaceSoft.DTE.Engine.Documento.CodigoItem> listCodigo = new List<PlaceSoft.DTE.Engine.Documento.CodigoItem>();
+                listCodigo = detalle.CodigosItem;
+                string codigo ="";
+                foreach (PlaceSoft.DTE.Engine.Documento.CodigoItem fila in listCodigo)
+                {
+                    codigo = fila.ValorCodigo;
+                }
+
 
                 double cantidad = detalle.Cantidad;
                 string descripcion = detalle.Nombre;
                 string descripcion2 = "";
-                if (detalle.Nombre.Length > 25)
+                if (detalle.Nombre.Length > 28)
                 {
-                    descripcion = detalle.Nombre.Substring(0, 25);
-                    descripcion2 = detalle.Nombre.Substring(25, detalle.Nombre.Length - 25);
+                    descripcion = detalle.Nombre.Substring(0, 28);
+                   // descripcion2 = detalle.Nombre.Substring(25, detalle.Nombre.Length - 25);
                 }
 
                 string totallinea = string.Format(CultureInfo.CurrentCulture, "{0:C0}", detalle.MontoItem);
@@ -329,9 +337,14 @@ namespace Eltit.DTE.Forms
                 int pad = 183 + (6 - totallinea.Length) * 3;
                 int pad2 = 133 + (6 - preciolinea.Length) * 3;
                 int pad3 = 5 + (3 - cantidad.ToString().Length) * 3;
+
+
                 e.Graphics.DrawString(cantidad.ToString(), printFoot, Brushes.Black, pad3, y);
-                e.Graphics.DrawString(descripcion, printFoot, Brushes.Black, 23, y);
-                e.Graphics.DrawString(descripcion2, printFoot, Brushes.Black, 23, y + 6);
+
+
+                e.Graphics.DrawString(codigo.ToString(), printFoot, Brushes.Black, 23, y);
+                e.Graphics.DrawString(descripcion , printFoot, Brushes.Black, 23, y + 6);
+               // e.Graphics.DrawString(descripcion2, printFoot, Brushes.Black, 23, y + 6);
                 e.Graphics.DrawString(preciolinea, printFoot, Brushes.Black, pad2, y + 6);
                 e.Graphics.DrawString(porDescuento, printFoot, Brushes.Black, 162, y + 6);
                 e.Graphics.DrawString(totallinea, printFoot, Brushes.Black, pad, y + 6);

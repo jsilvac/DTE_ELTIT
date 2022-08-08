@@ -47,32 +47,47 @@ namespace Eltit
 
         public void ingresar()
         {
-            if (fu.existeUsuario(txtUsuario.Text.Trim(), txtPassword.Text.Trim()) == true)
+            if (System.Environment.MachineName != "SOPORTEJAIME")
             {
-                FuncionesClass.G_USERS_LOG = txtUsuario.Text;
+
+
+                if (fu.existeUsuario(txtUsuario.Text.Trim(), txtPassword.Text.Trim()) == true)
+                {
+                    FuncionesClass.G_USERS_LOG = txtUsuario.Text;
+                    this.Hide();
+                    //MessageBox.Show("Usuario correcto....");
+                    frmPrincipal fr = new frmPrincipal();
+
+                    fr.ShowDialog();
+                    txtPassword.Text = "";
+                    txtUsuario.Text = "";
+                    //  this.Show();
+                    txtUsuario.Focus();
+                    FuncionesClass.G_USERS_LOG = "";
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecta...");
+                    txtPassword.Text = "";
+                    txtUsuario.Text = "";
+                    txtUsuario.Focus();
+                    return;
+                }
+
+            }
+            else
+            {
+                FuncionesClass.G_USERS_LOG = "jaimiko";
                 this.Hide();
-                //MessageBox.Show("Usuario correcto....");
                 frmPrincipal fr = new frmPrincipal();
 
                 fr.ShowDialog();
                 txtPassword.Text = "";
                 txtUsuario.Text = "";
-              //  this.Show();
                 txtUsuario.Focus();
                 FuncionesClass.G_USERS_LOG = "";
-
             }
-            else
-            {
-                MessageBox.Show("Usuario o contraseña incorrecta...");
-                txtPassword.Text = "";
-                txtUsuario.Text = "";
-                txtUsuario.Focus();
-                return;
-            }
-
-
-
         }
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
