@@ -35,7 +35,6 @@ namespace PlaceDTE
         string PDFPathCedible = "";
         string PDFPathTributario = "";
 
-        DTE dte;
         iTextSharp.text.Image jpg;
         public string DOC_SERVIDOR = "";
         public string DOC_PREFIJO = "";
@@ -52,8 +51,17 @@ namespace PlaceDTE
         public string DOC_VENDEDOR = "";
         public bool ENVIAR_IMPRIMIR = false;
         public string DOC_RUT_BASE = "";
+        public string DOC_XML;
+        public PlaceSoft.DTE.Engine.Documento.DTE dte;
+        public DatosEmisor emisor;
+        public string _BASE_FOLDER_PROD = @"C:\PlaceDTE\eltit\comun";
+
 
         [DllImport("shell32.dll")]
+
+
+
+
         private static extern long FindExecutable(string lpFile, string lpDirectory, [Out] StringBuilder lpResult);
 
         public frmGeneraPDF2()
@@ -80,22 +88,31 @@ namespace PlaceDTE
             //log.Debug(" Carga Configuración Inicial");
             this.InicializaControlesDeEmpresa();
             log.Debug(" InicializaControlesDeEmpresa()");
-            _CURR_COMPANY = FuncionesClass.G_EMPRESAACTIVA;
-        
-            lblInformacion.Text = "EMPRESA: " + FuncionesClass.G_EMPRESANOMBRE;
+
+            
+
             radGroupBox1.GroupBoxElement.Header.Font = new System.Drawing.Font("Arial", 6);
 
-            string rut = lblRut.Text.Substring(0, 9);
-            rut = Convert.ToDouble(rut).ToString();
+            //string rut = lblRut.Text.Substring(0, 9);
+            //rut = Convert.ToDouble(rut).ToString();
 
-            PDFPathCedible =  FuncionesClass._BASE_FOLDER_PROD + @"templates\Plantilla-Cedible.pdf";
-            PDFPathTributario =  FuncionesClass._BASE_FOLDER_PROD + @"templates\Plantilla-Tributario.pdf";
+            PDFPathCedible = _BASE_FOLDER_PROD + @"\plantillas\eltit-cedible.pdf";
+            PDFPathTributario =  _BASE_FOLDER_PROD + @"\plantillas\eltit-tributario.pdf";
 
-            this.btnGenerar_Click(null, null);
-            System.Threading.Thread.Sleep(2000);
+            generaDTE();
+
+           // this.btnGenerar_Click(null, null);
+           // System.Threading.Thread.Sleep(2000);
             
         }
 
+        private void generaDTE()
+        {
+            dte = PlaceSoft.DTE.Engine.XML.XmlHandler.DeserializeFromString<PlaceSoft.DTE.Engine.Documento.DTE>(DOC_XML);
+            pictureBoxTimbre.Image = dte.Documento.TimbrePDF417;
+
+            this.btnGenerar_Click(null, null);
+        }
 
         private void InicializaControlesDeEmpresa()
         {
@@ -120,8 +137,10 @@ namespace PlaceDTE
             {
                 if(1==1)
                 {
-                         destinoDTE1 = FuncionesClass._BASE_FOLDER_PROD +@"pdf\" + DOC_LOCAL + @"\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + ".pdf";
-                         destinoDTE2 = FuncionesClass._BASE_FOLDER_PROD + @"pdf\" + DOC_LOCAL + @"\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + "-Cedible.pdf";
+                         destinoDTE1 = _BASE_FOLDER_PROD + @"\pdf\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + ".pdf";
+                         destinoDTE2 = _BASE_FOLDER_PROD + @"\pdf\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + "-Cedible.pdf";
+
+                    jpg = iTextSharp.text.Image.GetInstance(dte.Documento.TimbrePDF417, System.Drawing.Imaging.ImageFormat.Jpeg);
 
                     if (!File.Exists(destinoDTE1))
                     {
@@ -152,15 +171,10 @@ namespace PlaceDTE
                                     this.SendToPrinter(destinoDTE2, 1);
                                     log.Debug("-IMPRIMIENDO IMPRIMIR_PDF_DTE " + destinoDTE2);
                                 }
-                                                             
+                                                          
                             
                         }
                     }
-                       
-                    
-
-
-
 
                 }          
 
@@ -494,25 +508,25 @@ namespace PlaceDTE
                 }
 
                 //// nueva region para mostrar la forma de pago ////////////////
-                VentasClass ve = new VentasClass();
+                //VentasClass ve = new VentasClass();
                 
                 string medio = "";
-                if(formaPago == "CONTADO")
-                {
-                    medio = ve.LeeFormaPago(DOC_LOCAL, DOC_TIPO, DOC_NUMERO, DOC_CAJA, DOC_CLIENTE.Replace("-", "").PadLeft(10, Convert.ToChar("0")));
-                    formaPago = formaPago + " / " + medio;
-                }
-                else
-                {
-                    medio = ve.LeeFormaPago(DOC_LOCAL, DOC_TIPO, DOC_NUMERO, DOC_CAJA, DOC_CLIENTE.Replace("-", "").PadLeft(10, Convert.ToChar("0")));
-                    formaPago = "CREDITO";
-                    if (medio == "CONTRA ENTREGA")
-                    {
-                        formaPago = medio;
-                    }
+                //if(formaPago == "CONTADO")
+                //{
+                //    medio = ve.LeeFormaPago(DOC_LOCAL, DOC_TIPO, DOC_NUMERO, DOC_CAJA, DOC_CLIENTE.Replace("-", "").PadLeft(10, Convert.ToChar("0")));
+                //    formaPago = formaPago + " / " + medio;
+                //}
+                //else
+                //{
+                //    medio = ve.LeeFormaPago(DOC_LOCAL, DOC_TIPO, DOC_NUMERO, DOC_CAJA, DOC_CLIENTE.Replace("-", "").PadLeft(10, Convert.ToChar("0")));
+                //    formaPago = "CREDITO";
+                //    if (medio == "CONTRA ENTREGA")
+                //    {
+                //        formaPago = medio;
+                //    }
 
                    
-                }
+                //}
 
                 if (dte.Documento.Encabezado.IdentificacionDTE.TipoDTE == PlaceSoft.DTE.Engine.Enum.TipoDTE.DTEType.GuiaDespachoElectronica)
                 {
@@ -729,20 +743,20 @@ namespace PlaceDTE
         private string GetSectorCliente(string xRut)
         {
             string salida = "";
-            ClientesClass cli = new ClientesClass(,);
-            MySqlDataReader dr = null;
+            //ClientesClass cli = new ClientesClass(,);
+            //MySqlDataReader dr = null;
 
-            dr = cli.getClienteByRut(xRut, "000");
-            if (dr.HasRows == true)
-            {
-                if(dr.Read())
-                {
-                    salida = dr["sector"].ToString();
-                }
-            }
+            //dr = cli.getClienteByRut(xRut, "000");
+            //if (dr.HasRows == true)
+            //{
+            //    if(dr.Read())
+            //    {
+            //        salida = dr["sector"].ToString();
+            //    }
+            //}
 
-            dr.Close();
-            cli.CerrarTransaccion();
+            //dr.Close();
+            //cli.CerrarTransaccion();
 
             return salida;
         }

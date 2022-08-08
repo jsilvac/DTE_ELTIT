@@ -13,6 +13,7 @@ using PlaceSoft.Eltit.Class.clases;
 using PlaceSoft.Eltit.Functions;
 using PlaceSoftDTE.clases;
 using Eltit.DTE.Forms;
+using PlaceDTE;
 
 namespace Eltit
 {
@@ -1003,28 +1004,47 @@ namespace Eltit
 
                 if (gvInforme.CurrentCell.ColumnIndex == 15)
                 {
-                    MySqlDataReader getCabeza = doc.GetDocumentoCabeza(local,tipoInterno,folioSII,caja,fechaEmision);
-                    string rut = "";
-                    string sucural = "";
+                    //MySqlDataReader getCabeza = doc.GetDocumentoCabeza(local,tipoInterno,folioSII,caja,fechaEmision);
+                    //string rut = "";
+                    //string sucural = "";
 
-                    if (getCabeza.HasRows == true)
-                    {
-                        if (getCabeza.Read())
-                        {
-                            rut = getCabeza[7].ToString();
-                            sucural = getCabeza[8].ToString();
-                        }
-                    }
-                    if (rut != "" && sucural != "")
-                    {
-                        this.GetRutSucursal(rut, sucural);
-                    } else
-                    {
-                        MessageBox.Show("La sucursal y/o el rut se encuentra vacío.");
-                    }
+                    //if (getCabeza.HasRows == true)
+                    //{
+                    //    if (getCabeza.Read())
+                    //    {
+                    //        rut = getCabeza[7].ToString();
+                    //        sucural = getCabeza[8].ToString();
+                    //    }
+                    //}
+                    //if (rut != "" && sucural != "")
+                    //{
+                    //    this.GetRutSucursal(rut, sucural);
+                    //} else
+                    //{
+                    //    MessageBox.Show("La sucursal y/o el rut se encuentra vacío.");
+                    //}
+
+                    this.generaPDF(local, tipoDTE, folioSII, fechaEmision);
                 }
 
             }
+        }
+
+        private void generaPDF(string xLocal, string xTipoDTE, string xFolio, string xFecha)
+        {
+            DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
+            string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
+
+            frmGeneraPDF2 este = new frmGeneraPDF2();
+
+            este.DOC_XML= XML;
+            este.DOC_FOLIOSII = xFolio;
+            este.DOC_TIPOSII = xTipoDTE;
+            este.DOC_LOCAL = xLocal;
+
+            este.ShowDialog();
+
+
         }
 
         private void GetRutSucursal(string xRut, string xSucursal)
