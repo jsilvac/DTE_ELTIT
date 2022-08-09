@@ -22,6 +22,7 @@ using System.Runtime.InteropServices;
 using PdfSharp.Pdf.Printing;
 using Eltit.DTE.clases;
 using PlaceSoftDTE.clases;
+using System.Xml;
 
 namespace PlaceDTE
 {
@@ -52,6 +53,12 @@ namespace PlaceDTE
         public bool ENVIAR_IMPRIMIR = false;
         public string DOC_RUT_BASE = "";
         public string DOC_XML;
+        // Cabecera PDF
+        public string DOC_RAZONSOCIAL = "";
+        public string DOC_GIRO = "";
+        public string DOC_CMATRIZ = "";
+        // DOC_FONO
+
         public PlaceSoft.DTE.Engine.Documento.DTE dte;
         public DatosEmisor emisor;
         public string _BASE_FOLDER_PROD = @"C:\PlaceDTE\eltit\comun";
@@ -109,10 +116,71 @@ namespace PlaceDTE
         private void generaDTE()
         {
             dte = PlaceSoft.DTE.Engine.XML.XmlHandler.DeserializeFromString<PlaceSoft.DTE.Engine.Documento.DTE>(DOC_XML);
+            this.CapturaGiro();
             pictureBoxTimbre.Image = dte.Documento.TimbrePDF417;
 
             this.btnGenerar_Click(null, null);
         }
+
+        private string CapturaGiro()
+        {
+            string salida = "";
+            MySqlDataReader dr = emisor.GetDatosEmisor(DOC_LOCAL);
+
+            if (dr.Read())
+            {
+                while (dr.HasRows)
+                {
+                    DOC_GIRO = dr["nombre"].ToString();
+
+                }
+            }
+            return salida;
+
+        }
+
+        //private void CapturaDatosEmisor(string DOC_XML)
+        //{
+        //    try
+        //    {
+        //        string salida = "";
+        //        List<string> archivoXML = new List<string>();
+        //        archivoXML.Add(DOC_XML);
+
+        //        foreach (string fila in archivoXML)
+        //        {
+        //            salida = archivoXML[2];
+        //        }
+
+        //        //String ruta = "";
+        //        XmlDocument xmlDoc = new XmlDocument();
+        //        //ruta = "ConfigDTEControl.xml";
+        //        xmlDoc.Load(DOC_XML);
+
+        //        XmlNodeList nodeList = xmlDoc.GetElementsByTagName("documento");
+        //        XmlNodeList x_emisor = ((XmlElement)nodeList[0]).GetElementsByTagName("Emisor");
+        //        string get_giro = this.CapturaGiro();
+
+        //        foreach (XmlElement nodo in nodeList)
+        //        {
+        //            foreach(XmlElement datos in x_emisor)
+        //            {
+        //                XmlNodeList razon_social = nodo.GetElementsByTagName("RznSoc");
+        //                XmlNodeList dir_origen = nodo.GetElementsByTagName("DirOrigen");
+
+        //                DOC_RAZONSOCIAL = razon_social[0].InnerText;
+        //                DOC_CMATRIZ = dir_origen[0].InnerText;
+        //                DOC_GIRO = get_giro;
+        //            }
+                    
+
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log.Error("Error:", ex);
+        //    }
+        //}
 
         private void InicializaControlesDeEmpresa()
         {
@@ -436,14 +504,18 @@ namespace PlaceDTE
                 BaseFont FontNroytipo = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseFont FontNormal = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseFont FontItalic = BaseFont.CreateFont(BaseFont.TIMES_ITALIC, BaseFont.WINANSI, BaseFont.EMBEDDED);
+                BaseFont FonstStrong = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseColor bColorRed = new BaseColor(Color.Red);
                 BaseColor bColorBlack = new BaseColor(Color.Black);
+                
                 iTextSharp.text.Font fontRed = new iTextSharp.text.Font(FontNroytipo, 9, 0, bColorRed);
                 iTextSharp.text.Font fontBlack = new iTextSharp.text.Font(FontNormal, 9, 0, bColorBlack);
+                iTextSharp.text.Font fontBlackUltra = new iTextSharp.text.Font(FonstStrong, 9, 0, bColorBlack);
                 iTextSharp.text.Font fontTotales = new iTextSharp.text.Font(FontNroytipo, 9, 0, bColorBlack);
                 iTextSharp.text.Font fontdescripcion = new iTextSharp.text.Font(FontItalic,6, 0, bColorBlack); // new Font(bfTimes, 12, Font.ITALIC, Color.RED)
                 fontRed.Size = 9;
                 fontBlack.Size = 8;
+                fontBlackUltra.Size = 11;
 
                 iTextSharp.text.Font fontNumero = new iTextSharp.text.Font(FontNroytipo, 9, 0, bColorRed);
                 fontNumero.Size = (float)11.5;
@@ -473,9 +545,17 @@ namespace PlaceDTE
                     ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("GUÍA DE DESPACHO", fontRed), 490f, 785f, 0);
                     ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("ELECTRÓNICA", fontRed), 490f, 775f, 0);
                 }
+                //// sector encabex¿zado emisor////
+                ///
+
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(DOC_RAZONSOCIAL, fontBlackUltra ), (float)191, 818f, 0);
+
+
+
                 // FOLIO DOCUMENTO
                 ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("N° " + dte.Documento.Encabezado.IdentificacionDTE.Folio.ToString().PadLeft(10, Convert.ToChar("0")), fontNumero), 489f, 760f, 0);
                 // RAZON SOCIAL
+                
                 ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(dte.Documento.Encabezado.Receptor.RazonSocial, fontBlack), (float)85, (float)688, 0);
                 // DIRECCION
 

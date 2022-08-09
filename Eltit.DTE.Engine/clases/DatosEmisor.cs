@@ -39,7 +39,7 @@ namespace Eltit.DTE.clases
             mysql_password = "desarrollo_1990";
             this.CargaEmisor(xRut, xLocal);
         }
-        private void CargaEmisor(string xRut, string xLocal)
+        public void CargaEmisor(string xRut, string xLocal)
         {
             string query = "";
             MySqlDataReader dr;
@@ -89,6 +89,37 @@ namespace Eltit.DTE.clases
 
 
         }
+
+        public MySqlDataReader GetDatosEmisor(string xLocal)
+        {
+            // El código hace referencia al código del local, por ejemplo "Local 00"
+            string query = "";
+            MySqlDataReader dr = null;
+            query = "SELECT cl.codigo,me.nombre,me.direccion,me.comuna,me.rut,me.girodte,cl.codigo_sucursal_sii ";
+            query += "FROM  maestroempresas AS me ";
+            query += "LEFT JOIN clientes_locales AS cl ON cl.codigo_contable=me.codigoempresa AND  cl.rubro=me.rubro ";
+            query += " WHERE codigo = '"+xLocal+"' LIMIT 1 ";
+            try
+            {
+                Conectar cnn = new Conectar(mysql_server, cliente + "manager", "sistema", this.mysql_password);
+                if (cnn.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows == true)
+                    {
+                        return dr;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message.ToString());
+            }
+
+            return dr;
+        }
+
         private List<string> GetDirecciones(string xcodigoConta)
         {
             List<string> salida=  null;
