@@ -806,7 +806,7 @@
             this.RadPageView1.Controls.Add(this.Datos);
             this.RadPageView1.Location = new System.Drawing.Point(12, 9);
             this.RadPageView1.Name = "RadPageView1";
-            this.RadPageView1.SelectedPage = this.RadPageViewPage1;
+            this.RadPageView1.SelectedPage = this.Datos;
             this.RadPageView1.Size = new System.Drawing.Size(475, 148);
             this.RadPageView1.TabIndex = 44;
             this.RadPageView1.Text = "Documento";

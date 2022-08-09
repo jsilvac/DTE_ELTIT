@@ -30,6 +30,7 @@ namespace Eltit.DTE.clases
         private string mysql_password;
         private string codigo_sucursal_sii;
         private List<string> direcciones;
+        private string rutFormat;
 
         public DatosEmisor(string xRut, string xCliente, string xServer, string xLocal)
         {
@@ -58,6 +59,7 @@ namespace Eltit.DTE.clases
                         if (dr.Read())
                         {
                             this.Rut = dr["rut"].ToString();
+                            this.rutFormat = rut.Substring(0, 2) + "." + rut.Substring(2, 3) + "." + rut.Substring(5, rut.Length-5);
                             this.Razon = dr["nombre"].ToString();
                             this.Direccion = dr["direccion"].ToString();
                             this.Comuna = dr["comuna"].ToString();
@@ -185,5 +187,6 @@ namespace Eltit.DTE.clases
         public string Img { get => img; set => img = value; }
         public string Codigo_sucursal_sii { get => codigo_sucursal_sii; set => codigo_sucursal_sii = value; }
         public List<string> Direcciones { get => direcciones; set => direcciones = value; }
+        public string RutFormat { get => rutFormat; set => rutFormat = value; }
     }
 }

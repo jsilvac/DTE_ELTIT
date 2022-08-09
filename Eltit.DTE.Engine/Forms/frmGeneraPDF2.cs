@@ -54,14 +54,17 @@ namespace PlaceDTE
         public string DOC_RUT_BASE = "";
         public string DOC_XML;
         // Cabecera PDF
-        public string DOC_RAZONSOCIAL = "";
-        public string DOC_GIRO = "";
-        public string DOC_CMATRIZ = "";
+        //public string DOC_RAZONSOCIAL = "";
+        //public string DOC_GIRO = "";
+        //public string DOC_CMATRIZ = "";
+        //public string DOC_COMUNA = "";
+        //public string DOC_SUCURSALSII = "";
+
         // DOC_FONO
 
         public PlaceSoft.DTE.Engine.Documento.DTE dte;
         public DatosEmisor emisor;
-        public string _BASE_FOLDER_PROD = @"C:\PlaceDTE\eltit\comun";
+        public string _BASE_FOLDER_PROD = "";
 
 
         [DllImport("shell32.dll")]
@@ -96,15 +99,15 @@ namespace PlaceDTE
             this.InicializaControlesDeEmpresa();
             log.Debug(" InicializaControlesDeEmpresa()");
 
-            
+            _BASE_FOLDER_PROD = @"C:\PlaceDTE\eltit\"+ DOC_RUT_BASE.Substring(0,8) +@"\Produccion";
 
             radGroupBox1.GroupBoxElement.Header.Font = new System.Drawing.Font("Arial", 6);
 
             //string rut = lblRut.Text.Substring(0, 9);
             //rut = Convert.ToDouble(rut).ToString();
 
-            PDFPathCedible = _BASE_FOLDER_PROD + @"\plantillas\eltit-cedible.pdf";
-            PDFPathTributario =  _BASE_FOLDER_PROD + @"\plantillas\eltit-tributario.pdf";
+            PDFPathCedible = @"C:\PlaceDTE\eltit\comun\plantillas\eltit-cedible.pdf";
+            PDFPathTributario = @"C:\PlaceDTE\eltit\comun\plantillas\eltit-tributario.pdf";
 
             generaDTE();
 
@@ -116,71 +119,14 @@ namespace PlaceDTE
         private void generaDTE()
         {
             dte = PlaceSoft.DTE.Engine.XML.XmlHandler.DeserializeFromString<PlaceSoft.DTE.Engine.Documento.DTE>(DOC_XML);
-            this.CapturaGiro();
+            //this.CapturaGiro();
             pictureBoxTimbre.Image = dte.Documento.TimbrePDF417;
+            emisor = new DatosEmisor(DOC_RUT_BASE, "eltit_","192.168.4.9", DOC_LOCAL);
+
+
 
             this.btnGenerar_Click(null, null);
         }
-
-        private string CapturaGiro()
-        {
-            string salida = "";
-            MySqlDataReader dr = emisor.GetDatosEmisor(DOC_LOCAL);
-
-            if (dr.Read())
-            {
-                while (dr.HasRows)
-                {
-                    DOC_GIRO = dr["nombre"].ToString();
-
-                }
-            }
-            return salida;
-
-        }
-
-        //private void CapturaDatosEmisor(string DOC_XML)
-        //{
-        //    try
-        //    {
-        //        string salida = "";
-        //        List<string> archivoXML = new List<string>();
-        //        archivoXML.Add(DOC_XML);
-
-        //        foreach (string fila in archivoXML)
-        //        {
-        //            salida = archivoXML[2];
-        //        }
-
-        //        //String ruta = "";
-        //        XmlDocument xmlDoc = new XmlDocument();
-        //        //ruta = "ConfigDTEControl.xml";
-        //        xmlDoc.Load(DOC_XML);
-
-        //        XmlNodeList nodeList = xmlDoc.GetElementsByTagName("documento");
-        //        XmlNodeList x_emisor = ((XmlElement)nodeList[0]).GetElementsByTagName("Emisor");
-        //        string get_giro = this.CapturaGiro();
-
-        //        foreach (XmlElement nodo in nodeList)
-        //        {
-        //            foreach(XmlElement datos in x_emisor)
-        //            {
-        //                XmlNodeList razon_social = nodo.GetElementsByTagName("RznSoc");
-        //                XmlNodeList dir_origen = nodo.GetElementsByTagName("DirOrigen");
-
-        //                DOC_RAZONSOCIAL = razon_social[0].InnerText;
-        //                DOC_CMATRIZ = dir_origen[0].InnerText;
-        //                DOC_GIRO = get_giro;
-        //            }
-                    
-
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        log.Error("Error:", ex);
-        //    }
-        //}
 
         private void InicializaControlesDeEmpresa()
         {
@@ -205,8 +151,8 @@ namespace PlaceDTE
             {
                 if(1==1)
                 {
-                         destinoDTE1 = _BASE_FOLDER_PROD + @"\pdf\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + ".pdf";
-                         destinoDTE2 = _BASE_FOLDER_PROD + @"\pdf\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + "-Cedible.pdf";
+                         destinoDTE1 = _BASE_FOLDER_PROD + @"\pdf\" + DOC_LOCAL + @"\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + ".pdf";
+                         destinoDTE2 = _BASE_FOLDER_PROD + @"\pdf\" + DOC_LOCAL + @"\DTE" + DOC_TIPOSII + "F" + Convert.ToInt32(DOC_FOLIOSII) + "-Cedible.pdf";
 
                     jpg = iTextSharp.text.Image.GetInstance(dte.Documento.TimbrePDF417, System.Drawing.Imaging.ImageFormat.Jpeg);
 
@@ -505,17 +451,21 @@ namespace PlaceDTE
                 BaseFont FontNormal = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseFont FontItalic = BaseFont.CreateFont(BaseFont.TIMES_ITALIC, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseFont FonstStrong = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.WINANSI, BaseFont.EMBEDDED);
+                BaseFont FonstBaseSii = BaseFont.CreateFont(BaseFont.COURIER, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseColor bColorRed = new BaseColor(Color.Red);
                 BaseColor bColorBlack = new BaseColor(Color.Black);
-                
+                BaseColor bColorRazonSocial = new BaseColor(Color.DarkBlue);
+
                 iTextSharp.text.Font fontRed = new iTextSharp.text.Font(FontNroytipo, 9, 0, bColorRed);
                 iTextSharp.text.Font fontBlack = new iTextSharp.text.Font(FontNormal, 9, 0, bColorBlack);
-                iTextSharp.text.Font fontBlackUltra = new iTextSharp.text.Font(FonstStrong, 9, 0, bColorBlack);
+                iTextSharp.text.Font fontSii = new iTextSharp.text.Font(FonstBaseSii, 9, 0, bColorRed);
+                iTextSharp.text.Font fontBlackUltra = new iTextSharp.text.Font(FonstStrong, 9, 0, bColorRazonSocial);
                 iTextSharp.text.Font fontTotales = new iTextSharp.text.Font(FontNroytipo, 9, 0, bColorBlack);
                 iTextSharp.text.Font fontdescripcion = new iTextSharp.text.Font(FontItalic,6, 0, bColorBlack); // new Font(bfTimes, 12, Font.ITALIC, Color.RED)
                 fontRed.Size = 9;
                 fontBlack.Size = 8;
                 fontBlackUltra.Size = 11;
+                fontSii.Size = 11;
 
                 iTextSharp.text.Font fontNumero = new iTextSharp.text.Font(FontNroytipo, 9, 0, bColorRed);
                 fontNumero.Size = (float)11.5;
@@ -545,11 +495,14 @@ namespace PlaceDTE
                     ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("GUÍA DE DESPACHO", fontRed), 490f, 785f, 0);
                     ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("ELECTRÓNICA", fontRed), 490f, 775f, 0);
                 }
-                //// sector encabex¿zado emisor////
-                ///
+                // sector encabezado emisor
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.Razon, fontBlackUltra ), (float)170, 818f, 0);
 
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(DOC_RAZONSOCIAL, fontBlackUltra ), (float)191, 818f, 0);
-
+                // RUT EMISOR
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.RutFormat, fontSii), 504f, 804f, 0);
+                 
+                // CODIGO SII
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.Sii, fontSii), 496f, 732f, 0);
 
 
                 // FOLIO DOCUMENTO

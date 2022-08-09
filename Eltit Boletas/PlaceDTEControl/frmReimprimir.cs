@@ -1024,19 +1024,19 @@ namespace Eltit
                     //    MessageBox.Show("La sucursal y/o el rut se encuentra vacío.");
                     //}
 
-                    this.generaPDF(local, tipoDTE, folioSII, fechaEmision);
+                    this.generaPDF(local, tipoDTE, folioSII, fechaEmision, rutEmpresa);
                 }
 
             }
         }
 
-        private void generaPDF(string xLocal, string xTipoDTE, string xFolio, string xFecha)
+        private void generaPDF(string xLocal, string xTipoDTE, string xFolio, string xFecha, string xRutEmpresa)
         {
             DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
             string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
 
             frmGeneraPDF2 este = new frmGeneraPDF2();
-
+            este.DOC_RUT_BASE = xRutEmpresa;
             este.DOC_XML= XML;
             este.DOC_FOLIOSII = xFolio;
             este.DOC_TIPOSII = xTipoDTE;
