@@ -451,7 +451,7 @@ namespace PlaceDTE
                 BaseFont FontNormal = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseFont FontItalic = BaseFont.CreateFont(BaseFont.TIMES_ITALIC, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseFont FonstStrong = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.WINANSI, BaseFont.EMBEDDED);
-                BaseFont FonstBaseSii = BaseFont.CreateFont(BaseFont.COURIER, BaseFont.WINANSI, BaseFont.EMBEDDED);
+                BaseFont FonstBaseSii = BaseFont.CreateFont(BaseFont.COURIER_BOLD, BaseFont.WINANSI, BaseFont.EMBEDDED);
                 BaseColor bColorRed = new BaseColor(Color.Red);
                 BaseColor bColorBlack = new BaseColor(Color.Black);
                 BaseColor bColorRazonSocial = new BaseColor(Color.DarkBlue);
@@ -496,13 +496,29 @@ namespace PlaceDTE
                     ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("ELECTRÓNICA", fontRed), 490f, 775f, 0);
                 }
                 // sector encabezado emisor
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.Razon, fontBlackUltra ), (float)170, 818f, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.Razon, fontBlackUltra ), (float)175, 818f, 0);
+
+                // GIRO EMISOR
+                if (emisor.Giro_1.Length>24)
+                {
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: " , fontTotales), (float)95, 800f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(0,50), fontBlack), (float)124, 800f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(50, emisor.Giro_1.Length-50), fontBlack), (float)124, 785f, 0);
+                }
+                else
+                {
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("GIRO: " + emisor.Giro_1, fontBlack), (float)250, 800f, 0);
+                }
+                
+             
+                
+                
 
                 // RUT EMISOR
                 ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.RutFormat, fontSii), 504f, 804f, 0);
-                 
+
                 // CODIGO SII
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.Sii, fontSii), 496f, 732f, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.Sii, fontSii), 498f, 732f, 0);
 
 
                 // FOLIO DOCUMENTO
