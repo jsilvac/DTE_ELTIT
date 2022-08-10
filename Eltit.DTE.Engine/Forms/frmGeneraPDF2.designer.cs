@@ -571,14 +571,16 @@
             // 
             // chkImprimeDirecto
             // 
+            this.chkImprimeDirecto.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkImprimeDirecto.Location = new System.Drawing.Point(801, 212);
             this.chkImprimeDirecto.Name = "chkImprimeDirecto";
             this.chkImprimeDirecto.Size = new System.Drawing.Size(112, 19);
             this.chkImprimeDirecto.TabIndex = 32;
             this.chkImprimeDirecto.Text = "Imprime Directo";
             this.chkImprimeDirecto.ThemeName = "TelerikMetroBlue";
+            this.chkImprimeDirecto.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
             // 
-            // frmGeneraPDF
+            // frmGeneraPDF2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -594,7 +596,7 @@
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.btnGenerar);
             this.MaximizeBox = false;
-            this.Name = "frmGeneraPDF";
+            this.Name = "frmGeneraPDF2";
             // 
             // 
             // 

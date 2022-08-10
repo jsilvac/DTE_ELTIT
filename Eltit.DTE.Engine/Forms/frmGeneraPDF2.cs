@@ -160,11 +160,44 @@ namespace PlaceDTE
                     {
                         this.CreaPDF(this.PDFPathTributario, destinoDTE1, this.jpg, this.dte);
                         log.Debug("-Generando " + destinoDTE1);
+                        ENVIAR_IMPRIMIR = true;
                     }
+                    else
+                    {
+                        try
+                        {
+                            File.Delete(destinoDTE1);                        
+                            System.Threading.Thread.Sleep(1000);
+                            this.CreaPDF(this.PDFPathTributario, destinoDTE1, this.jpg, this.dte);
+                            log.Debug("-Generando " + destinoDTE1);
+                            ENVIAR_IMPRIMIR = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Archivo no existe...");
+                        }
+                    }
+
                     if (!File.Exists(destinoDTE2))
                     {
                         this.CreaPDF(this.PDFPathCedible, destinoDTE2, this.jpg, this.dte);
                         log.Debug("-Generando " + destinoDTE2);
+                        ENVIAR_IMPRIMIR = true;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            File.Delete(destinoDTE2);
+                            System.Threading.Thread.Sleep(1000);
+                            this.CreaPDF(this.PDFPathCedible, destinoDTE2, this.jpg, this.dte);
+                            log.Debug("-Generando " + destinoDTE2);
+                            ENVIAR_IMPRIMIR = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Archivo no existe...");
+                        }
                     }
 
                     if(ENVIAR_IMPRIMIR == true )
@@ -184,9 +217,7 @@ namespace PlaceDTE
                                     System.Threading.Thread.Sleep(3000);
                                     this.SendToPrinter(destinoDTE2, 1);
                                     log.Debug("-IMPRIMIENDO IMPRIMIR_PDF_DTE " + destinoDTE2);
-                                }
-                                                          
-                            
+                                }      
                         }
                     }
 
@@ -495,24 +526,37 @@ namespace PlaceDTE
                     ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("GUÍA DE DESPACHO", fontRed), 490f, 785f, 0);
                     ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("ELECTRÓNICA", fontRed), 490f, 775f, 0);
                 }
-                // sector encabezado emisor
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.Razon, fontBlackUltra ), (float)175, 818f, 0);
+                ///////////////////////////////////// sector encabezado emisor///////////////////////////
+                ///
+                float espacio =0;
+
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Razon, fontBlackUltra ), (float)95, 818f, 0);
 
                 // GIRO EMISOR
-                if (emisor.Giro_1.Length>24)
+                if (emisor.Giro_1.Length>50)
                 {
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: " , fontTotales), (float)95, 800f, 0);
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(0,50), fontBlack), (float)124, 800f, 0);
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(50, emisor.Giro_1.Length-50), fontBlack), (float)124, 785f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: " , fontTotales), (float)95, 790f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(0,50), fontBlack), (float)124, 790f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(50, emisor.Giro_1.Length-50), fontBlack), (float)121, 780f, 0);
+                    espacio = 15;
                 }
                 else
                 {
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase("GIRO: " + emisor.Giro_1, fontBlack), (float)250, 800f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: ", fontTotales), (float)95, 790f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Giro_1, fontBlack), (float)124, 790f, 0);
                 }
-                
-             
-                
-                
+
+                ///// direccion emisor
+
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("DIRECCION: ", fontTotales), (float)95, 775f - espacio, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Direccion, fontBlack), (float)153, 775f - espacio, 0);
+
+                ///// TELEFONO
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("TELEFONO: ", fontTotales), (float)95, 760f - espacio, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("452-379500", fontBlack), (float)153, 760f - espacio, 0);
+
+                ///////////////////////////////// fin emisor//////////////////////////////////////////////////
+                ///
 
                 // RUT EMISOR
                 ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_CENTER, new Phrase(emisor.RutFormat, fontSii), 504f, 804f, 0);
