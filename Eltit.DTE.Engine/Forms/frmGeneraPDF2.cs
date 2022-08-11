@@ -53,6 +53,8 @@ namespace PlaceDTE
         public bool ENVIAR_IMPRIMIR = false;
         public string DOC_RUT_BASE = "";
         public string DOC_XML;
+        public string DOC_CONTACTO = "";
+        public string DOC_CORREO_CONTACTO = "";
         // Cabecera PDF
         //public string DOC_RAZONSOCIAL = "";
         //public string DOC_GIRO = "";
@@ -647,11 +649,11 @@ namespace PlaceDTE
                 
                 
                 /////// INFORMACION DE CONTACTO 
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(this.DOC_CLIENTE, fontBlack), (float)85, (float)605, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(this.DOC_CONTACTO, fontBlack), (float)85, (float)605, 0);
                 // FONO
                 ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(this.DOC_FONO, fontBlack), (float)265, (float)605, 0);
                 // VENDEDOR
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(this.DOC_VENDEDOR, fontBlack), (float)430, (float)605, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(this.DOC_CORREO_CONTACTO, fontBlack), (float)430, (float)605, 0);
 
 
                 ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("__", fontBlack), (float)1, (float)420, 0);
