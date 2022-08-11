@@ -56,6 +56,7 @@ namespace Eltit
         //private VentasClass cj;
         private Cajera cj;
         Documentos doc;
+        ClienteFactura clienteFactura;
 
 
         public frmReimprimir()
@@ -1004,26 +1005,6 @@ namespace Eltit
 
                 if (gvInforme.CurrentCell.ColumnIndex == 15)
                 {
-                    //MySqlDataReader getCabeza = doc.GetDocumentoCabeza(local,tipoInterno,folioSII,caja,fechaEmision);
-                    //string rut = "";
-                    //string sucural = "";
-
-                    //if (getCabeza.HasRows == true)
-                    //{
-                    //    if (getCabeza.Read())
-                    //    {
-                    //        rut = getCabeza[7].ToString();
-                    //        sucural = getCabeza[8].ToString();
-                    //    }
-                    //}
-                    //if (rut != "" && sucural != "")
-                    //{
-                    //    this.GetRutSucursal(rut, sucural);
-                    //} else
-                    //{
-                    //    MessageBox.Show("La sucursal y/o el rut se encuentra vacío.");
-                    //}
-
                     this.generaPDF(local, tipoDTE, folioSII, fechaEmision, rutEmpresa);
                 }
 
@@ -1035,24 +1016,40 @@ namespace Eltit
             DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
             string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
 
+            int fila = gvInforme.CurrentRow.Index;
+
             frmGeneraPDF2 este = new frmGeneraPDF2();
             este.DOC_RUT_BASE = xRutEmpresa;
             este.DOC_XML= XML;
             este.DOC_FOLIOSII = xFolio;
             este.DOC_TIPOSII = xTipoDTE;
             este.DOC_LOCAL = xLocal;
-
+            este.DOC_CLIENTE = GetClienteSucursal( gvInforme.Rows[fila].Cells[8].Value.ToString(),"0","nombre");
+            este.DOC_FONO = GetClienteSucursal(gvInforme.Rows[fila].Cells[8].Value.ToString(), "0", "fono1");
             este.ShowDialog();
 
 
         }
 
-        private void GetRutSucursal(string xRut, string xSucursal)
+        private string GetClienteSucursal(string xRut, string xSucursal, string xparametro)
         {
-            ClienteFactura clienteFactura = new ClienteFactura(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER);
+            string cli="";
+           clienteFactura = new ClienteFactura(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER);
 
             MySqlDataReader obtieneCliente = clienteFactura.GetClienteByRutSucursal(xRut, xSucursal);
+
+            if (obtieneCliente.HasRows)
+            {
+                if (obtieneCliente.Read())
+                {
+                    cli = obtieneCliente[xparametro].ToString();
+                }
+            }
+
+            return cli;
         }
+
+
 
         private void CargaXML(string xLocal,string xTipoDTE, string xFolio, string xFecha)
         {

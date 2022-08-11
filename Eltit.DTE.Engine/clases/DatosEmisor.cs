@@ -31,6 +31,7 @@ namespace Eltit.DTE.clases
         private string codigo_sucursal_sii;
         private List<string> direcciones;
         private string rutFormat;
+        private string cod_contable;
 
         public DatosEmisor(string xRut, string xCliente, string xServer, string xLocal)
         {
@@ -74,7 +75,8 @@ namespace Eltit.DTE.clases
                             //this.Img = dr["img"].ToString();
                             this.Email = dr["mailsalida"].ToString();
                             this.Codigo_sucursal_sii = this.LeeCodigoSucursalSII(xLocal);
-                            //this.direccion = 
+                            this.cod_contable = dr["codigoempresa"].ToString();
+                            this.direcciones = GetDirecciones(cod_contable, xLocal);
                         }
 
 
@@ -122,11 +124,41 @@ namespace Eltit.DTE.clases
             return dr;
         }
 
-        private List<string> GetDirecciones(string xcodigoConta)
+        private List<string> GetDirecciones(string xcodigoConta, string xcod_local)
         {
-            List<string> salida=  null;
+            List<string> salida=  new List<string>();
+            string query = "";
+            MySqlDataReader dr;
 
+            query = "SELECT CONCAT(cl.direccion,',',cl.comuna) AS direcciones ";
+            query += "FROM  maestroempresas AS me ";
+            query += "LEFT JOIN clientes_locales AS cl ON cl.codigo_contable=me.codigoempresa AND  cl.rubro=me.rubro ";
+            query += "WHERE  me.codigoempresa='" + xcodigoConta + "' AND cl.codigo<>'"+ xcod_local + "' AND codigo_sucursal_sii <> '' ORDER BY cl.codigocrcc ";
 
+            try
+            {
+                Conectar cnn = new Conectar(mysql_server, cliente + "conta", "sistema", this.mysql_password);
+                if (cnn.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows == true)
+                    {
+                        while (dr.Read())
+                        {
+                            salida.Add(dr["direcciones"].ToString());
+                        }
+                    }
+                    dr.Close();
+                }
+                cnn.CloseConnection();
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exepcion no controlada:" + ex.Message.ToString());
+            }
 
             return salida;
         }

@@ -82,20 +82,6 @@ namespace PlaceDTE
         private void frmGeneraPDF2_Load(object sender, EventArgs e)
         {
 
-            //if(FuncionesClass.G_DTE_IMPRIME_EN_DEFECTO == true)
-            //{
-            //    chkImprimeDirecto.Checked = true;
-            //}
-            //else
-            //{
-            //    chkImprimeDirecto.Checked = true;
-            //}
-
-
-            //log.Debug(" Load en frmGeneraPDF_Load");
-            //FuncionesClass config = new FuncionesClass();
-            //config.CargaConfiguracionInicial(DOC_LOCAL,DOC_SERVIDOR, DOC_PREFIJO);
-            //log.Debug(" Carga Configuración Inicial");
             this.InicializaControlesDeEmpresa();
             log.Debug(" InicializaControlesDeEmpresa()");
 
@@ -535,25 +521,50 @@ namespace PlaceDTE
                 // GIRO EMISOR
                 if (emisor.Giro_1.Length>50)
                 {
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: " , fontTotales), (float)95, 790f, 0);
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(0,50), fontBlack), (float)124, 790f, 0);
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(50, emisor.Giro_1.Length-50), fontBlack), (float)121, 780f, 0);
-                    espacio = 15;
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: " , fontTotales), (float)95, 791f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(0,50), fontBlack), (float)124, 791f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase( emisor.Giro_1.Substring(50, emisor.Giro_1.Length-50), fontBlack), (float)121, 781f, 0);
+                    espacio = 8;
                 }
                 else
                 {
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: ", fontTotales), (float)95, 790f, 0);
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Giro_1, fontBlack), (float)124, 790f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("GIRO: ", fontTotales), (float)95, 791f, 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Giro_1, fontBlack), (float)124, 791f, 0);
                 }
 
                 ///// direccion emisor
 
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("DIRECCION: ", fontTotales), (float)95, 775f - espacio, 0);
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Direccion, fontBlack), (float)153, 775f - espacio, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("DIRECCION: ", fontTotales), (float)95, 776f - espacio, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Direccion, fontBlack), (float)153, 776f - espacio, 0);
+               // espacio = espacio + 15;
+                //////// direcciones sucursales
+
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("SUCURSALES: ", fontTotales), (float)95, 761f - espacio, 0);
+                int y=0;
+                string direcionesX = "";
+                foreach (string xdireccion in emisor.Direcciones)
+                {
+                    direcionesX = direcionesX + " - " + xdireccion;
+                    
+                }
+                direcionesX = direcionesX.Substring(2, direcionesX.Length - 2);
+                if (direcionesX.Length > 48)
+                {
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX.Substring(0, 48), fontBlack), (float)161, 761f -espacio , 0);
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX.Substring(48, direcionesX.Length - 48), fontBlack), (float)161, 751f - espacio , 0);
+                 
+                }
+                else
+                {
+                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX, fontBlack), (float)158, 761f - y, 0);
+                 
+                }
+                espacio = espacio + 8;
+
 
                 ///// TELEFONO
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("TELEFONO: ", fontTotales), (float)95, 760f - espacio, 0);
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("452-379500", fontBlack), (float)153, 760f - espacio, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("TELEFONO: ", fontTotales), (float)95, 746f - espacio, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase("452-379500", fontBlack), (float)153, 746f - espacio, 0);
 
                 ///////////////////////////////// fin emisor//////////////////////////////////////////////////
                 ///
@@ -636,7 +647,7 @@ namespace PlaceDTE
                 
                 
                 /////// INFORMACION DE CONTACTO 
-                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(dte.Documento.Encabezado.Receptor.Contacto, fontBlack), (float)85, (float)605, 0);
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(this.DOC_CLIENTE, fontBlack), (float)85, (float)605, 0);
                 // FONO
                 ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(this.DOC_FONO, fontBlack), (float)265, (float)605, 0);
                 // VENDEDOR
@@ -753,6 +764,10 @@ namespace PlaceDTE
                 image.ScaleToFit(250f, 87f);
                 pdfContentByte.AddImage(image);
                 /******************************************* FIN REGION CON IMAGEN DE QR ********************************/
+                fontBlack.Size = 6;
+                ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(emisor.Glosa_res , fontBlack), (float)93, 130f, 0);
+
+
                 /************************************** INICIO DE REGION PARA LAS REFERENCIAS ***************************/
                 LINEA = LINEA + 72;
                 int lineaRef = 1;
