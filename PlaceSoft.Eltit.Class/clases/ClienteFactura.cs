@@ -48,7 +48,7 @@ namespace PlaceSoft.Eltit.Class.clases
 
             MySqlDataReader dr = null;
 
-            query  = " SELECT rut, sucursal, nombre, direccion, comuna, ciudad,  IF(fono1,'', 'SIN DATOS') fono1, celular, giro, IF(email,'', 'SIN DATOS') email,IF(contacto,'','SIN DATOS') contacto ";
+            query  = " SELECT rut, sucursal, nombre, direccion, comuna, ciudad, fono1, celular, giro, email, contacto ";
             query += " FROM sv_maestroclientes ";
             query += " WHERE rut = '"+ xRut +"' AND sucursal = '"+ xSucursal +"' ";
 

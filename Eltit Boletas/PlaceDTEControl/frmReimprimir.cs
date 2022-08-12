@@ -1024,7 +1024,7 @@ namespace Eltit
             este.DOC_FOLIOSII = xFolio;
             este.DOC_TIPOSII = xTipoDTE;
             este.DOC_LOCAL = xLocal;
-            este.DOC_CLIENTE = GetClienteSucursal( gvInforme.Rows[fila].Cells[8].Value.ToString(),"0","contacto");
+            este.DOC_CONTACTO = GetClienteSucursal( gvInforme.Rows[fila].Cells[8].Value.ToString(),"0","contacto");
             este.DOC_FONO = GetClienteSucursal(gvInforme.Rows[fila].Cells[8].Value.ToString(), "0", "fono1");
             este.DOC_CORREO_CONTACTO = GetClienteSucursal(gvInforme.Rows[fila].Cells[8].Value.ToString(), "0", "email");
             este.ShowDialog();
