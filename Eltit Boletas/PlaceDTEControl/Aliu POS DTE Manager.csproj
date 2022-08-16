@@ -225,6 +225,7 @@
     <Compile Include="Clases\Usuarios.cs" />
     <None Include="bin\Debug\factura.ico" />
     <Content Include="Generate-Exposure-Icon.ico" />
+    <None Include="Resources\Email-PNG-Picture.png" />
     <Content Include="Resources\factura.ico" />
     <Content Include="Resources\xml.ico" />
     <None Include="Resources\icon_xml_15.png" />

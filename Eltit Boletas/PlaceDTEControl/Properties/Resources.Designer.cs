@@ -183,6 +183,16 @@ namespace Eltit.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_sobre {
+            get {
+                object obj = ResourceManager.GetObject("icon_sobre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_xml_15 {
             get {
                 object obj = ResourceManager.GetObject("icon_xml_15", resourceCulture);

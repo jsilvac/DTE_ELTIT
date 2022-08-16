@@ -1,4 +1,6 @@
-﻿namespace SchoolManagementAdmin
+﻿using System;
+
+namespace SchoolManagementAdmin
 {
     partial class PopLeeCorreos
     {
@@ -615,6 +617,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void txtInfo_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

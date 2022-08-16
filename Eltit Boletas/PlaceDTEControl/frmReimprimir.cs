@@ -411,7 +411,8 @@ namespace Eltit
 
                     gvInforme.Rows.Add(dr["tipo"].ToString() , dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
                             String.Format("{0:N0}", dr["total"]), dr["foliosii"].ToString(), false, dr["indicador_traslado"].ToString(), 
-                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false,dr["cajera"].ToString(),"", Properties.Resources.icon_pdf_25);
+                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false,dr["cajera"].ToString(),
+                            "", Properties.Resources.icon_pdf_25, Properties.Resources.icon_sobre);
                     count++;
                     
                     fun.ColoreaCelda(gvInforme.Rows[gvInforme.CurrentRow.Index].Cells[6], Color.LightBlue);
