@@ -1008,6 +1008,11 @@ namespace Eltit
                     this.generaPDF(local, tipoDTE, folioSII, fechaEmision, rutEmpresa);
                 }
 
+                if (gvInforme.CurrentCell.ColumnIndex == 16)
+                {
+                    MessageBox.Show("mete aki el correo");
+                }
+
             }
         }
 

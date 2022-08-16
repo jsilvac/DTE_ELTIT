@@ -46,6 +46,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn3 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn4 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
@@ -495,7 +496,7 @@
             gridViewTextBoxColumn2.Name = "folio";
             gridViewTextBoxColumn2.ReadOnly = true;
             gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn2.Width = 115;
+            gridViewTextBoxColumn2.Width = 107;
             gridViewTextBoxColumn3.EnableExpressionEditor = false;
             gridViewTextBoxColumn3.HeaderText = "Fecha";
             gridViewTextBoxColumn3.Name = "fecha";
@@ -514,13 +515,13 @@
             gridViewTextBoxColumn5.Name = "total";
             gridViewTextBoxColumn5.ReadOnly = true;
             gridViewTextBoxColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn5.Width = 104;
+            gridViewTextBoxColumn5.Width = 92;
             gridViewTextBoxColumn6.EnableExpressionEditor = false;
             gridViewTextBoxColumn6.HeaderText = "Folio";
             gridViewTextBoxColumn6.MaxLength = 12;
             gridViewTextBoxColumn6.Name = "foliofiscal";
             gridViewTextBoxColumn6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn6.Width = 115;
+            gridViewTextBoxColumn6.Width = 106;
             gridViewCheckBoxColumn1.EnableExpressionEditor = false;
             gridViewCheckBoxColumn1.HeaderText = "OK";
             gridViewCheckBoxColumn1.IsVisible = false;
@@ -561,17 +562,24 @@
             gridViewCheckBoxColumn2.MinWidth = 20;
             gridViewCheckBoxColumn2.Name = "cbxCedible";
             gridViewCheckBoxColumn2.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending;
-            gridViewCheckBoxColumn2.Width = 75;
+            gridViewCheckBoxColumn2.Width = 65;
+            gridViewTextBoxColumn10.EnableExpressionEditor = false;
             gridViewTextBoxColumn10.HeaderText = "Cajera";
             gridViewTextBoxColumn10.MinWidth = 1;
             gridViewTextBoxColumn10.Name = "cajera";
             gridViewTextBoxColumn10.Width = 1;
+            gridViewTextBoxColumn11.EnableExpressionEditor = false;
             gridViewTextBoxColumn11.HeaderText = "fPago";
             gridViewTextBoxColumn11.MinWidth = 1;
             gridViewTextBoxColumn11.Name = "fPago";
             gridViewTextBoxColumn11.Width = 1;
+            gridViewImageColumn3.EnableExpressionEditor = false;
             gridViewImageColumn3.HeaderText = "PDF";
             gridViewImageColumn3.Name = "imgPDF";
+            gridViewImageColumn4.EnableExpressionEditor = false;
+            gridViewImageColumn4.HeaderText = "Correo";
+            gridViewImageColumn4.Name = "EnvioMail";
+            gridViewImageColumn4.Width = 62;
             this.gvInforme.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -588,7 +596,8 @@
             gridViewCheckBoxColumn2,
             gridViewTextBoxColumn10,
             gridViewTextBoxColumn11,
-            gridViewImageColumn3});
+            gridViewImageColumn3,
+            gridViewImageColumn4});
             this.gvInforme.MasterTemplate.EnableAlternatingRowColor = true;
             this.gvInforme.MasterTemplate.EnableGrouping = false;
             this.gvInforme.MasterTemplate.MultiSelect = true;
