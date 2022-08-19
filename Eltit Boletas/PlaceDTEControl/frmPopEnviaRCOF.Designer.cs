@@ -560,6 +560,7 @@
             this.gvInforme.TabIndex = 0;
             this.gvInforme.Text = "radGridView1";
             this.gvInforme.ThemeName = "TelerikMetroBlue";
+            this.gvInforme.Click += new System.EventHandler(this.gvInforme_Click);
             // 
             // lblEmitidos39
             // 

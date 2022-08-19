@@ -59,6 +59,7 @@
     <Compile Include="clases\Cajera.cs" />
     <Compile Include="clases\ClienteFactura.cs" />
     <Compile Include="clases\Conectar.cs" />
+    <Compile Include="clases\Correo.cs" />
     <Compile Include="clases\Documentos.cs" />
     <Compile Include="clases\DTEClass.cs" />
     <Compile Include="clases\DTEHost.cs" />

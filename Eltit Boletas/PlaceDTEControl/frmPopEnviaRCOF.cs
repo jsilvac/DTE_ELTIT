@@ -835,4 +835,9 @@ public partial class frmPopEnviaRCOF : Telerik.WinControls.UI.RadForm
         {
 
         }
+
+    private void gvInforme_Click(object sender, EventArgs e)
+    {
+
     }
+}

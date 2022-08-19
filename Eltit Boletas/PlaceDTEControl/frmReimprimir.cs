@@ -14,6 +14,7 @@ using PlaceSoft.Eltit.Functions;
 using PlaceSoftDTE.clases;
 using Eltit.DTE.Forms;
 using PlaceDTE;
+using SamplesDTE;
 
 namespace Eltit
 {
@@ -32,7 +33,7 @@ namespace Eltit
         string BASE_DTE = "";
         string BASE_VENTAS = "";
         private string cliente_sistema;
-        private string XML_DETALLE ="";
+        private string XML_DETALLE = "";
         private int countGenerados = 0;
         List<string> rangoUtilizado39 = new List<string>();
         List<string> rangoAnulado39 = new List<string>();
@@ -66,15 +67,15 @@ namespace Eltit
 
         private void frmReimprimir_Load(object sender, EventArgs e)
         {
-       
+
             try
             {
-                 GetEmpresasContables();
+                GetEmpresasContables();
                 gvInforme.Columns[5].ReadOnly = false;
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error:[" + ex.Message.ToString() + "]");
             }
@@ -137,41 +138,41 @@ namespace Eltit
             {
                 if (dr.Read())
                 {
-                    lblDireccion.Text = dr["direccion"].ToString();            
+                    lblDireccion.Text = dr["direccion"].ToString();
                     lblServidorVentas.Text = dr["servidor_ventas"].ToString();
                     lblRutEmpresa.Text = dr["rut"].ToString();
                     if (fu.PingToHost("192.168.4.9") == true)
                     {
-                            if(lblServidorVentas.Text == "192.168.4.9")
-                            {
-                                lblRoot.Text = "adminerp_general";
-                                lblPassword.Text = "fran061cony252agus203elba214";
-                            }
-                            else
-                            {
-                                lblRoot.Text = "conta";
-                                lblPassword.Text = "conta";
-                            }
+                        if (lblServidorVentas.Text == "192.168.4.9")
+                        {
+                            lblRoot.Text = "adminerp_general";
+                            lblPassword.Text = "fran061cony252agus203elba214";
+                        }
+                        else
+                        {
+                            lblRoot.Text = "conta";
+                            lblPassword.Text = "conta";
+                        }
 
-                            txxCajaFolios.Enabled = true;
-                            txtDesde.Enabled = true;
-                            txtHasta.Enabled = true;
+                        txxCajaFolios.Enabled = true;
+                        txtDesde.Enabled = true;
+                        txtHasta.Enabled = true;
 
-                            pbStatus.Image = global::Eltit.Properties.Resources.OK_48;
-                   
-                            txtNumero.Enabled = true;
-                            btnVer.Enabled = true;
-                            txtCaja.Enabled = true;
-                            ddlTipoDocumento.Enabled = true;
-                            ddlTipoDocumento.Focus();
+                        pbStatus.Image = global::Eltit.Properties.Resources.OK_48;
 
-                            //txxCajaFolios.Focus();
+                        txtNumero.Enabled = true;
+                        btnVer.Enabled = true;
+                        txtCaja.Enabled = true;
+                        ddlTipoDocumento.Enabled = true;
+                        ddlTipoDocumento.Focus();
+
+                        //txxCajaFolios.Focus();
                     }
                     else
                     {
-                          btnVer.Enabled = false;
-                            pbStatus.Image = global::Eltit.Properties.Resources.icons8_exclamacion;
-                            RadMessageBox.Show(this, "No se puede establecer conexión con el Host de Destino [" + lblServidorVentas.Text + "]", "Atencion", MessageBoxButtons.OK);
+                        btnVer.Enabled = false;
+                        pbStatus.Image = global::Eltit.Properties.Resources.icons8_exclamacion;
+                        RadMessageBox.Show(this, "No se puede establecer conexión con el Host de Destino [" + lblServidorVentas.Text + "]", "Atencion", MessageBoxButtons.OK);
                     }
 
                 }
@@ -182,19 +183,19 @@ namespace Eltit
 
         }
 
-        private void LlenaTipoDocumento(){
+        private void LlenaTipoDocumento() {
 
-               // ddlTipoDocumento.Items.Clear();
-                ddlTipoDocumento.Items.Add("-- SELECCIONE TIPO --");
-                ddlTipoDocumento.Items.Add("33 - Factura Electrónica ");
-                ddlTipoDocumento.Items.Add("39 - Boleta Electrónica ");
-                ddlTipoDocumento.Items.Add("61 - Notas de Credtito facturas ");
-                ddlTipoDocumento.Items.Add("61 - Notas de Credtito boletas ");
-                ddlTipoDocumento.Items.Add("52 - Guias ");
+            // ddlTipoDocumento.Items.Clear();
+            ddlTipoDocumento.Items.Add("-- SELECCIONE TIPO --");
+            ddlTipoDocumento.Items.Add("33 - Factura Electrónica ");
+            ddlTipoDocumento.Items.Add("39 - Boleta Electrónica ");
+            ddlTipoDocumento.Items.Add("61 - Notas de Credtito facturas ");
+            ddlTipoDocumento.Items.Add("61 - Notas de Credtito boletas ");
+            ddlTipoDocumento.Items.Add("52 - Guias ");
 
-                ddlTipoDocumento.SelectedIndex = 0;
+            ddlTipoDocumento.SelectedIndex = 0;
         }
-    
+
 
 
         private void GetEmpresasContables()
@@ -217,7 +218,7 @@ namespace Eltit
             cli.CerrarTransaccion();
 
             ddlEmpresas.SelectedIndex = 0;
-            
+
         }
         private void LeeDatosEmpresa()
         {
@@ -234,12 +235,12 @@ namespace Eltit
                     lblDireccionEmpresa.Text = dr["direccion"].ToString();
                     lblGiro.Text = dr["giro"].ToString();
 
-                    lblRutCertificado.Text    = dr["rut_certificado"].ToString();
+                    lblRutCertificado.Text = dr["rut_certificado"].ToString();
                     lblNombreCertificado.Text = dr["nombre_certificado"].ToString();
-                    lblFechaResolucion.Text   = dr["fecha_resolucion"].ToString();
-                    lblNumeroResolucion.Text  = dr["numero_resolucion"].ToString();
-                    lblCodigoSucursal.Text    = dr["codigo_sucursal_sii"].ToString();
-                    lblActeco.Text            = dr["acteco_principal"].ToString();
+                    lblFechaResolucion.Text = dr["fecha_resolucion"].ToString();
+                    lblNumeroResolucion.Text = dr["numero_resolucion"].ToString();
+                    lblCodigoSucursal.Text = dr["codigo_sucursal_sii"].ToString();
+                    lblActeco.Text = dr["acteco_principal"].ToString();
                 }
             }
 
@@ -256,11 +257,11 @@ namespace Eltit
         {
             //if(ddlEmpresas.SelectedIndex > 0 && ddLlocales.SelectedIndex > 0 )
             txtNumero.Text = txtNumero.Text.PadLeft(10, Convert.ToChar("0"));
-            if (ddlEmpresas.SelectedIndex > 0 &&   ddLlocales.SelectedIndex > 0 && ddlTipoDocumento.SelectedIndex > 0)
+            if (ddlEmpresas.SelectedIndex > 0 && ddLlocales.SelectedIndex > 0 && ddlTipoDocumento.SelectedIndex > 0)
             {
                 if (txxCajaFolios.Text.Length != 2)
                 {
-                RadMessageBox.Show(this, "Debe Selecionar Una Caja de venta Válida. [" + txxCajaFolios.Text + "]", "Atencion", MessageBoxButtons.OK);
+                    RadMessageBox.Show(this, "Debe Selecionar Una Caja de venta Válida. [" + txxCajaFolios.Text + "]", "Atencion", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -275,24 +276,24 @@ namespace Eltit
         }
         private void BuscaCaf(string xTipo)
         {
-        
+
             PlaceSoft.Eltit.Class.clases.Caf myCaf = new PlaceSoft.Eltit.Class.clases.Caf(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
 
-             MySqlDataReader dr = myCaf.GetCafByCajaLocal(ddLlocales.Text.Substring(0, 2), "", xTipo);
-     
+            MySqlDataReader dr = myCaf.GetCafByCajaLocal(ddLlocales.Text.Substring(0, 2), "", xTipo);
+
 
             string filePath = "";
             string xmlString = "";
-           
+
 
             if (dr.HasRows == true)
             {
-                while(dr.Read())
+                while (dr.Read())
                 {
                     filePath = @"C:\PlaceDTE\" + FuncionesClass.G_CLIENTE_PREFIJO.Replace("_", "") + @"\" + Convert.ToDouble(lblRutEmpresa.Text.Substring(0, 9)) + @"\Produccion\Caf\" + ddLlocales.Text.Substring(0, 2) + @"\";
-                    filePath =  filePath + string.Format("{0}_{1}_{2}.dat", Convert.ToInt32(xTipo),dr["desde"].ToString(), dr["hasta"].ToString());
+                    filePath = filePath + string.Format("{0}_{1}_{2}.dat", Convert.ToInt32(xTipo), dr["desde"].ToString(), dr["hasta"].ToString());
 
-                    if(!File.Exists(filePath))
+                    if (!File.Exists(filePath))
                     {
 
                         FileStream fst;
@@ -301,7 +302,7 @@ namespace Eltit
 
                         fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
                         bw = new BinaryWriter(fst);
-                        string strxml = dr["xml"].ToString().Replace("±	","");
+                        string strxml = dr["xml"].ToString().Replace("±	", "");
 
                         Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
                         byte[] textEnBytes = ByteConverter.GetBytes(strxml);
@@ -315,67 +316,67 @@ namespace Eltit
                         {
                             var xml = File.ReadAllBytes(tmp_path);
                             xmlString = File.ReadAllText(tmp_path, Encoding.GetEncoding("ISO-8859-1"));
-                            
+
                             fs.Write(xml, 0, xml.Length);
                             fs.Flush();
                             fs.Close();
                         }
                     }
-             
+
                 }
             }
 
             dr.Close();
             myCaf.CerrarTransaccion();
-            
+
         }
         private void GetDocumentos()
         {
             PlaceSoft.Eltit.Class.clases.Documentos dc = new PlaceSoft.Eltit.Class.clases.Documentos(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
             //PlaceSoft.Eltit.Class.clases.Documentos dc = new PlaceSoft.Eltit.Class.clases.Documentos(lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
             MySqlDataReader dr = null;
-            string base_datos = FuncionesClass.G_CLIENTE_PREFIJO + "ventas" + ddLlocales.Text.Substring(0,2) ;
+            string base_datos = FuncionesClass.G_CLIENTE_PREFIJO + "ventas" + ddLlocales.Text.Substring(0, 2);
             object img = null;
             int count = 0;
             string tipo = "";
             string tipoFiscal = "";
-                string fechadesde = "";
-                string fechahasta = "";
+            string fechadesde = "";
+            string fechahasta = "";
 
             if (ddlTipoDocumento.SelectedIndex > 0)
             {
-                    switch (ddlTipoDocumento.SelectedItem.Text.Substring(0,2))
-                    {
+                switch (ddlTipoDocumento.SelectedItem.Text.Substring(0, 2))
+                {
                     case "33":
-                            tipo = "FV";
-                            tipoFiscal = "33";
-                            break;
+                        tipo = "FV";
+                        tipoFiscal = "33";
+                        break;
                     case "61":
-                            tipo = "NB";
-                            tipoFiscal = "61";
-                            break;
+                        tipo = "NB";
+                        tipoFiscal = "61";
+                        break;
                     case "52":
-                            tipo = "G4";// "GV";
-                            tipoFiscal = "52";
-                            break;
+                        tipo = "G4";// "GV";
+                        tipoFiscal = "52";
+                        break;
                     case "39":
-                            tipo = "BV";
-                            tipoFiscal = "39";
-                            break;
+                        tipo = "BV";
+                        tipoFiscal = "39";
+                        break;
                     default:
 
-                            MessageBox.Show("Documento sin tipo");
-                            break;
+                        MessageBox.Show("Documento sin tipo");
+                        break;
 
-                    }
+                }
 
-                    txtNumero.Focus();
+                txtNumero.Focus();
             }
 
-                fechadesde = fun.FechaMysql(dtpdesde.Text);
-                fechahasta = fun.FechaMysql(dtpHasta.Text);
+            fechadesde = fun.FechaMysql(dtpdesde.Text);
+            fechahasta = fun.FechaMysql(dtpHasta.Text);
 
-                this.BuscaCaf(tipoFiscal);
+            this.BuscaCaf(tipoFiscal);
 
 
             if (tipo == "G4")
@@ -386,7 +387,7 @@ namespace Eltit
             else
             {
 
-                    dr = dc.GetDocumentosCabezaByLocalNroInternoCajaFechadesdeFechahasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text,tipo,txtNumero.Text,fechadesde,fechahasta,base_datos);
+                dr = dc.GetDocumentosCabezaByLocalNroInternoCajaFechadesdeFechahasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, txtNumero.Text, fechadesde, fechahasta, base_datos);
             }
 
 
@@ -394,13 +395,13 @@ namespace Eltit
             string Nombre_Doc = "";
             string xml = "0";
             gvInforme.Rows.Clear();
-            if(dr.HasRows == true)
+            if (dr.HasRows == true)
             {
                 ddlEmpresas.Enabled = false;
                 ddLlocales.Enabled = false;
                 btnGenera.Enabled = true;
                 FuncionesClass fun = new FuncionesClass();
-               
+
                 while (dr.Read())
                 {
                     Nombre_Doc = FuncionesClass.getNombredocumentoByCodigo2(dr["tipo"].ToString());
@@ -409,12 +410,12 @@ namespace Eltit
                     //  img = Properties.Resources.icon_imprimir_31;
 
 
-                    gvInforme.Rows.Add(dr["tipo"].ToString() , dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
-                            String.Format("{0:N0}", dr["total"]), dr["foliosii"].ToString(), false, dr["indicador_traslado"].ToString(), 
-                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false,dr["cajera"].ToString(),
+                    gvInforme.Rows.Add(dr["tipo"].ToString(), dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
+                            String.Format("{0:N0}", dr["total"]), dr["foliosii"].ToString(), false, dr["indicador_traslado"].ToString(),
+                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false, dr["cajera"].ToString(),
                             "", Properties.Resources.icon_pdf_25, Properties.Resources.icon_sobre);
                     count++;
-                    
+
                     fun.ColoreaCelda(gvInforme.Rows[gvInforme.CurrentRow.Index].Cells[6], Color.LightBlue);
                 }
 
@@ -433,7 +434,7 @@ namespace Eltit
             btnLimpiar.Enabled = true;
         }
 
-        private void SugiereUltimoCaf( string xTipo, string xCaja)
+        private void SugiereUltimoCaf(string xTipo, string xCaja)
         {
             PlaceSoft.Eltit.Class.clases.DTEClass dte = new PlaceSoft.Eltit.Class.clases.DTEClass(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
             int folio = dte.GetUltimoFolioDTEByLocalCaja(ddLlocales.Text.Substring(0, 2), xTipo, "", FuncionesClass.G_CLIENTE_PREFIJO + "fae" + ddLlocales.Text.Substring(0, 2));
@@ -443,21 +444,21 @@ namespace Eltit
 
         private void InicializaControlesDeEmpresa()
         {
-           
-              
+
+
         }
 
         private void btnGenera_Click(object sender, EventArgs e)
         {
-            if(gvInforme.Rows.Count > 0)
+            if (gvInforme.Rows.Count > 0)
             {
-                if(RadMessageBox.Show(this, "Atención, va Re Generar los XML selecionados y generar unos nuevos con los mismos datos " +
+                if (RadMessageBox.Show(this, "Atención, va Re Generar los XML selecionados y generar unos nuevos con los mismos datos " +
                     "¿Desea Realmente Hacerlo?", "Atencion", MessageBoxButtons.YesNo, RadMessageIcon.Exclamation) == DialogResult.Yes)
                 {
                     countGenerados = 0;
                     RegeneraDocumentos();
                 }
-               
+
             }
         }
 
@@ -473,11 +474,11 @@ namespace Eltit
             int count = 0;
             double MONTO = 0;
             string tipo_traslado = "";
-     
-            for (i=0; i <= gvInforme.Rows.Count-1;i++ )
+
+            for (i = 0; i <= gvInforme.Rows.Count - 1; i++)
             {
-                check =  Convert.ToBoolean(gvInforme.Rows[i].Cells[7].Value);
-                if(check == true)
+                check = Convert.ToBoolean(gvInforme.Rows[i].Cells[7].Value);
+                if (check == true)
                 {
                     tipo = gvInforme.Rows[i].Cells[0].Value.ToString();
                     numero = gvInforme.Rows[i].Cells[1].Value.ToString();
@@ -489,23 +490,23 @@ namespace Eltit
                     this.GenerarDocumentoElectronico(tipo, numero, fecha, caja, MONTO, i);
                     count++;
                     countGenerados++;
-                    
+
                 }
 
             }
 
 
-            if(count == 0)
+            if (count == 0)
             {
                 RadMessageBox.Show(this, "Debe Seleccionar Al menos un Documento.", "Atencion", MessageBoxButtons.OK);
             }
             else
             {
-                RadMessageBox.Show(this, "Se Re Generaron " + count + " Documentos tipo [" + tipo +"]", "Atencion", MessageBoxButtons.OK);
+                RadMessageBox.Show(this, "Se Re Generaron " + count + " Documentos tipo [" + tipo + "]", "Atencion", MessageBoxButtons.OK);
                 btnGenera.Enabled = false;
 
 
-                if (RadMessageBox.Show(this, "¿Desea Enviar los Documentos Procesados a Impuestos Internos Ahora?", "Atencion", MessageBoxButtons.YesNo) == DialogResult.Yes )
+                if (RadMessageBox.Show(this, "¿Desea Enviar los Documentos Procesados a Impuestos Internos Ahora?", "Atencion", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //  PlaceSoft.Eltit.Handler.Handler handler = new PlaceSoft.Eltit.Handler.Handler(FuncionesClass.G_CLIENTE_PREFIJO);
                     //var EnvioSII = handler.GenerarEnvioDTEToSII(dtes, xmlDtes);
@@ -515,7 +516,7 @@ namespace Eltit
                     handler.nombreCertificado = lblNombreCertificado.Text;
                     handler.fechaResolucion = Convert.ToDateTime(lblFechaResolucion.Text);
                     handler.numero_resolucion = Convert.ToInt32(lblNumeroResolucion.Text);
-                    handler.emisor_rut = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9,1);
+                    handler.emisor_rut = Convert.ToDouble(lblRutEmpresa.Text.Substring(0, 9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
 
                     var EnvioSII = handler.GenerarEnvioDTEToSII(dtesSII, xmlDtes);
                     var filePath = handler.FirmarEnvioDTE(EnvioSII);
@@ -525,7 +526,7 @@ namespace Eltit
                         FileInfo fi = new FileInfo(filePath);
                         //  string destino =  @"C:\Envios\ENVSETBASICO_" + FuncionesClass.G_DTE_CASO_BASICO +"_"+ DateTime.Now.ToString("ddMMyyyyHHmmss") + ".xml";
                         string destino = @"C:\PlaceDTE\" + FuncionesClass.G_CLIENTE_PREFIJO.Replace("_", "") + @"\" + Convert.ToDouble(lblRutEmpresa.Text.Substring(0, 9)) + @"\Produccion\envios\" + ddLlocales.Text.Substring(0, 2) + @"\ENVIO_DTE_" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".xml";
-                        
+
                         fi.CopyTo(destino, true);
                         string xml = File.ReadAllText(destino, Encoding.GetEncoding("ISO-8859-1"));
 
@@ -538,7 +539,7 @@ namespace Eltit
                         long trackId = handler.EnviarEnvioDTEToSII(destino, "XH1F-EFZ5-ZH93", true);
                         this.GrabaEnvio(trackId);
                         RadMessageBox.Show(this, "Sobre enviado correctamente. TrackID: " + trackId.ToString(), "Atencion", MessageBoxButtons.OK);
-                       
+
                     }
 
                 }
@@ -555,7 +556,7 @@ namespace Eltit
 
         private void GrabaEnvio(long xTrack)
         {
-            DTEClass mydte = new DTEClass(lblPrincipal.Text,lblRootPrincipal.Text,lblPassPrincipal.Text);
+            DTEClass mydte = new DTEClass(lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
             int i = 0;
             bool val = false;
             string tipo = "";
@@ -572,25 +573,25 @@ namespace Eltit
                     mydte.ActualizaTrackEnDTE(local, tipo, Convert.ToDouble(numero).ToString(), DateTime.Now.ToString("yyyy-MM-dd"), xTrack.ToString());
                 }
             }
-                
+
         }
 
 
-        private void GenerarDocumentoElectronico(string xTipoInterno, string xNumeroInterno, string xFecha , string xCaja, 
+        private void GenerarDocumentoElectronico(string xTipoInterno, string xNumeroInterno, string xFecha, string xCaja,
                                             double xMonto, int indice)
         {
             Handler handler;
             handler = new Handler();
-            dc = new Ventas( FuncionesClass.G_CLIENTE_PREFIJO, lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
+            dc = new Ventas(FuncionesClass.G_CLIENTE_PREFIJO, lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
             MySqlDataReader dr = null;
-            string xtipo = xTipoInterno.Substring(0,2);
-            string base_venta = FuncionesClass.G_CLIENTE_PREFIJO + "ventas" + ddLlocales.Text.Substring(0,2);
-     
+            string xtipo = xTipoInterno.Substring(0, 2);
+            string base_venta = FuncionesClass.G_CLIENTE_PREFIJO + "ventas" + ddLlocales.Text.Substring(0, 2);
+
             string rut_venta = gvInforme.Rows[indice].Cells[9].Value.ToString();
 
             List<ItemBoleta> items;
             items = new List<ItemBoleta>();
-            int xTipo_Traslado = Convert.ToInt32(gvInforme.Rows[indice].Cells[8].Value) ;
+            int xTipo_Traslado = Convert.ToInt32(gvInforme.Rows[indice].Cells[8].Value);
             string tipoFiscal = "";
 
             PlaceSoft.DTE.Engine.Enum.TipoDTE.DTEType typeDTE = PlaceSoft.DTE.Engine.Enum.TipoDTE.DTEType.FacturaElectronica;
@@ -600,9 +601,9 @@ namespace Eltit
                 xtipo = "FV";
                 tipoFiscal = "33";
                 typeDTE = PlaceSoft.DTE.Engine.Enum.TipoDTE.DTEType.FacturaElectronica;
-            } 
+            }
 
-            if(rbNotasBoletas.CheckState == CheckState.Checked)
+            if (rbNotasBoletas.CheckState == CheckState.Checked)
             {
                 xtipo = "NB";
                 tipoFiscal = "61";
@@ -662,7 +663,7 @@ namespace Eltit
                 }
 
             }
-                       
+
 
             xFecha = FuncionesClass.GetFechaMysql(xFecha);
 
@@ -768,16 +769,16 @@ namespace Eltit
 
         }
 
-        private void GrabaXML(string xLocal, string xTipoInterno,string xNroInterno, string xTipoFiscal, int xFolioFiscal,
+        private void GrabaXML(string xLocal, string xTipoInterno, string xNroInterno, string xTipoFiscal, int xFolioFiscal,
                     string xCaja, string XML, string xFecha, string xNombre, string xRut, double xMonto)
         {
             string basedte = FuncionesClass.G_CLIENTE_PREFIJO + "fae" + ddLlocales.Text.Substring(0, 2);
-            PlaceSoft.Eltit.Class.clases.DTEClass dte = new PlaceSoft.Eltit.Class.clases.DTEClass(lblPrincipal.Text, lblRootPrincipal.Text,lblPassPrincipal.Text);
+            PlaceSoft.Eltit.Class.clases.DTEClass dte = new PlaceSoft.Eltit.Class.clases.DTEClass(lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
 
             ////////////////////// by jaimiko   2021-08-12    ///////////////////////////
-            PlaceSoft.Eltit.Class.clases.DTEClass dte2 = new PlaceSoft.Eltit.Class.clases.DTEClass( lblServidorVentas.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
+            PlaceSoft.Eltit.Class.clases.DTEClass dte2 = new PlaceSoft.Eltit.Class.clases.DTEClass(lblServidorVentas.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
 
-            dte.GrabaXML(xLocal, xTipoFiscal, Convert.ToInt32(xFolioFiscal), xTipoInterno.Substring(0,2),  xNroInterno, xFecha, basedte, XML, xCaja, xRut, xNombre, xMonto);
+            dte.GrabaXML(xLocal, xTipoFiscal, Convert.ToInt32(xFolioFiscal), xTipoInterno.Substring(0, 2), xNroInterno, xFecha, basedte, XML, xCaja, xRut, xNombre, xMonto);
 
             ////////////////////// by jaimiko   2021-08-12    ///////////////////////////
             dte2.GrabaXML(xLocal, xTipoFiscal, Convert.ToInt32(xFolioFiscal), xTipoInterno.Substring(0, 2), xNroInterno, xFecha, basedte, XML, xCaja, xRut, xNombre, xMonto);
@@ -785,7 +786,7 @@ namespace Eltit
             ////////////////////// by jaimiko   2021-08-12    ///////////////////////////
             ActualizaFolioSII(xNroInterno, xCaja, xTipoInterno, xFecha, xFolioFiscal.ToString().PadLeft(10, Convert.ToChar("0")));
         }
-        private void ActualizaFolioSII(string xnrointerno, string xCaja, string xTipointerno,string xFecha ,string xFolioSII)
+        private void ActualizaFolioSII(string xnrointerno, string xCaja, string xTipointerno, string xFecha, string xFolioSII)
         {
             string BASE_VENTA = FuncionesClass.G_CLIENTE_PREFIJO + "ventas" + ddLlocales.Text.Substring(0, 2);
 
@@ -797,13 +798,13 @@ namespace Eltit
         }
 
         private int GetUltimoFolio(string xtipo, int xFolio, string xCaja)
-        {            
+        {
             int ultimo = xFolio;
             string base_dte = FuncionesClass.G_CLIENTE_PREFIJO + "fae" + ddLlocales.Text.Substring(0, 2);
             PlaceSoft.Eltit.Class.clases.DTEClass caf = new PlaceSoft.Eltit.Class.clases.DTEClass(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
-     
+
             /***************** VERIFICA SI EL NUMERO ESTA AUTORIZADO ***********************/
-            if (caf.VerificaCaf(ddLlocales.Text.Substring(0,2), xtipo, ultimo.ToString(), xCaja, base_dte) == true)
+            if (caf.VerificaCaf(ddLlocales.Text.Substring(0, 2), xtipo, ultimo.ToString(), xCaja, base_dte) == true)
             {
                 return ultimo;
             }
@@ -811,17 +812,17 @@ namespace Eltit
             {
                 ultimo = 0;// caf.BuscaRangoSiguiente(ddLlocales.Text.Substring(0, 2),xtipo, ultimo.ToString(),xCaja, base_dte);
             }
-                       
+
             return ultimo;
         }
-            private void btn_pdf_clik(object sender, StateChangedEventArgs args)
-            {
-                MessageBox.Show("estamos hasta el lolli");
-            }
+        private void btn_pdf_clik(object sender, StateChangedEventArgs args)
+        {
+            MessageBox.Show("estamos hasta el lolli");
+        }
 
         private void radCheckBox1_ToggleStateChanged(object sender, StateChangedEventArgs args)
         {
-            if(radCheckBox1.CheckState == CheckState.Checked)
+            if (radCheckBox1.CheckState == CheckState.Checked)
             {
                 MarcarCheck(true);
             }
@@ -835,7 +836,7 @@ namespace Eltit
         {
             int i = 0;
 
-            for(i=0; i <= gvInforme.Rows.Count -1; i++)
+            for (i = 0; i <= gvInforme.Rows.Count - 1; i++)
             {
 
                 gvInforme.Rows[i].Cells[7].Value = val;
@@ -845,7 +846,7 @@ namespace Eltit
 
         private void rbFolioNuevo_ToggleStateChanged(object sender, StateChangedEventArgs args)
         {
-            if(rbFolioNuevo.CheckState == CheckState.Checked)
+            if (rbFolioNuevo.CheckState == CheckState.Checked)
             {
                 string xtipo = "";
                 string tipoFiscal = "";
@@ -854,14 +855,14 @@ namespace Eltit
                 {
                     xtipo = "FV";
                     tipoFiscal = "33";
-               
+
                 }
 
                 if (rbNotasBoletas.CheckState == CheckState.Checked)
                 {
                     xtipo = "NB";
                     tipoFiscal = "61";
-                    
+
                 }
                 if (rbNotasFactura.CheckState == CheckState.Checked)
                 {
@@ -873,11 +874,11 @@ namespace Eltit
                 if (rbGuias.CheckState == CheckState.Checked)
                 {
                     xtipo = "GV";
-                    tipoFiscal = "52";                 
+                    tipoFiscal = "52";
                 }
-                    SugiereUltimoCaf(tipoFiscal, txxCajaFolios.Text);
+                SugiereUltimoCaf(tipoFiscal, txxCajaFolios.Text);
                 this.BuscaCaf(tipoFiscal);
-                if (RadMessageBox.Show(this, "Ha Seleccionado Asignar Folios Comenzando de el Folio fiscal Sugerido ["+ txtFolioGenera.Text +"] por el Sistema ¿Desea Asignar ese Correlativo a los Documentos Actuales?", "Atencion", MessageBoxButtons.YesNo, RadMessageIcon.Exclamation) == DialogResult.Yes)
+                if (RadMessageBox.Show(this, "Ha Seleccionado Asignar Folios Comenzando de el Folio fiscal Sugerido [" + txtFolioGenera.Text + "] por el Sistema ¿Desea Asignar ese Correlativo a los Documentos Actuales?", "Atencion", MessageBoxButtons.YesNo, RadMessageIcon.Exclamation) == DialogResult.Yes)
                 {
                     CargarfoliosNuevos();
                 }
@@ -893,7 +894,7 @@ namespace Eltit
             int n;
             bool isNumeric = int.TryParse(txtFolioGenera.Text, out n);
 
-            if(isNumeric == true)
+            if (isNumeric == true)
             {
                 int inicial = Convert.ToInt32(txtFolioGenera.Text);
                 int i = 0;
@@ -905,12 +906,12 @@ namespace Eltit
                     inicial++;
                 }
             }
-            
+
 
         }
         private void rbMismoFolio_ToggleStateChanged(object sender, StateChangedEventArgs args)
         {
-            if(rbMismoFolio.CheckState == CheckState.Checked)
+            if (rbMismoFolio.CheckState == CheckState.Checked)
             {
                 txtFolioGenera.Text = "0";
                 txtFolioGenera.Enabled = false;
@@ -921,7 +922,7 @@ namespace Eltit
                 for (i = 0; i <= gvInforme.Rows.Count - 1; i++)
                 {
                     gvInforme.Rows[i].Cells[6].Value = gvInforme.Rows[i].Cells[10].Value;
-                  
+
                 }
 
             }
@@ -959,7 +960,7 @@ namespace Eltit
             lblActeco.Text = "";
             ddlEmpresas.Enabled = true;
             ddLlocales.Enabled = true;
-            
+
 
 
         }
@@ -975,24 +976,25 @@ namespace Eltit
                 string folioSII = Convert.ToInt32(gvInforme.Rows[fila].Cells[1].Value.ToString()).ToString();
                 string fechaEmision = gvInforme.Rows[fila].Cells[2].Value.ToString();
                 fechaEmision = fechaEmision.Substring(6, 4) + "-" + fechaEmision.Substring(3, 2) + "-" + fechaEmision.Substring(0, 2);
-                doc = new Documentos(FuncionesClass.G_SERVIDORMASTER,FuncionesClass.G_MYSQL_USER,FuncionesClass.G_MYSQL_PASS);
-                string caja         = gvInforme.Rows[fila].Cells[3].Value.ToString();
-                string rutEmpresa   = Convert.ToDouble(lblRutEmpresa.Text.Substring(0,9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
+                doc = new Documentos(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
+                string caja = gvInforme.Rows[fila].Cells[3].Value.ToString();
+                string rutEmpresa = Convert.ToDouble(lblRutEmpresa.Text.Substring(0, 9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
                 string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
+                string rutReceptor = gvInforme.Rows[fila].Cells[8].Value.ToString().Substring(0,9)+"-"+ gvInforme.Rows[fila].Cells[8].Value.ToString().Substring(9,1);
 
 
                 if (gvInforme.CurrentCell.ColumnIndex == 10)
                 {
 
                     this.CargaXML(local, tipoDTE, folioSII, fechaEmision);
-                    
+
                 }
 
                 if (gvInforme.CurrentCell.ColumnIndex == 11)
-                {   
+                {
                     //string nombreImpresora = "POS-80";
-                    
-                    
+
+
                     Boolean impCedible = Convert.ToBoolean(gvInforme.Rows[fila].Cells[12].Value);
                     //Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[15].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
@@ -1001,7 +1003,7 @@ namespace Eltit
 
 
 
-                    this.imprimeFactura(tipoDTE,fechaEmision,folioSII,local,caja,rutEmpresa,formaPago,tipoInterno, impCedible,cajera);
+                    this.imprimeFactura(tipoDTE, fechaEmision, folioSII, local, caja, rutEmpresa, formaPago, tipoInterno, impCedible, cajera);
                 }
 
                 if (gvInforme.CurrentCell.ColumnIndex == 15)
@@ -1011,10 +1013,56 @@ namespace Eltit
 
                 if (gvInforme.CurrentCell.ColumnIndex == 16)
                 {
-                    MessageBox.Show("mete aki el correo");
+                    this.generaEnvioCorreo(local,tipoDTE,folioSII,fechaEmision, rutEmpresa, gvInforme.Rows[fila].Cells[4].Value.ToString(),rutReceptor);
                 }
 
             }
+        }
+
+
+        private void generaEnvioCorreo(string xLocal, string xTipoDTE, string xFolio, string xFecha, string xRutEmpresa, string xMonto, string xRutRecep)
+        {
+            //this.CargaXML(xLocal, xTipoDTE, xFolio, xFecha);
+            this.generaPDF(xLocal, xTipoDTE, xFolio, xFecha, xRutEmpresa);
+
+            DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
+            string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
+
+           
+            if (!XML.Contains("<?xml version"))
+            {
+                XML = "<?xml version='1.0' encoding='ISO-8859-1' ?>" + XML;
+            }
+
+            FileStream fst;
+            BinaryWriter bw;
+            string tmp_path = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
+            string tmp_path2 = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
+            fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
+            bw = new BinaryWriter(fst);
+            string strxml = XML;
+            Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
+            byte[] textEnBytes = ByteConverter.GetBytes(strxml);
+            bw.Write(textEnBytes);
+            bw.Flush();
+            bw.Close();
+            bw.Dispose();
+
+            frmEnviaXML2 email = new frmEnviaXML2();
+
+            string _BASE_FOLDER_PROD = @"C:\PlaceDTE\eltit\" + xRutEmpresa.Replace("-","").Substring(0,8) + @"\Produccion";
+            email.RUTA_PDF = _BASE_FOLDER_PROD + @"\pdf\" + xLocal + @"\DTE" + xTipoDTE + "F" + Convert.ToInt32(xFolio) + ".pdf";
+            email.RUTA_XML = tmp_path2;
+            email.EMISOR_RUT = xRutEmpresa;
+            email.MYSQL_SERVER = FuncionesClass.G_SERVIDORMASTER;
+            email.MYSQL_PASS = FuncionesClass.G_MYSQL_PASS;
+            email.MYSQL_ROOT = FuncionesClass.G_MYSQL_USER;
+            email.TIPO_DTE = xTipoDTE;
+            email.MONTO = xMonto;
+            email.RECEPTOR_RUT = xRutRecep;
+            email.EMISOR_NOMBRE = ddlEmpresas.Text.Substring(3, ddlEmpresas.Text.Length - 3);
+            email.TIPODOCINTERNO = ddlTipoDocumento.Text;
+            email.ShowDialog();
         }
 
         private void generaPDF(string xLocal, string xTipoDTE, string xFolio, string xFecha, string xRutEmpresa)

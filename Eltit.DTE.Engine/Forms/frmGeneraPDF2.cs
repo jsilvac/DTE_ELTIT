@@ -55,6 +55,8 @@ namespace PlaceDTE
         public string DOC_XML;
         public string DOC_CONTACTO = "";
         public string DOC_CORREO_CONTACTO = "";
+        public bool SOLOENVIO = false;
+
         // Cabecera PDF
         //public string DOC_RAZONSOCIAL = "";
         //public string DOC_GIRO = "";
@@ -148,7 +150,7 @@ namespace PlaceDTE
                     {
                         this.CreaPDF(this.PDFPathTributario, destinoDTE1, this.jpg, this.dte);
                         log.Debug("-Generando " + destinoDTE1);
-                        ENVIAR_IMPRIMIR = true;
+                        //ENVIAR_IMPRIMIR = true;
                     }
                     else
                     {
@@ -158,7 +160,7 @@ namespace PlaceDTE
                             System.Threading.Thread.Sleep(1000);
                             this.CreaPDF(this.PDFPathTributario, destinoDTE1, this.jpg, this.dte);
                             log.Debug("-Generando " + destinoDTE1);
-                            ENVIAR_IMPRIMIR = true;
+                            //ENVIAR_IMPRIMIR = true;
                         }
                         catch (Exception ex)
                         {
@@ -170,7 +172,7 @@ namespace PlaceDTE
                     {
                         this.CreaPDF(this.PDFPathCedible, destinoDTE2, this.jpg, this.dte);
                         log.Debug("-Generando " + destinoDTE2);
-                        ENVIAR_IMPRIMIR = true;
+                        //ENVIAR_IMPRIMIR = true;
                     }
                     else
                     {
@@ -180,7 +182,7 @@ namespace PlaceDTE
                             System.Threading.Thread.Sleep(1000);
                             this.CreaPDF(this.PDFPathCedible, destinoDTE2, this.jpg, this.dte);
                             log.Debug("-Generando " + destinoDTE2);
-                            ENVIAR_IMPRIMIR = true;
+                            //ENVIAR_IMPRIMIR = true;
                         }
                         catch (Exception ex)
                         {

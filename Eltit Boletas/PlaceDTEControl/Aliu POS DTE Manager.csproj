@@ -141,6 +141,12 @@
     <Compile Include="frmActualizaInfoIntercambio.Designer.cs">
       <DependentUpon>frmActualizaInfoIntercambio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEnviaXML2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEnviaXML2.designer.cs">
+      <DependentUpon>frmEnviaXML2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +255,9 @@
     <None Include="Resources\icon_excel.png" />
     <EmbeddedResource Include="frmActualizaInfoIntercambio.resx">
       <DependentUpon>frmActualizaInfoIntercambio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEnviaXML2.resx">
+      <DependentUpon>frmEnviaXML2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
