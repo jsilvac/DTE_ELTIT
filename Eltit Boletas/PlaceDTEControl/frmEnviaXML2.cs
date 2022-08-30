@@ -20,6 +20,8 @@ using PlaceSoft.Eltit.Class;
 using PlaceDTE;
 using System.Net.Mail;
 using PlaceSoft.Eltit.Class.clases;
+using System.Net;
+using System.Net.Mime;
 
 namespace SamplesDTE
 {
@@ -66,8 +68,6 @@ namespace SamplesDTE
             this.getdatosReceptor();
 
 
-
-            /********************************************************************************/
 
             /**************** AQUI GENERAR RUTINA PARA BUSCAR CLIENTE **********************/
  
@@ -159,6 +159,11 @@ namespace SamplesDTE
         {
             try
             {
+
+                EMISOR_MAIL ="eltit_dte@placesoft.cl";
+                EMISOR_PASS_MAIL = "ELTIT_1990";
+                EMISOR_SMTP_MAIL = "mail.placesoft.cl";
+
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient(EMISOR_SMTP_MAIL);
                 mail.From = new MailAddress(EMISOR_MAIL);
@@ -166,8 +171,8 @@ namespace SamplesDTE
                 mail.Subject = txtAsunto.Text ;
                 mail.Body = txtGlosa.Text;
 
-                if (txtCC.Text != "")
-                    mail.CC.Add("jsilva@eltit.cl");
+               // if (txtCC.Text != "")
+//mail.CC.Add("jsilva@eltit.cl");
 
                 foreach (string s in listCorreo)
                 {
@@ -176,9 +181,9 @@ namespace SamplesDTE
                     mail.Attachments.Add(attachment);
                 }
 
-                SmtpServer.Port = 465;
-                SmtpServer.Credentials = new System.Net.NetworkCredential(EMISOR_MAIL, "estaes");
-                SmtpServer.EnableSsl = true;
+                SmtpServer.Port = 25;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(EMISOR_MAIL, EMISOR_PASS_MAIL);
+               // SmtpServer.EnableSsl = false;
 
                 SmtpServer.Send(mail);
                 RadMessageBox.Show(this, "Correo Enviado Satisfactoriamente.", "OK", MessageBoxButtons.OK, RadMessageIcon.Info);
@@ -194,40 +199,69 @@ namespace SamplesDTE
         }
 
 
-        //    Public Sub EnviarEmail(xCorreo As Correos, xAsunto As String, xMail As String, xCC As String, ByVal list As List(Of String))
-        //    Try
-        //        Dim mail As New MailMessage()
-        //        Dim SmtpServer As New SmtpClient(xCorreo.Smtp1)
-        //        mail.From = New MailAddress(xCorreo.Direccion1)
-        //        mail.[To].Add(xMail)
-        //        mail.Subject = xAsunto & "  :: " & G_EMPRESANOMBRE
-        //        mail.Body = txtGlosa.Text
+        public  void EnviarEmail2()
+        {
+            try
+            {
 
-        //        If xCC<> "" Then
-        //            mail.CC.Add(xCC)
-        //        End If
+                EMISOR_MAIL = "eltit_dte@placesoft.cl";
+                EMISOR_PASS_MAIL = "eltit_1990";
+                EMISOR_SMTP_MAIL = "mail.placesoft.cl";
 
-        //        For Each s As String In list
-        //            Dim attachment As System.Net.Mail.Attachment
-        //            attachment = New System.Net.Mail.Attachment(s.ToString())
-        //            mail.Attachments.Add(attachment)
-        //        Next
 
-        //        SmtpServer.Port = 25
-        //        SmtpServer.Credentials = New System.Net.NetworkCredential(xCorreo.Direccion1.ToLower, xCorreo.Clave1)
-        //        SmtpServer.EnableSsl = False
+                SmtpClient MyMail = new SmtpClient();
+                MailMessage MyMsg = new MailMessage();
+                MyMail.Host = EMISOR_SMTP_MAIL.ToLower();
+                MyMail.Port = 25;
+                MyMsg.Priority = MailPriority.Normal;
+                MyMsg.To.Add(new MailAddress(txtEmail.Text));
+                if (txtCC.Text != "")
+                    MyMsg.To.Add(new MailAddress(txtCC.Text));
 
-        //        SmtpServer.Send(mail)
-        //        RadMessageBox.Show(Me, "Correo Enviado Satisfactoriamente.", "OK", MessageBoxButtons.OK, RadMessageIcon.Info)
-        //        lblStatus.Text = "Correo Enviado OK..."
-        //        lblStatus.Refresh()
+                MyMsg.Subject = txtAsunto.Text;
+                MyMsg.SubjectEncoding = Encoding.UTF8;
+                MyMsg.IsBodyHtml = true;
+                MyMsg.From = new MailAddress(EMISOR_MAIL, EMISOR_NOMBRE);
+                MyMsg.BodyEncoding = Encoding.UTF8;
+                MyMsg.Body = txtGlosa.Text;
+                MyMail.UseDefaultCredentials = false;
+                NetworkCredential MyCredentials = new NetworkCredential(EMISOR_MAIL.ToLower(), EMISOR_PASS_MAIL.ToLower());
 
-        //        btnEnviar.Enabled = False
-        //    Catch ex As Exception
-        //        RadMessageBox.Show(Me, "Error al enviar Email: " & ex.Message.ToString, "OK", MessageBoxButtons.OK, RadMessageIcon.Info)
-        //    End Try
 
-        //End Sub
+                if (RUTA_XML != "")
+                {
+                    System.Net.Mail.Attachment data1 = new System.Net.Mail.Attachment(RUTA_XML, MediaTypeNames.Application.Octet);
+                    ContentDisposition disposition2 = data1.ContentDisposition;
+                    disposition2.CreationDate = System.IO.File.GetCreationTime(RUTA_XML);
+                    disposition2.ModificationDate = System.IO.File.GetLastWriteTime(RUTA_XML);
+                    disposition2.ReadDate = System.IO.File.GetLastAccessTime(RUTA_XML);
+                    MyMsg.Attachments.Add(data1);
+                }
+
+
+                if (RUTA_PDF != "")
+                {
+                    System.Net.Mail.Attachment data2 = new System.Net.Mail.Attachment(RUTA_PDF, MediaTypeNames.Application.Octet);
+                    ContentDisposition disposition2 = data2.ContentDisposition;
+                    disposition2.CreationDate = System.IO.File.GetCreationTime(RUTA_PDF);
+                    disposition2.ModificationDate = System.IO.File.GetLastWriteTime(RUTA_PDF);
+                    disposition2.ReadDate = System.IO.File.GetLastAccessTime(RUTA_PDF);
+                    MyMsg.Attachments.Add(data2);
+                }
+
+                MyMail.Credentials = MyCredentials;
+                MyMail.Timeout = 5000000;
+                MyMail.Send(MyMsg);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                //MessageBox.Show("Error:" + ex.Message.ToString());
+                //string linea;
+                //linea = ex.StackTrace.Substring(ex.StackTrace.Length - 7, 7);
+                //log.WriteLog(Application.ProductName, System.Reflection.MethodInfo.GetCurrentMethod().ToString() + "(" + linea + ")", ex.Message.ToString);
+            }
+        }
 
         private void GenerarEnvioXML()
         {
@@ -275,7 +309,7 @@ namespace SamplesDTE
                 listCorreo.Add(RUTA_XML);
             }
 
-            this.EnviarEmail();
+            this.EnviarEmail2();
         }
     }
 }

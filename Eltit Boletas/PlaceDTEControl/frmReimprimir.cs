@@ -15,6 +15,7 @@ using PlaceSoftDTE.clases;
 using Eltit.DTE.Forms;
 using PlaceDTE;
 using SamplesDTE;
+using System.Diagnostics;
 
 namespace Eltit
 {
@@ -1025,6 +1026,12 @@ namespace Eltit
             //this.CargaXML(xLocal, xTipoDTE, xFolio, xFecha);
             this.generaPDF(xLocal, xTipoDTE, xFolio, xFecha, xRutEmpresa);
 
+
+
+            //var EnvioSII = handler.GenerarEnvioCliente(dtes, xmlDtes, lblRut.Text, FuncionesClass.G_DTE_RUT_ENVIA,
+            //                                                      dte.Documento.Encabezado.Receptor.Rut);
+
+
             DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
             string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
 
@@ -1034,25 +1041,58 @@ namespace Eltit
                 XML = "<?xml version='1.0' encoding='ISO-8859-1' ?>" + XML;
             }
 
-            FileStream fst;
-            BinaryWriter bw;
-            string tmp_path = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
-            string tmp_path2 = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
-            fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
-            bw = new BinaryWriter(fst);
-            string strxml = XML;
-            Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
-            byte[] textEnBytes = ByteConverter.GetBytes(strxml);
-            bw.Write(textEnBytes);
-            bw.Flush();
-            bw.Close();
-            bw.Dispose();
+            /******************** aqui rescata del ventas *****************************************/
 
-            frmEnviaXML2 email = new frmEnviaXML2();
+
+            /*************************************************************/
+            PlaceSoft.DTE.Engine.Documento.DTE dte2;
+            dte2 = PlaceSoft.DTE.Engine.XML.XmlHandler.DeserializeFromString<PlaceSoft.DTE.Engine.Documento.DTE>(XML);
+
+            /***************** SI ESTA RECEPCIONADA OK ENVIAMOS DOCUMENTO AL CLIENTE ******************/
+            List<PlaceSoft.DTE.Engine.Documento.DTE> dtes = new List<PlaceSoft.DTE.Engine.Documento.DTE>();
+            List<string> xmlDtes = new List<string>();
+            dtes.Add(dte2);
+            xmlDtes.Add(XML);
+
+            var EnvioSII = handler.GenerarEnvioCliente(dtes, xmlDtes, dte2.Documento.Encabezado.Emisor.Rut, lblRutCertificado.Text,
+                                                                  dte2.Documento.Encabezado.Receptor.Rut, lblFechaResolucion.Text, Convert.ToInt32( lblNumeroResolucion.Text));
+
+            handler.nombreCertificado = lblNombreCertificado.Text;
+            var filePath = handler.FirmarEnvioDTE(EnvioSII);
+
+            string destino = "";
+            if (File.Exists(filePath))
+            {
+                FileInfo fi = new FileInfo(filePath);
+
+                destino =  @"C:\temp\envio_" + DateTime.Now.Ticks + ".xml";;
+                fi.CopyTo(destino, true);
+                //string xml_salida = File.ReadAllText(destino, Encoding.GetEncoding("ISO-8859-1"));
+
+
+            }
+
+
+
+                //FileStream fst;
+                //BinaryWriter bw;
+                //string tmp_path = @"C:\temp\envio_" + DateTime.Now.Ticks + ".xml";
+                //string tmp_path2 = @"C:\temp\envio_" + DateTime.Now.Ticks + ".xml";
+                //fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
+                //bw = new BinaryWriter(fst);
+                //string strxml = XML;
+                //Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
+                //byte[] textEnBytes = ByteConverter.GetBytes(strxml);
+                //bw.Write(textEnBytes);
+                //bw.Flush();
+                //bw.Close();
+                //bw.Dispose();
+
+                frmEnviaXML2 email = new frmEnviaXML2();
 
             string _BASE_FOLDER_PROD = @"C:\PlaceDTE\eltit\" + xRutEmpresa.Replace("-","").Substring(0,8) + @"\Produccion";
             email.RUTA_PDF = _BASE_FOLDER_PROD + @"\pdf\" + xLocal + @"\DTE" + xTipoDTE + "F" + Convert.ToInt32(xFolio) + ".pdf";
-            email.RUTA_XML = tmp_path2;
+            email.RUTA_XML = destino;
             email.EMISOR_RUT = xRutEmpresa;
             email.MYSQL_SERVER = FuncionesClass.G_SERVIDORMASTER;
             email.MYSQL_PASS = FuncionesClass.G_MYSQL_PASS;
@@ -1067,6 +1107,8 @@ namespace Eltit
 
         private void generaPDF(string xLocal, string xTipoDTE, string xFolio, string xFecha, string xRutEmpresa)
         {
+            this.Enabled = false;
+            this.Refresh();
             DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
             string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
 
@@ -1081,8 +1123,15 @@ namespace Eltit
             este.DOC_CONTACTO = GetClienteSucursal( gvInforme.Rows[fila].Cells[8].Value.ToString(),"0","contacto");
             este.DOC_FONO = GetClienteSucursal(gvInforme.Rows[fila].Cells[8].Value.ToString(), "0", "fono1");
             este.DOC_CORREO_CONTACTO = GetClienteSucursal(gvInforme.Rows[fila].Cells[8].Value.ToString(), "0", "email");
+
             este.ShowDialog();
 
+            System.Threading.Thread.Sleep(500);
+            System.Diagnostics.Process.Start(este.destinoDTE1);
+
+
+            this.Enabled = true;
+            this.Refresh();
 
         }
 

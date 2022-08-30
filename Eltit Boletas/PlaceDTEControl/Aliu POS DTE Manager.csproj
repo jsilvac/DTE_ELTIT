@@ -115,6 +115,10 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin40\TelerikCommon.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="TutUpdater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\TutUpdater.dll</HintPath>
+    </Reference>
     <Reference Include="XmlGridViewSample, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\XmlGridViewSample.dll</HintPath>

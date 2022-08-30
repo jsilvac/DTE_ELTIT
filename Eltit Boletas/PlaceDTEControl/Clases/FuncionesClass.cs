@@ -19,6 +19,7 @@ using System.Text.RegularExpressions;
 //using SchoolManagementAdmin.objetos;
 using Eltit.clases;
 using SamplesDTE;
+using System.IO;
 
 namespace Eltit.Clases
 {
@@ -90,6 +91,7 @@ namespace Eltit.Clases
         /// <summary>
         public static string G_SERVIDORMASTER = "192.168.204.9";
         public static string G_USERS_LOG = "";
+        public static string G_UPDATE_PATH = "";
         //public static string G_SERVIDORMASTER = "192.168.204.9";
         /// </summary>
 
@@ -106,6 +108,28 @@ namespace Eltit.Clases
             G_USUARIOSISTEMA = "EDUVERGARA";
             this.LeeXMLConfiguracion();
             this.CargaValoresTablas();
+
+
+            TutUpdater.Updater updater1 = new TutUpdater.Updater();
+
+
+            updater1.UpdateUrl = G_UPDATE_PATH;
+            updater1.LocalAppPath = ReturnEnvirPath() + "" + @"PlaceDTEAdmin.exe";
+            updater1.ReleaseAppPath = G_UPDATE_PATH + @"PlaceDTEAdmin.exe";
+
+
+            //If IO.File.Exists(updater1.ReleaseAppPath) Then
+            //    updater1.CheckForUpdates()
+            //End If
+
+            //C:\Program Files (x86)\Eltit Suite\EltitDTEAdmin
+            if (File.Exists(updater1.ReleaseAppPath))
+            {
+                updater1.CheckForUpdates();
+            }
+
+
+
             //this.LeeDatosLocal(G_LOCAL);
             /******************* CARGA PREFIJO DE RUT DE EMPRESA *********************/
             G_PATH_DTE_FILE = @"C:\PlaceDTE";
@@ -113,7 +137,24 @@ namespace Eltit.Clases
             _BASE_FOLDER_PROD = @"C:\PlaceDTE\"; //+ G_CLIENTE_PREFIJO.Replace("_", "") + @"\" + Convert.ToDouble(G_EMPRESARUT.Substring(0, 9)) + @"\Produccion\";
             
         }
+        private string ReturnEnvirPath()
+        {
+            string ouput = "";
 
+            try
+            {
+                if (System.Environment.Is64BitOperatingSystem == true)
+                    ouput = @"C:\Program Files (x86)\Eltit Suite\EltitDTEAdmin\";
+                else
+                    ouput = @"C:\Program Files\Eltit Suite\EltitDTEAdmin\";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido una Excepción no controlada: " + ex.Message.ToString());
+            }
+
+            return ouput;
+        }
         private void LeeDatosEmpresa(string xCodigo)
         {
             //EmpresaClass emp = new EmpresaClass(G_SERVIDOR);
@@ -231,13 +272,14 @@ namespace Eltit.Clases
                     XmlNodeList local = nodo.GetElementsByTagName("RECINTO");
                     XmlNodeList prod = nodo.GetElementsByTagName("PRODUCTION");
                     XmlNodeList imp = nodo.GetElementsByTagName("IMPRESORA_TICKET");
+                    XmlNodeList path = nodo.GetElementsByTagName("UPDATE_PATH");
 
                     G_SERVIDOR = server[0].InnerText;
                     G_LOCAL = local[0].InnerText;
                     DTE_PRODUCCION_BOLETA = Convert.ToBoolean(prod[0].InnerText);
 
                     G_IMPRESORA_TICKET = imp[0].InnerText; 
-
+                    G_UPDATE_PATH = path[0].InnerText;
                 }
             }
             catch (Exception ex)

@@ -283,6 +283,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Módulo de Control de Documentación Electrónica";
             this.ThemeName = "TelerikMetroBlue";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.frmGeneraDocumentos_Load);
             this.Resize += new System.EventHandler(this.frmGeneraDocumentos_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();

@@ -41,7 +41,34 @@ namespace SamplesDTE
             lblusuario.Text = "USUARIO: " + FuncionesClass.G_USERS_LOG;
 
             lblInformacion.Text = "EMPRESAS ELTIT - DEPARTAMENTO DE SISTEMAS | " + DateTime.Now.ToLongDateString() + " | SERVIDOR: " + FuncionesClass.G_SERVIDOR ;
-   
+
+
+            //Dim updater1 As New TutUpdater.Updater
+            //DTE_PATH_PRODUCCION = DTE_PATH_PRODUCCION & G_CLIENTESISTEMA.Replace("_", "") & "\"
+            //updater1.ApplicationName = "SistemaVentas.exe"
+            //updater1.UpdateUrl = G_UPDATE_PATH
+            //updater1.LocalAppPath = ReturnEnvirPath()
+            //updater1.ReleaseAppPath = G_UPDATE_PATH + "SistemaVentas.exe"
+            //If IO.File.Exists(updater1.ReleaseAppPath) Then
+            //    updater1.CheckForUpdates()
+            //End If
+
+            //TutUpdater.Updater updater1 = new TutUpdater.Updater();
+
+            ////updater1.ApplicationName = "SistemaVentas.exe";
+            //updater1.UpdateUrl = G_UPDATE_PATH;
+            //updater1.LocalAppPath = ReturnEnvirPath();
+            //updater1.ReleaseAppPath = G_UPDATE_PATH + "SistemaVentas.exe";
+
+            //If IO.File.Exists(updater1.ReleaseAppPath) Then
+            //    updater1.CheckForUpdates()
+            //End If
+
+
+
+
+
+
             icons[0] = new Icon("factura.ico");
             icons[1] = new Icon("xml.ico");        
             handler = new Handler();
@@ -212,6 +239,11 @@ namespace SamplesDTE
         {
             frmReimprimir r = new frmReimprimir();
             r.Show();
+        }
+
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

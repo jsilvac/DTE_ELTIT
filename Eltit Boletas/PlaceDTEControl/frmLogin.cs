@@ -54,14 +54,13 @@ namespace Eltit
                 if (fu.existeUsuario(txtUsuario.Text.Trim(), txtPassword.Text.Trim()) == true)
                 {
                     FuncionesClass.G_USERS_LOG = txtUsuario.Text;
-                    this.Hide();
-                    //MessageBox.Show("Usuario correcto....");
+                  
                     frmPrincipal fr = new frmPrincipal();
 
                     fr.ShowDialog();
                     txtPassword.Text = "";
                     txtUsuario.Text = "";
-                    //  this.Show();
+                     this.Close();
                     txtUsuario.Focus();
                     FuncionesClass.G_USERS_LOG = "";
 

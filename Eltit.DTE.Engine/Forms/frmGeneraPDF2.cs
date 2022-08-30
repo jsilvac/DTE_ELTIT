@@ -56,6 +56,8 @@ namespace PlaceDTE
         public string DOC_CONTACTO = "";
         public string DOC_CORREO_CONTACTO = "";
         public bool SOLOENVIO = false;
+        public string destinoDTE1 = "";
+        public string destinoDTE2 = "";
 
         // Cabecera PDF
         //public string DOC_RAZONSOCIAL = "";
@@ -134,8 +136,7 @@ namespace PlaceDTE
         }
         public void btnGenerar_Click(object sender, EventArgs e)
         {
-            string destinoDTE1 = "";
-            string destinoDTE2 = "";
+            
 
        try
             {

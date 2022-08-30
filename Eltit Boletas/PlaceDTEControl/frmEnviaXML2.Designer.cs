@@ -91,7 +91,7 @@
             // 
             this.radStatusStrip1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.lblInformacion});
-            this.radStatusStrip1.Location = new System.Drawing.Point(0, 617);
+            this.radStatusStrip1.Location = new System.Drawing.Point(0, 458);
             this.radStatusStrip1.Name = "radStatusStrip1";
             this.radStatusStrip1.Size = new System.Drawing.Size(520, 25);
             this.radStatusStrip1.TabIndex = 2;
@@ -437,7 +437,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(520, 642);
+            this.ClientSize = new System.Drawing.Size(520, 483);
             this.Controls.Add(this.cboOrigen);
             this.Controls.Add(this.RadGroupBox2);
             this.Controls.Add(this.RadGroupBox1);

@@ -910,17 +910,7 @@ namespace Eltit
             return EnvioCustomer;
         }
 
-        public string FirmarEnvioDTE(PlaceSoft.DTE.Engine.Envio.EnvioDTE env)
-        {
-            var filePathEnvio = string.Empty;
-            string messageResult = string.Empty;
-            filePathEnvio = env.Firmar(nombreCertificado, true);
-            if (!ValidateEnvio(filePathEnvio, PlaceSoft.DTE.Security.Firma.Firma.TipoXML.Envio))
-            {
-                throw new Exception("NO SE PUDO VALIDAR EL SCHEMA DEL ENVIO GENERADO.");
-            }
-            return filePathEnvio;
-        }
+      
 
         public long EnviarEnvioDTEToSII(string filePathEnvio, string serialKey, bool produccion)
         {
@@ -1387,6 +1377,67 @@ namespace Eltit
 
             return libro;
         }
+
+
+        public PlaceSoft.DTE.Engine.Envio.EnvioDTE GenerarEnvioCliente(List<PlaceSoft.DTE.Engine.Documento.DTE> dtes, List<string> xmlDtes,
+                                                                  string xRutEmpresa, string xRutEnvia, string xRutRecibe, string xFechaResol, int NroResol)
+        {
+            var EnvioSII = new PlaceSoft.DTE.Engine.Envio.EnvioDTE();
+            EnvioSII.SetDTE = new PlaceSoft.DTE.Engine.Envio.SetDTE();
+            EnvioSII.SetDTE.Id = "ENVIO_CLIENTE_" + DateTime.Now.ToString("ddMMyyyyHHmmss");
+            /*Es necesario agregar en el envío, los objetos DTE como sus respectivos XML en strings*/
+            foreach (var a in dtes)
+                EnvioSII.SetDTE.DTEs.Add(a);
+            foreach (var a in xmlDtes)
+                EnvioSII.SetDTE.dteXmls.Add(a);
+
+            EnvioSII.SetDTE.Caratula = new PlaceSoft.DTE.Engine.Envio.Caratula();
+            EnvioSII.SetDTE.Caratula.FechaEnvio = DateTime.Now;
+            /*Fecha de Resolución y Número de Resolución se averiguan en el sitio del SII según ambiente de producción o certificación*/
+            EnvioSII.SetDTE.Caratula.FechaResolucion = Convert.ToDateTime( xFechaResol);
+            EnvioSII.SetDTE.Caratula.NumeroResolucion = NroResol;
+
+            EnvioSII.SetDTE.Caratula.RutEmisor = xRutEmpresa;
+            EnvioSII.SetDTE.Caratula.RutEnvia = xRutEnvia;
+            EnvioSII.SetDTE.Caratula.RutReceptor = xRutRecibe; //Este es el RUT del SII
+            EnvioSII.SetDTE.Caratula.SubTotalesDTE = new List<PlaceSoft.DTE.Engine.Envio.SubTotalesDTE>();
+
+            /*En la carátula del envío, se debe indicar cuantos documentos de cada tipo se están enviando*/
+            var tipos = EnvioSII.SetDTE.DTEs.GroupBy(x => x.Documento.Encabezado.IdentificacionDTE.TipoDTE);
+            foreach (var a in tipos)
+            {
+                EnvioSII.SetDTE.Caratula.SubTotalesDTE.Add(new PlaceSoft.DTE.Engine.Envio.SubTotalesDTE()
+                {
+                    Cantidad = a.Count(),
+                    TipoDTE = a.ElementAt(0).Documento.Encabezado.IdentificacionDTE.TipoDTE
+                });
+            }
+
+            return EnvioSII;
+        }
+        public string FirmarEnvioDTE(PlaceSoft.DTE.Engine.Envio.EnvioDTE env)
+        {
+            var filePathEnvio = string.Empty;
+            string messageResult = string.Empty;
+            filePathEnvio = env.Firmar(nombreCertificado, true);
+            if (!ValidateEnvio(filePathEnvio, PlaceSoft.DTE.Security.Firma.Firma.TipoXML.Envio))
+            {
+                throw new Exception("NO SE PUDO VALIDAR EL SCHEMA DEL ENVIO GENERADO.");
+            }
+            return filePathEnvio;
+        }
+        //public string FirmarEnvioDTE(PlaceSoft.DTE.Engine.Envio.EnvioDTE env)
+        //{
+        //    var filePathEnvio = string.Empty;
+        //    string messageResult = string.Empty;
+        //    filePathEnvio = env.Firmar(nombreCertificado, true);
+        //    if (!ValidateEnvio(filePathEnvio, PlaceSoft.DTE.Security.Firma.Firma.TipoXML.Envio))
+        //    {
+        //        throw new Exception("NO SE PUDO VALIDAR EL SCHEMA DEL ENVIO GENERADO.");
+        //    }
+        //    return filePathEnvio;
+        //}
+
         #endregion
 
     }
