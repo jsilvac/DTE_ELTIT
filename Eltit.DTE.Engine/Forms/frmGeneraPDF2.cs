@@ -217,6 +217,7 @@ namespace PlaceDTE
             }           
             catch (Exception ex)
             {
+                log.Debug(destinoDTE1 + "," + destinoDTE2);
                 log.Error("Error:", ex);
                // RadMessageBox.Show(this, "Error:" + ex.Message.ToString(), "Atencion", MessageBoxButtons.OK);
             }

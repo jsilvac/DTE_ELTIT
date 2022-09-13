@@ -430,6 +430,56 @@ namespace PlaceSoft.Eltit.Class.clases
             }
             return dr;
         }
+
+        public MySqlDataReader GetDocumentosCabezaByLocalNroInternoCajaFechadesdeFechahastaRut(string xLocal, string xCaja, string xTipoInterno,
+                                        string xNumero, string xFechaDesde, string xFechaHasta, string xBase, string xRutCli)
+        {
+            string query = "";
+            MySqlDataReader dr = null;
+
+            query = " SELECT dc.tipo, dc.numero, dc.caja, dc.fecha, dc.total, IFNULL(dte.xml, '0') AS xml, dc.foliosii,'0' as indicador_traslado,dc.rut,dc.cajera ";
+            query += " FROM eltit_ventas" + xLocal + ".sv_documento_cabeza_" + xLocal + " AS dc ";
+            query += " LEFT JOIN eltit_fae" + xLocal + ".sv_dte" + xLocal + " AS dte ON(dc.numero = dte.numerodocumento) AND dc.caja = dte.cajadocumento ";
+            query += " AND dc.fecha = dte.fecha AND dc.local = dte.localdocumento ";
+
+            if (xTipoInterno == "NC")
+            {
+                query += " WHERE  (dc.tipo = 'NB' OR dc.tipo = 'NF') AND ";
+            }
+            else
+            {
+                query += " WHERE dc.tipo = '" + xTipoInterno + "' AND ";
+            }
+            if (xTipoInterno != "BV") { 
+}
+            if (xCaja != "" )
+            {
+                query += " dc.caja = '" + xCaja + "' AND ";
+            }
+
+            if (xNumero != "0000000000"){
+                query += " dc.numero = '" + xNumero + "' and ";
+            }
+
+            if(xTipoInterno != "BV")
+            {
+                query += "  dc.rut= '" + xRutCli + "' and   ";
+            }
+
+            query += " dc.fecha >= '" + xFechaDesde + "' And dc.fecha <= '" + xFechaHasta + "' ";
+
+             query += " ORDER BY dc.numero ASC ";
+
+            cnn = new Conectar(MYSQL_SERVER, xBase, MYSQL_ROOT, MYSQL_PASS);
+            if (cnn.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                dr = cmd.ExecuteReader();
+            }
+            return dr;
+        }
+
+
         public MySqlDataReader GetDocumentosGuasByLocalNroInternoCajaDesdeHasta(string xLocal, string xCaja, string xTipoInterno,
                                                          string xFolioDesde, string xFolioHasta, string xBase)
         {

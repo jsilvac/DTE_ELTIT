@@ -17,6 +17,7 @@ using PlaceDTE;
 using SamplesDTE;
 using System.Diagnostics;
 
+
 namespace Eltit
 {
 
@@ -59,6 +60,7 @@ namespace Eltit
         private Cajera cj;
         Documentos doc;
         ClienteFactura clienteFactura;
+        Rut miRut;
 
 
         public frmReimprimir()
@@ -161,7 +163,7 @@ namespace Eltit
 
                         pbStatus.Image = global::Eltit.Properties.Resources.OK_48;
 
-                        txtNumero.Enabled = true;
+                       // txtNumero.Enabled = true;
                         btnVer.Enabled = true;
                         txtCaja.Enabled = true;
                         ddlTipoDocumento.Enabled = true;
@@ -260,14 +262,20 @@ namespace Eltit
             txtNumero.Text = txtNumero.Text.PadLeft(10, Convert.ToChar("0"));
             if (ddlEmpresas.SelectedIndex > 0 && ddLlocales.SelectedIndex > 0 && ddlTipoDocumento.SelectedIndex > 0)
             {
-                if (txxCajaFolios.Text.Length != 2)
+                if (txxCajaFolios.Text.Length != 2 && txt_rutCli.Text  == "" )
                 {
                     RadMessageBox.Show(this, "Debe Selecionar Una Caja de venta Válida. [" + txxCajaFolios.Text + "]", "Atencion", MessageBoxButtons.OK);
                 }
                 else
                 {
-
-                    GetDocumentos();
+                    if(txt_rutCli.Text != "")
+                    {
+                        GetDocumentos(txt_rutCli.Text);
+                    }
+                    else
+                    {
+                        GetDocumentos("");    
+                    }
                 }
             }
             else
@@ -331,7 +339,7 @@ namespace Eltit
             myCaf.CerrarTransaccion();
 
         }
-        private void GetDocumentos()
+        private void GetDocumentos(string xRutCli)
         {
             PlaceSoft.Eltit.Class.clases.Documentos dc = new PlaceSoft.Eltit.Class.clases.Documentos(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
             //PlaceSoft.Eltit.Class.clases.Documentos dc = new PlaceSoft.Eltit.Class.clases.Documentos(lblPrincipal.Text, lblRootPrincipal.Text, lblPassPrincipal.Text);
@@ -371,7 +379,9 @@ namespace Eltit
 
                 }
 
-                txtNumero.Focus();
+                 txtNumero.Focus();
+                //txt_rutCli.Focus();
+                //txt_rutCli.Enabled = true;
             }
 
             fechadesde = fun.FechaMysql(dtpdesde.Text);
@@ -387,8 +397,14 @@ namespace Eltit
             }
             else
             {
-
-                dr = dc.GetDocumentosCabezaByLocalNroInternoCajaFechadesdeFechahasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, txtNumero.Text, fechadesde, fechahasta, base_datos);
+                if (txt_rutCli.Text != "")
+                {
+                    dr = dc.GetDocumentosCabezaByLocalNroInternoCajaFechadesdeFechahastaRut(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, 
+                        txtNumero.Text, fechadesde, fechahasta, base_datos,txt_rutCli.Text + DV.Text);
+                }
+                else {
+                    dr = dc.GetDocumentosCabezaByLocalNroInternoCajaFechadesdeFechahasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, txtNumero.Text, fechadesde, fechahasta, base_datos);
+                }
             }
 
 
@@ -542,17 +558,9 @@ namespace Eltit
                         RadMessageBox.Show(this, "Sobre enviado correctamente. TrackID: " + trackId.ToString(), "Atencion", MessageBoxButtons.OK);
 
                     }
-
                 }
 
-
-
-
-
             }
-
-
-
         }
 
         private void GrabaEnvio(long xTrack)
@@ -574,9 +582,7 @@ namespace Eltit
                     mydte.ActualizaTrackEnDTE(local, tipo, Convert.ToDouble(numero).ToString(), DateTime.Now.ToString("yyyy-MM-dd"), xTrack.ToString());
                 }
             }
-
         }
-
 
         private void GenerarDocumentoElectronico(string xTipoInterno, string xNumeroInterno, string xFecha, string xCaja,
                                             double xMonto, int indice)
@@ -679,8 +685,6 @@ namespace Eltit
 
             if (dr.HasRows == true)
             {
-
-
                 /********** GET ULTIMO FOLIO FISCAL DTE ****************/
                 PlaceSoft.Eltit.Class.clases.DTEClass DTE = new PlaceSoft.Eltit.Class.clases.DTEClass(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
                 int FOLIO_CAF = DTE.GetUltimoFolioDTEByLocalCaja(ddLlocales.Text.Substring(0, 2), tipoFiscal, "", base_venta);
@@ -690,15 +694,12 @@ namespace Eltit
                     txtFolioGenera.Text = "0";
                 }
 
-
-
                 FOLIO_CAF = Convert.ToInt32(gvInforme.Rows[indice].Cells[6].Value);
 
                 /*
                     * Las facturas notas y crédito y guias no tienen correlativos asignados por caga
                     * se manejan por local global                 
                     */
-
 
                 if (FOLIO_CAF == 0)
                 {
@@ -755,9 +756,6 @@ namespace Eltit
                     dtesSII.Add(dte);
                     xmlDtes.Add(XML);
                 }
-
-
-
             }
             else
             {
@@ -934,6 +932,7 @@ namespace Eltit
             ddlTipoDocumento.Text = "-- SELECCIONE TIPO --";
             txtNumero.Text = "";
             txxCajaFolios.Text = "";
+            txt_rutCli.Text = "";
             Retorno();
         }
 
@@ -995,14 +994,11 @@ namespace Eltit
                 {
                     //string nombreImpresora = "POS-80";
 
-
                     Boolean impCedible = Convert.ToBoolean(gvInforme.Rows[fila].Cells[12].Value);
                     //Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[15].Value);
                     string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
                     List<string> formaPago = new List<string>();
                     formaPago = doc.GetPagosByDocumento(local, tipoInterno, folioSII, caja, fechaEmision);
-
-
 
                     this.imprimeFactura(tipoDTE, fechaEmision, folioSII, local, caja, rutEmpresa, formaPago, tipoInterno, impCedible, cajera);
                 }
@@ -1026,8 +1022,6 @@ namespace Eltit
             //this.CargaXML(xLocal, xTipoDTE, xFolio, xFecha);
             this.generaPDF(xLocal, xTipoDTE, xFolio, xFecha, xRutEmpresa);
 
-
-
             //var EnvioSII = handler.GenerarEnvioCliente(dtes, xmlDtes, lblRut.Text, FuncionesClass.G_DTE_RUT_ENVIA,
             //                                                      dte.Documento.Encabezado.Receptor.Rut);
 
@@ -1042,7 +1036,6 @@ namespace Eltit
             }
 
             /******************** aqui rescata del ventas *****************************************/
-
 
             /*************************************************************/
             PlaceSoft.DTE.Engine.Documento.DTE dte2;
@@ -1071,8 +1064,6 @@ namespace Eltit
 
 
             }
-
-
 
                 //FileStream fst;
                 //BinaryWriter bw;
@@ -1159,7 +1150,16 @@ namespace Eltit
         {
 
             DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
-            string XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
+            string XML="";
+
+            if (xTipoDTE == "39")
+            {
+                XML = dte.GetXMLBoletas(xLocal, xTipoDTE, xFolio, xFecha);
+            }
+            if (xTipoDTE == "33")
+            {
+                XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
+            }
 
             XmlGridViewSample.Form1 frm = new XmlGridViewSample.Form1();
 
@@ -1185,8 +1185,10 @@ namespace Eltit
 
 
             frm.txtFile.Text = tmp_path;
+
             frm.ShowDialog();
         }
+
         private string getNombreCajera(string xRut)
         {
             string salida = "";
@@ -1199,7 +1201,8 @@ namespace Eltit
         }
 
 
-        private void imprimeFactura(string xTipoDTE, string xFechaEmision, string xFolioSII, string xLocal, string xCaja, string xRutEmpresa, List<string> xFormaDePago, string xTipoInterno, Boolean xImpCedible, string xCajera) {
+        private void imprimeFactura(string xTipoDTE, string xFechaEmision, string xFolioSII, string xLocal, string xCaja, string xRutEmpresa,
+            List<string> xFormaDePago, string xTipoInterno, Boolean xImpCedible, string xCajera) {
 
             Eltit.DTE.Forms.Form1 formulario = new Form1();
             formulario.DOC_FOLIOSII = xFolioSII;
@@ -1242,7 +1245,7 @@ namespace Eltit
 
         private void ddlTipoDocumento_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-
+            txt_rutCli.Enabled = true;
         }
 
         private void txxCajaFolios_KeyPress(object sender, KeyPressEventArgs e)
@@ -1257,6 +1260,20 @@ namespace Eltit
         private void txxCajaFolios_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_rutCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter && txt_rutCli.Text != "")
+            {
+                txt_rutCli.Text = txt_rutCli.Text.PadLeft(9, Convert.ToChar("0"));
+
+                miRut = new Rut();
+               DV.Text = miRut.Digito(Convert.ToInt32(txt_rutCli.Text));
+                txtNumero.Enabled = true;
+                txtNumero.Focus();
+                
+            }
         }
     }
 
