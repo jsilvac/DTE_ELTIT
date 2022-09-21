@@ -111,11 +111,18 @@ namespace Eltit.DTE.Forms
                 DTEClass dte = new DTEClass(this.DOC_SERVIDOR, this.DOC_ROOT_MYSQL, this.DOC_PASSWORD_MYSQL);
                 XML = dte.GetXMLBoletas(DOC_LOCAL, DOC_TIPO_DTE, DOC_FOLIOSII, DOC_FECHA_EMISION);
             }
-            if (DOC_TIPO_DTE == "33" || DOC_TIPO_DTE == "61")
+            if (DOC_TIPO_DTE == "33" || DOC_TIPO_DTE == "61" )
             {
                 miClase = new VentasClass(this.DOC_SERVIDOR, this.DOC_PASSWORD_MYSQL, this.DOC_ROOT_MYSQL);
                 XML = miClase.GetXMLFacturas(DOC_LOCAL, DOC_TIPO_DTE, DOC_FOLIOSII, DOC_FECHA_EMISION);
             }
+
+            if ( DOC_TIPO_DTE == "52")
+            {
+                miClase = new VentasClass(this.DOC_SERVIDOR, this.DOC_PASSWORD_MYSQL, this.DOC_ROOT_MYSQL);
+                XML = miClase.GetXMLGuias(DOC_LOCAL, DOC_TIPO_DTE, DOC_FOLIOSII, DOC_FECHA_EMISION);
+            }
+
 
             //string XML = miClase.GetXMLFacturas(DOC_LOCAL, DOC_TIPO_DTE, DOC_FOLIOSII, DOC_FECHA_EMISION);
 
@@ -464,15 +471,19 @@ namespace Eltit.DTE.Forms
             //    //e.Graphics.DrawString(strFormaPago, font2, Brushes.Black, padfinalPago + ((15 - strFormaPago.Length) * 2), y);
             //}
 
-            List<string> strFormaPago = DOC_FORMA_PAGO;
-            //int padfinalPago = (176 - (strFormaPago.Lengt * 4));
-            e.Graphics.DrawString("Forma de Pago :", font2, Brushes.Black, 5, y);
-            y = y + 3;
-            foreach (string row in strFormaPago)
-            {
+            if (DOC_TIPO_DTE != "G4")
+            {     List<string> strFormaPago = DOC_FORMA_PAGO;
+                //int padfinalPago = (176 - (strFormaPago.Lengt * 4));
+                e.Graphics.DrawString("Forma de Pago :", font2, Brushes.Black, 5, y);
+                y = y + 3;
+                foreach (string row in strFormaPago)
+                {
 
-                e.Graphics.DrawString(row.ToString(), font5, Brushes.Black, 77, y);
-                y = y + 10;
+                    e.Graphics.DrawString(row.ToString(), font5, Brushes.Black, 77, y);
+                    y = y + 10;
+                }
+           
+
             }
 
 
@@ -685,9 +696,9 @@ namespace Eltit.DTE.Forms
                 double cantidad = detalle.Cantidad;
                 string descripcion = detalle.Nombre;
                 string descripcion2 = "";
-                if (detalle.Nombre.Length > 28)
+                if (detalle.Nombre.Length > 25)
                 {
-                    descripcion = detalle.Nombre.Substring(0, 28);
+                    descripcion = detalle.Nombre.Substring(0, 25);
                    // descripcion2 = detalle.Nombre.Substring(25, detalle.Nombre.Length - 25);
                 }
 
@@ -838,24 +849,19 @@ namespace Eltit.DTE.Forms
 
             y = y + 6;
             e.Graphics.DrawString("____________________________________________________________", font3, Brushes.Black, x, y);
-            y = y + 13;
-            List<string> strFormaPago = DOC_FORMA_PAGO;
-            //int padfinalPago = (176 - (strFormaPago.Lengt * 4));
-            e.Graphics.DrawString("Forma de Pago :", font2, Brushes.Black, 5, y);
-            y = y + 3;
-            foreach(string row in strFormaPago) {
+            if (DOC_TIPO_DTE != "61" && DOC_TIPO_DTE != "52")
+            {
+                y = y + 13;
+                List<string> strFormaPago = DOC_FORMA_PAGO;
+                e.Graphics.DrawString("Forma de Pago :", font2, Brushes.Black, 5, y);
+                y = y + 3;
+                foreach(string row in strFormaPago) {
 
-                e.Graphics.DrawString(row.ToString(), font5, Brushes.Black, 77, y);
-                y = y + 10;
+                    e.Graphics.DrawString(row.ToString(), font5, Brushes.Black, 77, y);
+                    y = y + 10;
+                }
+                y = y + 15;
             }
-            //y = y + 15;
-            //string strVuelto = DOC_VUELTO;
-            //e.Graphics.DrawString("Vuelto :", font2, Brushes.Black, 5, y);
-            //string srtvuelto = string.Format(CultureInfo.CurrentCulture, "{0:C0}", DOC_VUELTO);
-            //string totalVuelto = string.Format(CultureInfo.CurrentCulture, "{0:C0}", srtvuelto.Replace(",00", ""));
-            //int padVuelto = 178 + (4 - totalVuelto.Length) * 3;
-            //e.Graphics.DrawString(totalVuelto, font2, Brushes.Black, padVuelto, y + 1);
-            y = y + 15;
 
             /****************** IMPRIME COPIA CEDIBLE *************/
 

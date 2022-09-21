@@ -338,6 +338,9 @@ namespace Eltit.Clases
                 case "NB":
                     salida = "NOTA DE CREDITO ELECTRÓNICA BOLETA";
                     break;
+                case "G4":
+                    salida = "GUIA ELECTRÓNICA";
+                    break;
             }
             return salida;
         }

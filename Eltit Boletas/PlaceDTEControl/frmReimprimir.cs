@@ -361,8 +361,17 @@ namespace Eltit
                         tipoFiscal = "33";
                         break;
                     case "61":
-                        tipo = "NB";
-                        tipoFiscal = "61";
+                        if (ddlTipoDocumento.SelectedItem.Text.Contains("factura"))
+                        {
+                            tipo = "NF";
+                            tipoFiscal = "61";
+                        }
+                        if (ddlTipoDocumento.SelectedItem.Text.Contains("boleta"))
+                        {
+                            tipo = "NB";
+                            tipoFiscal = "61";
+
+                        }
                         break;
                     case "52":
                         tipo = "G4";// "GV";
@@ -390,10 +399,9 @@ namespace Eltit
             this.BuscaCaf(tipoFiscal);
 
 
-            if (tipo == "G4")
+            if (tipo.Contains("G"))
             {
-                dr = dc.GetDocumentosGuasByLocalNroInternoCajaDesdeHasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, txtDesde.Text,
-                    txtHasta.Text, base_datos);
+                dr = dc.GetDocumentosGuasByLocalNroInternoCajaDesdeHasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, txtNumero.Text,fechadesde,fechahasta, base_datos);
             }
             else
             {
@@ -426,11 +434,21 @@ namespace Eltit
 
                     //  img = Properties.Resources.icon_imprimir_31;
 
+                    if (dr["tipo"].ToString().Contains("G"))
+                    {
+                            gvInforme.Rows.Add(dr["tipo"].ToString(), dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
+                            String.Format("{0:N0}", dr["total"]), dr["foliosii"].ToString(), false, dr["indicador_traslado"].ToString(),
+                            dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false,"",
+                            "", Properties.Resources.icon_pdf_25, Properties.Resources.icon_sobre);
+                    }
+                    else
+                    {
 
-                    gvInforme.Rows.Add(dr["tipo"].ToString(), dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
+                            gvInforme.Rows.Add(dr["tipo"].ToString(), dr["numero"].ToString(), dr["fecha"].ToString(), dr["caja"].ToString(),
                             String.Format("{0:N0}", dr["total"]), dr["foliosii"].ToString(), false, dr["indicador_traslado"].ToString(),
                             dr["rut"].ToString(), dr["foliosii"].ToString(), Properties.Resources.icon_xml_15, Properties.Resources.icons_imprimir_15, false, dr["cajera"].ToString(),
                             "", Properties.Resources.icon_pdf_25, Properties.Resources.icon_sobre);
+                    }
                     count++;
 
                     fun.ColoreaCelda(gvInforme.Rows[gvInforme.CurrentRow.Index].Cells[6], Color.LightBlue);
@@ -973,7 +991,7 @@ namespace Eltit
 
                 string local = ddLlocales.Text.Substring(0, 2);
                 string tipoDTE = ddlTipoDocumento.Text.Substring(0, 2);
-                string folioSII = Convert.ToInt32(gvInforme.Rows[fila].Cells[1].Value.ToString()).ToString();
+                string folioSII = Convert.ToInt32(gvInforme.Rows[fila].Cells[5].Value.ToString()).ToString();
                 string fechaEmision = gvInforme.Rows[fila].Cells[2].Value.ToString();
                 fechaEmision = fechaEmision.Substring(6, 4) + "-" + fechaEmision.Substring(3, 2) + "-" + fechaEmision.Substring(0, 2);
                 doc = new Documentos(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
@@ -981,6 +999,7 @@ namespace Eltit
                 string rutEmpresa = Convert.ToDouble(lblRutEmpresa.Text.Substring(0, 9)) + "-" + lblRutEmpresa.Text.Substring(9, 1);
                 string tipoInterno = gvInforme.Rows[fila].Cells[0].Value.ToString();
                 string rutReceptor = gvInforme.Rows[fila].Cells[8].Value.ToString().Substring(0,9)+"-"+ gvInforme.Rows[fila].Cells[8].Value.ToString().Substring(9,1);
+
 
 
                 if (gvInforme.CurrentCell.ColumnIndex == 10)
@@ -992,13 +1011,17 @@ namespace Eltit
 
                 if (gvInforme.CurrentCell.ColumnIndex == 11)
                 {
-                    //string nombreImpresora = "POS-80";
+                    string cajera = "";
+                    List<string> formaPago = new List<string>(); ;
 
                     Boolean impCedible = Convert.ToBoolean(gvInforme.Rows[fila].Cells[12].Value);
                     //Boolean exportaPDF = Convert.ToBoolean(gvInforme.Rows[fila].Cells[15].Value);
-                    string cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();
-                    List<string> formaPago = new List<string>();
-                    formaPago = doc.GetPagosByDocumento(local, tipoInterno, folioSII, caja, fechaEmision);
+                    if (tipoDTE != "52")
+                    {
+                        cajera = gvInforme.Rows[fila].Cells[13].Value.ToString();                       
+                        formaPago = doc.GetPagosByDocumento(local, tipoInterno, folioSII, caja, fechaEmision);
+                    }
+
 
                     this.imprimeFactura(tipoDTE, fechaEmision, folioSII, local, caja, rutEmpresa, formaPago, tipoInterno, impCedible, cajera);
                 }
@@ -1061,23 +1084,7 @@ namespace Eltit
                 destino =  @"C:\temp\envio_" + DateTime.Now.Ticks + ".xml";;
                 fi.CopyTo(destino, true);
                 //string xml_salida = File.ReadAllText(destino, Encoding.GetEncoding("ISO-8859-1"));
-
-
             }
-
-                //FileStream fst;
-                //BinaryWriter bw;
-                //string tmp_path = @"C:\temp\envio_" + DateTime.Now.Ticks + ".xml";
-                //string tmp_path2 = @"C:\temp\envio_" + DateTime.Now.Ticks + ".xml";
-                //fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
-                //bw = new BinaryWriter(fst);
-                //string strxml = XML;
-                //Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
-                //byte[] textEnBytes = ByteConverter.GetBytes(strxml);
-                //bw.Write(textEnBytes);
-                //bw.Flush();
-                //bw.Close();
-                //bw.Dispose();
 
                 frmEnviaXML2 email = new frmEnviaXML2();
 
@@ -1152,11 +1159,15 @@ namespace Eltit
             DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
             string XML="";
 
-            if (xTipoDTE == "39")
+            if (xTipoDTE == "39" || xTipoDTE == "41")
             {
                 XML = dte.GetXMLBoletas(xLocal, xTipoDTE, xFolio, xFecha);
             }
-            if (xTipoDTE == "33")
+            if (xTipoDTE == "33"  || xTipoDTE == "61")
+            {
+                XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
+            }
+            if (xTipoDTE == "52")
             {
                 XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
             }
@@ -1210,8 +1221,11 @@ namespace Eltit
             formulario.DOC_FECHA_EMISION = xFechaEmision;
             formulario.DOC_TIPO_DTE = xTipoDTE;
             formulario.DOC_RUT = xRutEmpresa;
-            formulario.DOC_NOMBRE_CAJERA = getNombreCajera(xCajera);
-            formulario.DOC_FORMA_PAGO = xFormaDePago;
+            if (xTipoDTE.Contains("G"))
+            {
+                formulario.DOC_NOMBRE_CAJERA = getNombreCajera(xCajera);
+                formulario.DOC_FORMA_PAGO = xFormaDePago;
+            }
             formulario.DOC_CAJA = xCaja;
             formulario.DOC_TIPO_INTERNO = xTipoInterno;
             formulario.IMPRIME_CEDIBLE = xImpCedible;
@@ -1245,7 +1259,24 @@ namespace Eltit
 
         private void ddlTipoDocumento_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            txt_rutCli.Enabled = true;
+            if (ddlTipoDocumento.SelectedItem.Index != 0)
+            {
+                if (ddlTipoDocumento.SelectedItem.Text.Substring(0, 2) == "39")
+                {
+                    txt_rutCli.Text = "066666666";
+                    DV.Text = "6";
+                    txt_rutCli.Enabled = false;
+                    txtNumero.Enabled = true;
+                    txtNumero.Focus();
+                }
+                else
+                {
+                    txt_rutCli.Text = "";
+                    DV.Text = "";
+                    txt_rutCli.Enabled = true;
+                    txt_rutCli.Focus();
+                }
+            }
         }
 
         private void txxCajaFolios_KeyPress(object sender, KeyPressEventArgs e)

@@ -337,8 +337,7 @@ public partial class frmRegeneraMasivoFacturas : Telerik.WinControls.UI.RadForm
 
             if (tipo == "G4")
             {
-                dr = dc.GetDocumentosGuasByLocalNroInternoCajaDesdeHasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, txtDesde.Text,
-                   txtHasta.Text, base_datos);
+              //  dr = dc.GetDocumentosGuasByLocalNroInternoCajaDesdeHasta(ddLlocales.Text.Substring(0, 2), txxCajaFolios.Text, tipo, txtDesde.Text, txtHasta, fechahasta, base_datos);
             }
             else
             {

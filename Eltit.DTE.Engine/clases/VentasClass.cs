@@ -63,6 +63,42 @@ namespace Eltit.DTE.clases
 
             return salida;
         }
+        public string GetXMLGuias(string xlocal, string xTipo_Sii, string xNumeroD, string xFecha)
+        {
+            string salida = "0";
+
+            xNumeroD = xNumeroD.PadLeft(10, Convert.ToChar("0"));
+            string query = "";
+            MySqlDataReader dr;
+            query = " SELECT * from sv_dte" + xlocal;
+            query += " WHERE  localdocumento = '" + xlocal + "' and tipo='" + xTipo_Sii + "' and fecha='" + xFecha + "' and numerodocumento='" + xNumeroD + "' ";
+
+            try
+            {
+                Conectar cnn = new Conectar(Mysql_server, Cliente + "fae" + xlocal, "sistema", this.Mysql_password);
+                if (cnn.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows == true)
+                    {
+                        if (dr.Read())
+                        {
+                            salida = dr["xml"].ToString();
+                        }
+                    }
+                    dr.Close();
+                }
+
+                cnn.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exepcion no controlada:" + ex.Message.ToString());
+            }
+
+            return salida;
+        }
 
         public string GetCajera(string xRut)
         {

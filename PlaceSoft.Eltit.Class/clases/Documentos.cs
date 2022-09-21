@@ -16,18 +16,15 @@ namespace PlaceSoft.Eltit.Class.clases
         private string MYSQL_SERVER = "";
         private string MYSQL_ROOT = "";
         private string MYSQL_PASS = "";
-        //private string rut;
-        //private string local;
 
 
         public Documentos(  string xServer,  string xRoot, string xPass)
         {
-           // this.CLIENTE_PREFIX = xCliente;
+
             this.MYSQL_SERVER = xServer;
             this.MYSQL_PASS = xPass;
             this.MYSQL_ROOT = xRoot;
-            //this.rut = xRut;
-            //this.local = xLocal;
+
         }
 
         public void MarcaRevisionBoletaElectronica(string xLocal, string xnumeroInterno, string xTipoInterno, 
@@ -185,7 +182,6 @@ namespace PlaceSoft.Eltit.Class.clases
             query += "  ";
 
 
-
             cnn = new Conectar(MYSQL_SERVER, CLIENTE_PREFIX + "ventas" + xLocal, MYSQL_ROOT, MYSQL_PASS);
 
             if (cnn.OpenConnection() == true)
@@ -193,10 +189,6 @@ namespace PlaceSoft.Eltit.Class.clases
                 MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
                 cmd.ExecuteNonQuery();
             }
-            
-
-
-
         }
 
         private void GeneraNuevoDetalle (string xLocal, string xNumero, string xCaja, string xFecha, string xTipo, string xNuevoNumero)
@@ -233,8 +225,7 @@ namespace PlaceSoft.Eltit.Class.clases
             {
                 MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
                 cmd.ExecuteNonQuery();
-            }
-         
+            }       
         }
 
         private void GeneraNuevoPagos(string xLocal, string xNumero, string xCaja, string xFecha, string xTipo, string xNuevoNumero)
@@ -298,18 +289,10 @@ namespace PlaceSoft.Eltit.Class.clases
                     }
                 }
 
-
             }
 
             return salida.PadLeft(10,Convert.ToChar("0"));
         }
-
-        //public Documentos(string xMysqlServer, string xMysqlRoot, string xMysqlPass)
-        //{
-        //    this.MYSQL_SERVER = xMysqlServer;
-        //    this.MYSQL_PASS = xMysqlPass;
-        //    this.MYSQL_ROOT = xMysqlRoot;
-        //}
 
         public MySqlDataReader GetDoucumentosDetalleByTipoCajaNroOnternoFechaLocal(string xLocal, string xTipo, string xNro, string xCaja, string xFecha, string xBase)
         {
@@ -418,8 +401,12 @@ namespace PlaceSoft.Eltit.Class.clases
             {
                 query += " WHERE dc.caja = '" + xCaja + "' AND dc.tipo = '" + xTipoInterno + "' AND ";
             }
+            if (xNumero != "0000000000")
+            {
+                query +=  " and dc.numero = '" + xNumero + "' ";
+            }
 
-            query += "  dc.fecha >= '" + xFechaDesde + "' And dc.fecha <= '" + xFechaHasta + "' and dc.numero = '" + xNumero + "'  ";
+            query += "  dc.fecha >= '" + xFechaDesde + "' And dc.fecha <= '" + xFechaHasta + "' ";
            // query += " ORDER BY dc.numero ASC ";
 
             cnn = new Conectar(MYSQL_SERVER, xBase, MYSQL_ROOT, MYSQL_PASS);
@@ -480,8 +467,8 @@ namespace PlaceSoft.Eltit.Class.clases
         }
 
 
-        public MySqlDataReader GetDocumentosGuasByLocalNroInternoCajaDesdeHasta(string xLocal, string xCaja, string xTipoInterno,
-                                                         string xFolioDesde, string xFolioHasta, string xBase)
+        public MySqlDataReader GetDocumentosGuasByLocalNroInternoCajaDesdeHasta(string xLocal, string xCaja, string xTipoInterno,string xFolio,
+                                                         string xFechaDesde, string xFechaHasta, string xBase)
         {
             string query = "";
             MySqlDataReader dr = null;
@@ -496,14 +483,20 @@ namespace PlaceSoft.Eltit.Class.clases
             {
                 query += " WHERE dc.caja = '" + xCaja + "' AND (dc.tipo = 'NB' OR dc.tipo = 'NF') AND ";
             }
-            else
+            if(xTipoInterno == "FV" && xTipoInterno == "BV" )
             {
-                query += " WHERE dc.caja = '" + xCaja + "' AND dc.tipo = '" + xTipoInterno + "' AND ";
-                
+                query += " WHERE dc.caja = '" + xCaja + "' AND dc.tipo = '" + xTipoInterno + "' AND "; 
             }
-
-            query += " (dc.numero >= '" + xFolioDesde + "' AND dc.numero <= '" + xFolioHasta + "') and dc.fecha >= '2021-01-01' ORDER BY dc.numero ASC  ";
-
+            if (xTipoInterno.Contains("G") )
+            {
+                query += " WHERE dc.caja = '" + xCaja + "' AND dc.tipo LIKE  '" + xTipoInterno.Substring(0,1)  +  "%' AND ";
+            }
+            if (xFolio != "0000000000")
+            {
+                query += " dc.numero = '" + xFolio + "' AND ";
+            }
+            //query += " (dc.numero >= '" + xFolioDesde + "' AND dc.numero <= '" + xFolioHasta + "') and dc.fecha >= '2021-01-01' ORDER BY dc.numero ASC  ";
+            query += " dc.fecha >= '"+ xFechaDesde +"' AND dc.fecha <= '"+ xFechaHasta +"'  ORDER BY dc.numero ASC";
 
 
             cnn = new Conectar(MYSQL_SERVER, "eltit_ventas" + xLocal, MYSQL_ROOT, MYSQL_PASS);
@@ -530,9 +523,6 @@ namespace PlaceSoft.Eltit.Class.clases
                 MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
                 cmd.ExecuteNonQuery();
             }
-
-
-
         }
         public void MarcaBoletaSubidaInternet(string xLocal,string xNroInterno, string xCaja, string xTipo, string xFecha, string xStatus)
         {
@@ -541,14 +531,7 @@ namespace PlaceSoft.Eltit.Class.clases
 
             query = " UPDATE  ";
             query += "  eltit_ventas" + xLocal + ".sv_documento_cabeza_" + xLocal + " AS dc ";
-            //if(xStatus == "OK")
-            //{
-            //    query += " SET dc.revisado = now()   ";
-            //}
-            //else
-            //{
-            //    query += " SET dc.revisado = 'NO'   ";
-            //}
+
             query += " SET dc.revisado = '"+ xStatus +"'   ";
             query += " WHERE revisado = ''  and tipo = '"+ xTipo +"' and local = '"+ xLocal +"' ";
             query += " and caja = '" + xCaja + "' and fecha = '" + xFecha + "' and numero = '"+ xNroInterno +"' ";
@@ -561,8 +544,7 @@ namespace PlaceSoft.Eltit.Class.clases
                 cmd.ExecuteNonQuery();
             }
 
-            cnn.CloseConnection();
-        
+            cnn.CloseConnection();       
         }
 
         public MySqlDataReader GetDocumentosBoletaPendientes(string xLocal, int xLimit)
@@ -621,7 +603,6 @@ namespace PlaceSoft.Eltit.Class.clases
                 cnn.CloseConnection();
             }
           
-
             return dt;
         }
 
@@ -669,10 +650,6 @@ namespace PlaceSoft.Eltit.Class.clases
             string query = "";
             MySqlDataReader dr = null;
 
-            //SELECT tp.nombre FROM sv_documento_pagos_00 AS dp
-            //INNER JOIN eltit_ventas.sv_tiposdepagoclientes AS tp
-            //ON(LPAD(dp.tipopago, 2, "0") = tp.codigo)
-            //WHERE dp.numero = '0000691575' AND dp.tipo = 'FV';
 
             query =  " SELECT tp.codigo, tp.nombre FROM sv_documento_pagos_" + xLocal + " AS dp ";
             query += " INNER JOIN eltit_ventas.sv_tiposdepagoclientes AS tp ";
@@ -681,11 +658,6 @@ namespace PlaceSoft.Eltit.Class.clases
             query += " AND dp.tipo = '"+ xTipo +"' ";
             query += " AND dp.fecha = '" + xFecha + "' ";
             query += " AND dp.caja = '"+ xCaja +"' ";
-            //query += " WHERE local='" + xLocal + "' AND ";
-            //query += " tipo='" + xTipo + "' AND ";
-            //query += " numero=lpad('" + xFolio + "',10,'0') AND ";
-            //query += " caja='" + xCaja + "' AND ";
-            //query += " fecha='" + xFecha + "' LIMIT 1";
 
             try
             {
@@ -699,8 +671,7 @@ namespace PlaceSoft.Eltit.Class.clases
                         while (dr.Read())
                         {
                             salida.Add(dr["codigo"].ToString() + " "+ dr["nombre"].ToString());
-                        }
-                        
+                        }                        
                     }
                 }
 
@@ -718,8 +689,6 @@ namespace PlaceSoft.Eltit.Class.clases
         {
             cnn.CloseConnection();
         }
-
-
 
     }
 }

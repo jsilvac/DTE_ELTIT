@@ -81,7 +81,7 @@ namespace Eltit
                 this.Hide();
                 frmPrincipal fr = new frmPrincipal();
 
-                fr.ShowDialog();
+             fr.ShowDialog();
                 txtPassword.Text = "";
                 txtUsuario.Text = "";
                 txtUsuario.Focus();
