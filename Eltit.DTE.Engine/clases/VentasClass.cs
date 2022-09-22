@@ -71,7 +71,7 @@ namespace Eltit.DTE.clases
             string query = "";
             MySqlDataReader dr;
             query = " SELECT * from sv_dte" + xlocal;
-            query += " WHERE  localdocumento = '" + xlocal + "' and tipo='" + xTipo_Sii + "' and fecha='" + xFecha + "' and numerodocumento='" + xNumeroD + "' ";
+            query += " WHERE  localdocumento = '" + xlocal + "' and tipo='" + xTipo_Sii + "' and fecha='" + xFecha + "' and numero='" + xNumeroD + "' ";
 
             try
             {

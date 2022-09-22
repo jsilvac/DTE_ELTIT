@@ -1157,13 +1157,13 @@ namespace Eltit
         {
 
             DTEClass dte = new DTEClass(FuncionesClass.G_SERVIDORMASTER, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
-            string XML="";
+            string XML = "";
 
             if (xTipoDTE == "39" || xTipoDTE == "41")
             {
                 XML = dte.GetXMLBoletas(xLocal, xTipoDTE, xFolio, xFecha);
             }
-            if (xTipoDTE == "33"  || xTipoDTE == "61")
+            if (xTipoDTE == "33" || xTipoDTE == "61")
             {
                 XML = dte.GetXMLFacturas(xLocal, xTipoDTE, xFolio, xFecha);
             }
@@ -1174,30 +1174,42 @@ namespace Eltit
 
             XmlGridViewSample.Form1 frm = new XmlGridViewSample.Form1();
 
-            if (!XML.Contains("<?xml version"))
+
+            if (XML !="0")
             {
-                XML = "<?xml version='1.0' encoding='ISO-8859-1' ?>" + XML;
+
+                if (!XML.Contains("<?xml version"))
+                {
+                    XML = "<?xml version='1.0' encoding='ISO-8859-1' ?>" + XML;
+                }
+
+                FileStream fst;
+                BinaryWriter bw;
+                string tmp_path = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
+                string tmp_path2 = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
+                fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
+                bw = new BinaryWriter(fst);
+                string strxml = XML;
+                Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
+                byte[] textEnBytes = ByteConverter.GetBytes(strxml);
+                bw.Write(textEnBytes);
+                bw.Flush();
+                bw.Close();
+                bw.Dispose();
+
+
+                frm.txtFile.Text = tmp_path;
+
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("XML Vacio...");
             }
 
 
-            FileStream fst;
-            BinaryWriter bw;
-            string tmp_path = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
-            string tmp_path2 = @"C:\temp\" + DateTime.Now.Ticks + ".xml";
-            fst = new FileStream(tmp_path, FileMode.OpenOrCreate, FileAccess.Write);
-            bw = new BinaryWriter(fst);
-            string strxml = XML;
-            Encoding ByteConverter = Encoding.GetEncoding("ISO-8859-1");
-            byte[] textEnBytes = ByteConverter.GetBytes(strxml);
-            bw.Write(textEnBytes);
-            bw.Flush();
-            bw.Close();
-            bw.Dispose();
 
 
-            frm.txtFile.Text = tmp_path;
-
-            frm.ShowDialog();
         }
 
         private string getNombreCajera(string xRut)
@@ -1221,7 +1233,7 @@ namespace Eltit
             formulario.DOC_FECHA_EMISION = xFechaEmision;
             formulario.DOC_TIPO_DTE = xTipoDTE;
             formulario.DOC_RUT = xRutEmpresa;
-            if (xTipoDTE.Contains("G"))
+            if (xTipoDTE != "52" )
             {
                 formulario.DOC_NOMBRE_CAJERA = getNombreCajera(xCajera);
                 formulario.DOC_FORMA_PAGO = xFormaDePago;

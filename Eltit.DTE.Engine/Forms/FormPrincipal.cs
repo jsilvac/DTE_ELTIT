@@ -38,7 +38,7 @@ namespace Eltit.DTE.Forms
         public string DOC_VUELTO;
         public List<string> DOC_FORMA_PAGO;
         public double DOC_TOTAL_A_PAGAR;
-        public double DOC_TASA_IVA;
+        public double DOC_TASA_IVA = 19;
         public bool DOC_REIMPRESO;
         public bool IMPRIME_CEDIBLE;
         public int DOC_REDONDEO;
@@ -178,9 +178,9 @@ namespace Eltit.DTE.Forms
                     MessageBox.Show("Failed to open printer status monitor.", "Program06", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Failed to open StatusAPI.", "Program06", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Imprimicion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
