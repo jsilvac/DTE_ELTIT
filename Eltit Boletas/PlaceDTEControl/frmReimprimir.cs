@@ -103,28 +103,54 @@ namespace Eltit
         {
             Clientes cli = new Clientes(FuncionesClass.G_SERVIDOR, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
 
-            MySqlDataReader dr = cli.GetLocalesByEmpresa(ddlEmpresas.Text.Substring(0, 2));
-
-            ddLlocales.Items.Clear();
-            ddLlocales.Items.Add("-- SELECCIONE UN LOCAL --");
-
-            if (dr.HasRows == true)
+            if (chkAd.Checked == true)
             {
-                while (dr.Read())
+
+                MySqlDataReader dr = cli.GetLocalesByEmpresaAD(ddlEmpresas.Text.Substring(0, 2));
+
+                ddLlocales.Items.Clear();
+                ddLlocales.Items.Add("-- SELECCIONE UN LOCAL --");
+
+                if (dr.HasRows == true)
                 {
-                    ddLlocales.Items.Add(dr["codigo"].ToString() + " " + dr["nombrelocal"].ToString());
+                    while (dr.Read())
+                    {
+                        ddLlocales.Items.Add(dr["codigo"].ToString() + " " + dr["nombre"].ToString());
+                    }
                 }
+                dr.Close();
+                cli.CerrarTransaccion();
+
+            }
+            else
+            {
+                MySqlDataReader dr = cli.GetLocalesByEmpresa(ddlEmpresas.Text.Substring(0, 2));
+
+                ddLlocales.Items.Clear();
+                ddLlocales.Items.Add("-- SELECCIONE UN LOCAL --");
+
+                if (dr.HasRows == true)
+                {
+                    while (dr.Read())
+                    {
+                        ddLlocales.Items.Add(dr["codigo"].ToString() + " " + dr["nombrelocal"].ToString());
+                    }
+                }
+                dr.Close();
+                cli.CerrarTransaccion();
             }
 
-            dr.Close();
-            cli.CerrarTransaccion();
+
+
+
+
 
             ddLlocales.SelectedIndex = 0;
 
         }
         private void ddlEmpresas_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            if (ddlEmpresas.SelectedIndex != 0)
+            if (ddlEmpresas.SelectedIndex > 0)
             {
                 LeeDatosEmpresa();
                 CargaLocales();
@@ -204,21 +230,58 @@ namespace Eltit
         private void GetEmpresasContables()
         {
             Clientes cli = new Clientes(FuncionesClass.G_SERVIDOR, FuncionesClass.G_MYSQL_USER, FuncionesClass.G_MYSQL_PASS);
-            MySqlDataReader dr = cli.GetClientesDTE();
 
-            ddlEmpresas.Items.Clear();
-            ddlEmpresas.Items.Add("-- SELECCIONE EMPRESA --");
+           
 
-            if (dr.HasRows == true)
+
+
+            if(chkAd.Checked == true)
             {
-                while (dr.Read())
+                ddlEmpresas.Items.Clear();
+                ddLlocales.Items.Clear();
+                lblDireccion.Text = "";
+                ddlEmpresas.Items.Add("-- SELECCIONE EMPRESA --");
+                MySqlDataReader dr = cli.GetClientesDTE_AD();
+
+                if (dr.HasRows == true)
                 {
-                    ddlEmpresas.Items.Add(dr["codigo_contable"].ToString() + " " + dr["razon_social"].ToString());
+                    while (dr.Read())
+                    {
+                        //if (chkAd.Checked == true)
+                        //{
+                        //    ddlEmpresas.Items.Add(dr["codigo_contable"].ToString() + " " + dr["razon_social"].ToString());
+                        //}
+                        //else
+                        //{
+                            ddlEmpresas.Items.Add(dr["codigo_contable"].ToString() + " " + dr["razon_social"].ToString());
+                        //}
+                    }
                 }
+
+                dr.Close();
+                cli.CerrarTransaccion();
+            }
+            else
+            {
+                ddlEmpresas.Items.Clear();
+                ddLlocales.Items.Clear();
+                lblDireccion.Text = "";
+                ddlEmpresas.Items.Add("-- SELECCIONE EMPRESA --");
+
+                MySqlDataReader dr = cli.GetClientesDTE();
+
+                if (dr.HasRows == true)
+                {
+                    while (dr.Read())
+                    {
+                        ddlEmpresas.Items.Add(dr["codigo_contable"].ToString() + " " + dr["razon_social"].ToString());
+                    }
+                }
+
+                dr.Close();
+                cli.CerrarTransaccion();
             }
 
-            dr.Close();
-            cli.CerrarTransaccion();
 
             ddlEmpresas.SelectedIndex = 0;
 
@@ -1312,11 +1375,17 @@ namespace Eltit
                 txt_rutCli.Text = txt_rutCli.Text.PadLeft(9, Convert.ToChar("0"));
 
                 miRut = new Rut();
-               DV.Text = miRut.Digito(Convert.ToInt32(txt_rutCli.Text));
+                DV.Text = miRut.Digito(Convert.ToInt32(txt_rutCli.Text));
                 txtNumero.Enabled = true;
                 txtNumero.Focus();
                 
             }
+        }
+
+        private void chkAd_CheckedChanged(object sender, EventArgs e)
+        {
+            this.GetEmpresasContables();
+            
         }
     }
 

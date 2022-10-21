@@ -60,7 +60,25 @@ namespace Eltit.Clases
             MySqlDataReader dr = null;
 
             query = "Select *  From clientes_dte ";
-            query += "Where activo  = 1 ";
+            query += "Where activo  = 1  AND envia_boletas_sii='1' ";
+
+            cnn = new Conectar(SERVER, "eltit_dte_manager", MYSQL_ROOT, MYSQL_PASS);
+            if (cnn.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                dr = cmd.ExecuteReader();
+            }
+
+            return dr;
+        }
+
+        public MySqlDataReader GetClientesDTE_AD()
+        {
+            string query = "";
+            MySqlDataReader dr = null;
+
+            query = "Select *  From clientes_dte ";
+            query += "Where activo  = 1  AND envia_boletas_sii='0' ";
 
             cnn = new Conectar(SERVER, "eltit_dte_manager", MYSQL_ROOT, MYSQL_PASS);
             if (cnn.OpenConnection() == true)
@@ -88,13 +106,33 @@ namespace Eltit.Clases
 
             return dr;
         }
+
+        public MySqlDataReader GetLocalesByEmpresaAD(string xCodigoEmpresa)
+        {
+            string query = "";
+            MySqlDataReader dr = null;
+
+            query = "Select *  From clientes_locales ";
+            query += "Where   codigo_contable = '" + xCodigoEmpresa + "'  ";
+
+            cnn = new Conectar(SERVER, "eltit_dte_manager", MYSQL_ROOT, MYSQL_PASS);
+            if (cnn.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, cnn.connection);
+                dr = cmd.ExecuteReader();
+            }
+
+            return dr;
+        }
+
         public MySqlDataReader GetDatosLocalByCodigo(string xCodigocal)
         {
             string query = "";
             MySqlDataReader dr = null;
 
             query = "Select *  From clientes_locales ";
-            query += "Where emite_39  = 1 and codigo = '" + xCodigocal + "'  ";
+            //query += "Where emite_39  = 1 and codigo = '" + xCodigocal + "'  ";
+            query += "Where  codigo = '" + xCodigocal + "'  ";
 
             cnn = new Conectar(SERVER, "eltit_dte_manager", MYSQL_ROOT, MYSQL_PASS);
             if (cnn.OpenConnection() == true)

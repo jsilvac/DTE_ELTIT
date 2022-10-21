@@ -292,9 +292,22 @@ namespace SamplesDTE
                 FuncionesClass fu = new FuncionesClass();
                 string fechaMysql = fu.FechaMysql(textFecha.Text);
 
-                Caf myCaf = new Caf(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
-                myCaf.GrabaCafLocal(ddLlocales.Text.Substring(0, 2), lbTipo.Text, lblCafDesde.Text,
-                                     lblCafHasta.Text, fechaMysql , lblRutaDestino.Text, lbNombreArchivo.Text, xmlString, xmlString);
+                //Caf myCaf = new Caf(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
+                //myCaf.GrabaCafLocal(ddLlocales.Text.Substring(0, 2), lbTipo.Text, lblCafDesde.Text,
+                //                     lblCafHasta.Text, fechaMysql , lblRutaDestino.Text, lbNombreArchivo.Text, xmlString, xmlString);
+
+                if (lbTipo.Text == "61")
+                {
+                    Caf myCaf = new Caf(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
+                    myCaf.GrabaCafLocal(ddLlocales.Text.Substring(0, 2), lbTipo.Text, lblCafDesde.Text,
+                                         lblCafHasta.Text, fechaMysql, lblRutaDestino.Text, lbNombreArchivo.Text, xmlString, xmlString);
+                }
+                else
+                {
+                    Caf myCaf = new Caf(lblServidorVentas.Text, lblRoot.Text, lblPassword.Text);
+                    myCaf.GrabaCafLocal(ddLlocales.Text.Substring(0, 2), lbTipo.Text, lblCafDesde.Text,
+                                         lblCafHasta.Text, fechaMysql, lblRutaDestino.Text, lbNombreArchivo.Text, xmlString, xmlString);
+                }
 
                
 

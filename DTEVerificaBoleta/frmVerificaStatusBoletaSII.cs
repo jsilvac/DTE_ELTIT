@@ -20,6 +20,7 @@ using static PlaceSoft.Enum.Ambiente;
 using Newtonsoft.Json.Linq;
 using PlaceSoft.DTE.Engine.Enum;
 using PlaceSoft.Eltit.Functions;
+using Eltit;
 
 namespace SamplesDTE
 {
