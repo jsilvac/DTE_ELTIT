@@ -138,7 +138,7 @@ namespace PlaceDTE
         {
             
 
-       try
+            try
             {
                 if(1==1)
                 {
@@ -553,17 +553,21 @@ namespace PlaceDTE
                     direcionesX = direcionesX + " - " + xdireccion;
                     
                 }
-                direcionesX = direcionesX.Substring(2, direcionesX.Length - 2);
-                if (direcionesX.Length > 48)
+                if (direcionesX.ToString() != "" && direcionesX.ToString() != null)
                 {
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX.Substring(0, 48), fontBlack), (float)161, 761f -espacio , 0);
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX.Substring(48, direcionesX.Length - 48), fontBlack), (float)161, 751f - espacio , 0);
+
+                    direcionesX = direcionesX.Substring(2, direcionesX.Length - 2);
+                    if (direcionesX.Length > 48)
+                    {
+                        ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX.Substring(0, 48), fontBlack), (float)161, 761f -espacio , 0);
+                        ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX.Substring(48, direcionesX.Length - 48), fontBlack), (float)161, 751f - espacio , 0);
                  
-                }
-                else
-                {
-                    ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX, fontBlack), (float)158, 761f - y, 0);
+                    }
+                    else
+                    {
+                        ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(direcionesX, fontBlack), (float)158, 761f - y, 0);
                  
+                    }
                 }
                 espacio = espacio + 8;
 
@@ -821,7 +825,10 @@ namespace PlaceDTE
                 }
 
                 /********************** OBSERVACIONES *****************/
+
+
                 string obs1 = this.OBSERVACION_VENTA;
+               // obs1 = "POR CONGRESO CIRIGIA SEGUN CONEVIO";
                 string obs2 = "";
                 if (obs1.Length > 62)
                 {

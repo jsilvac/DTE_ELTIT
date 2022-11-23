@@ -923,7 +923,7 @@ namespace Eltit
             }
 
         }
-
+                      
         private void rbFolioNuevo_ToggleStateChanged(object sender, StateChangedEventArgs args)
         {
             if (rbFolioNuevo.CheckState == CheckState.Checked)

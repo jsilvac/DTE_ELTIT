@@ -44,6 +44,7 @@ namespace Eltit.DTE.Forms
         public int DOC_REDONDEO;
         public int DOC_TIPO_TRASLADO;
         public string DOC_RUT;
+        public string Observaciones;
 
         public string DOC_SERVIDOR;
         public string DOC_PASSWORD_MYSQL;
@@ -923,6 +924,67 @@ namespace Eltit.DTE.Forms
                         lineaRef++;
                     }
             }
+
+            y = y + 25;
+            if (Observaciones != "")
+            {
+                y = y + 10;
+                Rectangle rect3 = new Rectangle(5, (int)y, 197, 50);
+                e.Graphics.DrawRectangle(Pens.Black, Rectangle.Round(rect3));
+                y = y + 1;
+                e.Graphics.DrawString("OBSEVACIONES ", font2, Brushes.Black, 76, y);
+                y = y + 10;
+                //e.Graphics.DrawString("TIPO DOCUMENTO                  NUMERO            FECHA", font4, Brushes.Black, 5, y);
+                //y = y + 9;
+                int lineaRef = 1;
+                string refe = "";
+                string refe_tipo = "";
+                Observaciones = "POR CONGRESO CIRUGIA SEGUN CONVENIO";
+
+                //foreach (var referencia in dte.Documento.Referencias)
+                //{
+                //    if (referencia.TipoDocumento == PlaceSoft.DTE.Engine.Enum.TipoDTE.TipoReferencia.FacturaElectronica)
+                //    {
+                //        refe_tipo = "FAC. ELECTRÓNICA(33)";
+                //    }
+                //    if (referencia.TipoDocumento == PlaceSoft.DTE.Engine.Enum.TipoDTE.TipoReferencia.NotaCreditoElectronica)
+                //    {
+                //        refe_tipo = "N.C. ELECTRÓNICA(61)";
+                //    }
+                //    if (referencia.TipoDocumento == PlaceSoft.DTE.Engine.Enum.TipoDTE.TipoReferencia.NotaDebitoElectronica)
+                //    {
+                //        refe_tipo = "N.D. ELECTRÓNICA(56)";
+                //    }
+                //    if (referencia.TipoDocumento == PlaceSoft.DTE.Engine.Enum.TipoDTE.TipoReferencia.BoletaElectronica)
+                //    {
+                //        refe_tipo = "BOLETA ELECTRÓNICA(39)";
+                //    }
+                //    if (referencia.TipoDocumento == PlaceSoft.DTE.Engine.Enum.TipoDTE.TipoReferencia.OrdenCompra)
+                //    {
+                //        refe_tipo = "ORDEN DE COMPRA(801)";
+                //    }
+                //    if (refe_tipo != "")
+                //    {
+
+                //        e.Graphics.DrawString(refe_tipo, printFoot, Brushes.Black, 6, y);
+                //        e.Graphics.DrawString(referencia.FolioReferencia.ToString().PadLeft(10, Convert.ToChar("0")), printFoot, Brushes.Black, 108, y);
+                //        e.Graphics.DrawString(referencia.FechaDocumentoReferencia.ToShortDateString(), printFoot, Brushes.Black, 165, y);
+
+                //        y = y + 7;
+                //    }
+                    /******************* IMPRIME LA RAZON DE LA REFERENCIA EN EL CAJON DE ABAJO *********************/
+                 //   refe = referencia.RazonReferencia;
+                    if (Observaciones.Length > 55)
+                    {
+                        refe = Observaciones.Substring(0, 55);
+                    }
+                    //ColumnText.ShowTextAligned(pdfContentByte, Element.ALIGN_LEFT, new Phrase(lineaRef + "- " + refe, fontBlack), (float)234, (float)LINEA - 35, 0);
+                    y = y + 5;
+                    e.Graphics.DrawString(lineaRef + "- " + Observaciones, font5, Brushes.Black, 6, y + 7);
+                    lineaRef++;
+                //}
+            }
+
 
             y = y + 35;
             if (DOC_REIMPRESO == false)
